@@ -71,6 +71,7 @@ text = "QUIT"
 script = ExtResource("4_eo31d")
 
 [node name="CreditsPanel" type="Panel" parent="."]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -21.0
