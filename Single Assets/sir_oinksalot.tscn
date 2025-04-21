@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://qqkwgblx2vat"]
+
+[ext_resource type="Texture2D" uid="uid://5ypooa3frd0h" path="res://icon.svg" id="1_rop8g"]
+
+[sub_resource type="GDScript" id="GDScript_rop8g"]
+script/source = "extends CharacterBody2D
+
+@export var slam_force := -600
+@export var gravity := 2000
+@export var slam_delay := 1.0
+
+@onready var attack_timer: Timer = $AttackTimer
+
+var is_attacking := false
+
+func _ready():
+	print(\"🐷 Boss is ready!\")
+	if attack_timer:
+		attack_timer.wait_time = slam_delay
+		attack_timer.start()
+	else:
+		print(\"❌ Missing AttackTimer\")
+
+func _physics_process(delta: float) -> void:
+	if is_attacking:
+		velocity.y += gravity * delta
+	move_and_slide()
+
+func _on_AttackTimer_timeout() -> void:
+	if not is_attacking:
+		do_slam()
+
+func do_slam():
+	print(\"⬆️ Slam begins!\")
+	is_attacking = true
+	velocity.y = slam_force
+	await get_tree().create_timer(0.5).timeout
+	print(\"💥 Slam done!\")
+	is_attacking = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rop8g"]
+size = Vector2(96, 100)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = SubResource("GDScript_rop8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rop8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rop8g")
+
+[node name="AttackTimer" type="Timer" parent="."]

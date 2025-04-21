@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://c8npjqlnwk848"]
+
+[ext_resource type="Script" uid="uid://b62nug10eb4l3" path="res://Single Assets/shurikens.gd" id="1_f5f8m"]
+[ext_resource type="Texture2D" uid="uid://5ypooa3frd0h" path="res://icon.svg" id="2_28gq3"]
+
+[sub_resource type="Gradient" id="Gradient_3rhrg"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6g2u6"]
+gradient = SubResource("Gradient_3rhrg")
+
+[sub_resource type="Gradient" id="Gradient_msp7w"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hfdi1"]
+gradient = SubResource("Gradient_msp7w")
+
+[sub_resource type="Curve" id="Curve_t7hrb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jadaa"]
+curve = SubResource("Curve_t7hrb")
+
+[sub_resource type="Curve" id="Curve_w1dpm"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_86veq"]
+curve = SubResource("Curve_w1dpm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6teph"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_jadaa")
+scale_over_velocity_curve = SubResource("CurveTexture_86veq")
+color_ramp = SubResource("GradientTexture1D_hfdi1")
+color_initial_ramp = SubResource("GradientTexture1D_6g2u6")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5f8m"]
+radius = 13.0384
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_f5f8m")
+speed = null
+turn_speed = null
+lifetime = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_28gq3")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_6teph")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f5f8m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

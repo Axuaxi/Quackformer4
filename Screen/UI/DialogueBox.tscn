@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://rwecwlap1am3"]
+
+[ext_resource type="Script" uid="uid://qblmhbvpyr8g" path="res://Scripts/Game Manager/GlobalDialogue.gd" id="1_tb0wb"]
+[ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="2_w5r4w"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+visible = false
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+script = ExtResource("1_tb0wb")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 18.0
+offset_top = 307.333
+offset_right = 626.0
+offset_bottom = 347.333
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 124.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_w5r4w")
+text = "testing dialogue"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 21.0
+offset_right = 619.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_w5r4w")
+text = "(Click to skip)"

@@ -1,0 +1,186 @@
+[gd_scene load_steps=16 format=3 uid="uid://cxa8j4146ifwt"]
+
+[ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="1_1sjca"]
+[ext_resource type="Script" uid="uid://biewcfa73kwqa" path="res://Screen/Scripts/start_button.gd" id="1_ta4t4"]
+[ext_resource type="Script" uid="uid://c524gyagitieh" path="res://Scripts/Game Manager/floating_text.gd" id="2_8r44u"]
+[ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="3_8r44u"]
+[ext_resource type="Script" uid="uid://d1sljsj8pr4m8" path="res://Screen/Scripts/quit_button.gd" id="4_eo31d"]
+[ext_resource type="Texture2D" uid="uid://8ariuhsm684g" path="res://Art/Duck/duck.png" id="4_suo27"]
+[ext_resource type="Script" uid="uid://do7t2ht20w3y8" path="res://Screen/Scripts/credits_button.gd" id="6_1f68j"]
+[ext_resource type="Script" uid="uid://b8xi1hf05oibb" path="res://Screen/Scripts/close_button.gd" id="7_jlmuc"]
+[ext_resource type="Texture2D" uid="uid://clej30rx0yy7d" path="res://Screen/Images/quackformer_1.png" id="8_5rgim"]
+[ext_resource type="Script" uid="uid://cs63oo6olw0nb" path="res://Screen/Scripts/bonus_button.gd" id="8_rwtc0"]
+[ext_resource type="Texture2D" uid="uid://bpvc1kerkkev5" path="res://Screen/Images/quackformer_2.png" id="9_8xo1s"]
+[ext_resource type="Script" uid="uid://bpi6lx14syn3a" path="res://Screen/Scripts/bonus_images.gd" id="9_suo27"]
+[ext_resource type="Texture2D" uid="uid://bet34ubsly0a4" path="res://Screen/Images/quackformer_3.png" id="10_suo27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlmuc"]
+bg_color = Color(0.2408, 0.2408, 0.28, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwtc0"]
+bg_color = Color(0.239216, 0.239216, 0.278431, 1)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_8r44u")
+
+[node name="TitleLabel" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 590.0
+offset_top = 246.0
+offset_right = 1365.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 100
+text = "QUACKFORMER 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_8r44u")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 426.0
+offset_right = 1139.0
+offset_bottom = 547.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+icon_alignment = 1
+script = ExtResource("1_ta4t4")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 573.0
+offset_right = 1139.0
+offset_bottom = 698.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "QUIT"
+script = ExtResource("4_eo31d")
+
+[node name="CreditsPanel" type="Panel" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -21.0
+offset_top = -17.0
+offset_right = 1938.0
+offset_bottom = 1115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlmuc")
+
+[node name="CloseButton" type="Button" parent="CreditsPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "CLOSE
+"
+script = ExtResource("7_jlmuc")
+
+[node name="CreditsLabel" type="Label" parent="CreditsPanel"]
+z_index = 1
+layout_mode = 0
+offset_left = 160.0
+offset_top = 277.0
+offset_right = 1848.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 100
+text = "PROGRAMMING: AXUAXI
+ART: AXUAXI
+SOUND: N/A
+PLAYTESTERS: 
+ZEPHLUS, SHADE0FGREEN, EASTREX"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_8r44u")
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 722.0
+offset_right = 1139.0
+offset_bottom = 847.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "CREDITS"
+script = ExtResource("6_1f68j")
+
+[node name="BonusPanel" type="Panel" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 1950.0
+offset_bottom = 1115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rwtc0")
+
+[node name="CloseButton" type="Button" parent="BonusPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "CLOSE
+"
+script = ExtResource("7_jlmuc")
+
+[node name="Quackformer1" type="Sprite2D" parent="BonusPanel"]
+position = Vector2(598.932, 673.322)
+rotation = 0.287979
+scale = Vector2(1.14637, 1.14637)
+texture = ExtResource("8_5rgim")
+script = ExtResource("9_suo27")
+
+[node name="Quackformer2" type="Sprite2D" parent="BonusPanel"]
+position = Vector2(951.932, 402.322)
+rotation = -0.287979
+scale = Vector2(1.12843, 1.12696)
+texture = ExtResource("9_8xo1s")
+script = ExtResource("9_suo27")
+
+[node name="Quackformer3" type="Sprite2D" parent="BonusPanel"]
+position = Vector2(1374.93, 694.322)
+scale = Vector2(0.929992, 0.932509)
+texture = ExtResource("10_suo27")
+script = ExtResource("9_suo27")
+
+[node name="BonusButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1555.0
+offset_top = 927.0
+offset_right = 1894.0
+offset_bottom = 1052.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "BONUS
+"
+script = ExtResource("8_rwtc0")
+
+[node name="Sprite2D" type="Sprite2D" parent="BonusButton"]
+position = Vector2(-52, 63)
+scale = Vector2(4, 4)
+texture = ExtResource("4_suo27")
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="CreditsPanel/CloseButton" to="CreditsPanel/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="CreditsButton" to="CreditsButton" method="_on_pressed"]
+[connection signal="pressed" from="BonusPanel/CloseButton" to="BonusPanel/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="BonusButton" to="BonusButton" method="_on_pressed"]

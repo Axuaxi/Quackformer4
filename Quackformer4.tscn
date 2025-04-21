@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdit2dywul0ho"]
+
+[ext_resource type="Script" uid="uid://cakq4enaoj8vk" path="res://Scripts/Movement/duck_controller.gd" id="1_84dud"]
+[ext_resource type="Texture2D" uid="uid://8ariuhsm684g" path="res://Art/Duck/duck.png" id="1_826im"]
+[ext_resource type="Script" uid="uid://ek1vk564prse" path="res://Scripts/Game Manager/Game.gd" id="1_hub4k"]
+[ext_resource type="PackedScene" uid="uid://yy4isq1berc4" path="res://Single Assets/Quack.tscn" id="3_otvb4"]
+[ext_resource type="PackedScene" uid="uid://dshq0o0pbi7lq" path="res://Single Assets/timer.tscn" id="5_ki3tu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84dud"]
+size = Vector2(18, 15)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_hub4k")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 1
+collision_mask = 254
+script = ExtResource("1_84dud")
+quack_projectile_scene = ExtResource("3_otvb4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_826im")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_84dud")
+
+[node name="CurrentLevel" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("5_ki3tu")]
+position = Vector2(0, 315)

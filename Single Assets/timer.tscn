@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dshq0o0pbi7lq"]
+
+[ext_resource type="Script" uid="uid://deiiwo02u10vt" path="res://Single Assets/timer.gd" id="1_hqt75"]
+[ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="2_21nwg"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hqt75")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 15.0
+offset_top = -300.0
+offset_right = 55.0
+offset_bottom = -277.0
+theme_override_fonts/font = ExtResource("2_21nwg")
+metadata/_edit_use_anchors_ = true
