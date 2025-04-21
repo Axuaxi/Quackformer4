@@ -8,3 +8,5 @@ res://Screen/UI/DialogueBox.tscn
 res://Single Assets/shuriken.tscn
 res://Levels/Level7.tscn
 res://Levels/Level6.tscn
+res://Scripts/Game Manager/quack.gd
+res://Scripts/Movement/duck_controller.gd

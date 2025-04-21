@@ -133,6 +133,8 @@ func die_and_restart():
 	if Global.game_over:
 		return
 	Global.game_over = true
+	for quack in get_tree().get_nodes_in_group("quacks"):
+		quack.queue_free()
 	for shockwave in get_tree().get_nodes_in_group("shockwaves"):
 		shockwave.queue_free()
 	for shuriken in get_tree().get_nodes_in_group("shurikens"):
@@ -144,6 +146,9 @@ func die_with_boss_dialogue(lines_: Array[String]) -> void:
 	if Global.game_over:
 		return
 	Global.game_over = true
+	
+	for quack in get_tree().get_nodes_in_group("quacks"):
+		quack.queue_free()
 
 	dialogue_active = true
 	visible = false

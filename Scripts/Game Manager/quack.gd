@@ -5,7 +5,9 @@ extends Area2D
 var direction := Vector2.RIGHT
 
 func _ready():
+	add_to_group("quacks")  
 	$GPUParticles2D.emitting = true
+
 
 func _process(delta: float) -> void:
 	position += direction.normalized() * speed * delta
