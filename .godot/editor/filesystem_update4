@@ -1,20 +1,4 @@
 res://Screen/title_screen.tscn
-res://Screen/Scripts/credits_button.gd
 res://Shaders/lava_shader.gdshader
+res://Screen/Scripts/credits_button.gd
 res://Shaders/player_outline.gdshader
-res://Quackformer4.tscn
-res://Levels/Level8.tscn
-res://Screen/UI/DialogueBox.tscn
-res://Single Assets/shuriken.tscn
-res://Levels/Level7.tscn
-res://Levels/Level6.tscn
-res://Scripts/Visuals/arrow_floating.gd
-res://Single Assets/sir_oinksalot.gd
-res://Scripts/Game Manager/global.gd
-res://Scripts/Movement/duck_controller.gd
-res://Scripts/Game Manager/Game.gd
-res://Scripts/Game Manager/GlobalDialogue.gd
-res://Single Assets/shockwave.gd
-res://Single Assets/shurikens.gd
-res://Screen/UI/dialogue_box.gd
-res://Scripts/Game Manager/quack.gd

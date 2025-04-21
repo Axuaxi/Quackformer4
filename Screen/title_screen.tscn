@@ -71,7 +71,6 @@ text = "QUIT"
 script = ExtResource("4_eo31d")
 
 [node name="CreditsPanel" type="Panel" parent="."]
-visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -21.0
@@ -96,16 +95,17 @@ script = ExtResource("7_jlmuc")
 z_index = 1
 layout_mode = 0
 offset_left = 160.0
-offset_top = 277.0
-offset_right = 1848.0
-offset_bottom = 854.0
+offset_top = 259.0
+offset_right = 1885.0
+offset_bottom = 952.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 100
 text = "PROGRAMMING: AXUAXI
 ART: AXUAXI
 SOUND: N/A
 PLAYTESTERS: 
-ZEPHLUS, SHADE0FGREEN, EASTREX"
+ZEPHLUS, SHADE0FGREEN, EASTREX,
+VANADUKE"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_8r44u")
