@@ -141,6 +141,9 @@ func die_and_restart():
 		shuriken.queue_free()
 		
 	get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+	
+	await get_tree().create_timer(0.1).timeout
+	Global.game_over = false 
 
 func die_with_boss_dialogue(lines_: Array[String]) -> void:
 	if Global.game_over:

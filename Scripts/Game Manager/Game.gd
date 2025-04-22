@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var player = $Player
 @onready var current_level = $CurrentLevel
+@onready var pause_menu = $PauseMenu
+@onready var pause_toggle_button = $PauseToggleButto
 
 var level_paths = [
 	"res://Levels/Level1.tscn",

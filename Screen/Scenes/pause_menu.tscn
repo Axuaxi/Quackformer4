@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce5w5hvnwi0i8"]
+
+[ext_resource type="Script" uid="uid://b110x40cryrxy" path="res://Screen/Scripts/pause_menu.gd" id="1_0jtk8"]
+[ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="2_bglgs"]
+[ext_resource type="Script" uid="uid://ly5em3bi6gya" path="res://Screen/Scripts/floating_button.gd" id="3_0jtk8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gwc6"]
+bg_color = Color(0.2408, 0.2408, 0.28, 0.576471)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_0jtk8")
+
+[node name="Pause" type="Panel" parent="."]
+z_index = 10
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 1954.0
+offset_bottom = 1118.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3gwc6")
+
+[node name="RestartButton" type="Button" parent="Pause"]
+process_mode = 3
+offset_left = 696.0
+offset_top = 513.0
+offset_right = 1274.0
+offset_bottom = 638.0
+theme_override_fonts/font = ExtResource("2_bglgs")
+theme_override_font_sizes/font_size = 80
+text = "RESTART LEVEL"
+script = ExtResource("3_0jtk8")
+
+[node name="MainMenuButton" type="Button" parent="Pause"]
+process_mode = 3
+offset_left = 663.0
+offset_top = 677.0
+offset_right = 1301.0
+offset_bottom = 802.0
+theme_override_fonts/font = ExtResource("2_bglgs")
+theme_override_font_sizes/font_size = 80
+text = "RETURN TO MENU"
+script = ExtResource("3_0jtk8")
+
+[node name="ResumeButton" type="Button" parent="Pause"]
+process_mode = 3
+offset_left = 810.0
+offset_top = 349.0
+offset_right = 1149.0
+offset_bottom = 474.0
+theme_override_fonts/font = ExtResource("2_bglgs")
+theme_override_font_sizes/font_size = 80
+text = "RESUME
+"
+script = ExtResource("3_0jtk8")
