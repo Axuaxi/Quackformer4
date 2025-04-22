@@ -5,9 +5,11 @@ extends Area2D
 @export var max_speed := 2000
 var direction := Vector2.RIGHT
 var speed := 0.0
+var has_hit := false
 
 func _ready() -> void:
 	add_to_group("shockwaves")
+	has_hit = false
 	$CollisionPolygon2D.disabled = false
 	$GPUParticles2D.emitting = true
 
@@ -30,15 +32,14 @@ func _on_body_entered(body: Node) -> void:
 		queue_free()
 		return
 
-	if body.name == "Player":
-		if body.has_method("die_with_boss_dialogue"):
-			if boss:
-				boss.dialogue_done = false
-			await body.die_with_boss_dialogue(["Fool."] as Array[String])
-			if boss:
-				boss.dialogue_done = true
-		else:
-			body.die_and_restart()
+	if body.name == "Player" and not has_hit:
+		has_hit = true
+
+		if body.has_method("take_damage"):
+			if "killed_by_shockwave" in body:
+				body.killed_by_shockwave = true
+			body.take_damage(1)
+
 
 func _start_fade_and_die():
 	$GPUParticles2D.emitting = false

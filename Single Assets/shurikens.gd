@@ -10,11 +10,13 @@ var direction := Vector2.RIGHT
 @onready var player = get_node_or_null("/root/Game/Player")
 
 var speed := 0
+var has_hit := false
 
 func _ready():
 	add_to_group("shurikens")
 	$CollisionShape2D.disabled = false
 	$GPUParticles2D.emitting = true
+	has_hit = false
 
 	# Lock in direction at spawn
 	if is_instance_valid(player):
@@ -37,15 +39,21 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "Player":
-		_start_fade_and_die()
+		if has_hit:
+			return
+		else:
+			_start_fade_and_die()
 
 func _on_body_entered(body: Node) -> void:
-	if body.name == "Player":
-		if body.has_method("die_with_boss_dialogue"):
-			body.die_with_boss_dialogue(["Imbecile."] as Array[String])
+	if body.name == "Player" and not has_hit:
+		has_hit = true
+		if body.has_method("take_damage"):
+			body.killed_by_shuriken = true  # 👈 mark death cause
+			body.take_damage(1)
 		_start_fade_and_die()
 	elif body is TileMapLayer:
 		_start_fade_and_die()
+
 
 func _start_fade_and_die():
 	$GPUParticles2D.emitting = false

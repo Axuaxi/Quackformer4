@@ -110,6 +110,13 @@ shape = SubResource("RectangleShape2D_vybwq")
 [node name="Floor Hitbox" type="CollisionShape2D" parent="Cow"]
 shape = SubResource("RectangleShape2D_4cgce")
 
+[node name="HpContainer" type="HBoxContainer" parent="Cow"]
+offset_left = -7.0
+offset_top = -15.0
+offset_right = 7.0
+offset_bottom = -11.0
+theme_override_constants/separation = 5
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, -130)
 zoom = Vector2(3, 3)

@@ -21,6 +21,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3gwc6")
 
 [node name="RestartButton" type="Button" parent="Pause"]
 process_mode = 3
+layout_mode = 0
 offset_left = 696.0
 offset_top = 513.0
 offset_right = 1274.0
@@ -32,6 +33,7 @@ script = ExtResource("3_0jtk8")
 
 [node name="MainMenuButton" type="Button" parent="Pause"]
 process_mode = 3
+layout_mode = 0
 offset_left = 663.0
 offset_top = 677.0
 offset_right = 1301.0
@@ -43,6 +45,7 @@ script = ExtResource("3_0jtk8")
 
 [node name="ResumeButton" type="Button" parent="Pause"]
 process_mode = 3
+layout_mode = 0
 offset_left = 810.0
 offset_top = 349.0
 offset_right = 1149.0

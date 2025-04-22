@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":
-		body.die_and_restart()
+		body.take_damage(1)
 		queue_free()
 	elif body is TileMapLayer:
 		queue_free()

@@ -45,3 +45,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("quacks"):
 		print("💥 Cow hit by quack!")
 		take_damage(1)
+	elif body.name == "Player":
+		print("🐮 Cow landed on player!")
+		if is_on_floor():
+			velocity.y = jump_strength

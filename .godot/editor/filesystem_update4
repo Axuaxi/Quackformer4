@@ -1,4 +1,35 @@
-res://Quackformer4.tscn
+res://Levels/Level8.tscn
+res://Shaders/duck.gdshader
+res://Shaders/vine_swing.gdshader
 res://Screen/Scripts/credits_button.gd
-res://Shaders/player_outline.gdshader
 res://Shaders/lava_shader.gdshader
+res://Shaders/player_outline.gdshader
+res://Scripts/Movement/duck_controller.gd
+res://Single Assets/shurikens.gd
+res://Quackformer4.tscn
+res://Screen/Scenes/pause_menu.tscn
+res://Levels/Level10.tscn
+res://Single Assets/egg.tscn
+res://Screen/title_screen.tscn
+res://Levels/Level6.tscn
+res://Levels/Level5.tscn
+res://Single Assets/Quack.tscn
+res://Single Assets/shockwave.gd
+res://Scripts/Game Manager/Game.gd
+res://Scripts/Game Manager/global.gd
+res://Screen/Scripts/difficulty_button.gd
+res://Screen/Scripts/easy_button.gd
+res://Screen/Scripts/hard_button.gd
+res://Screen/Scripts/medium_button.gd
+res://Screen/Scripts/difficulty_panel.gd
+res://Scripts/Game Manager/quack_pickup.gd
+res://Scripts/Game Manager/floating_text.gd
+res://Screen/Scripts/controls_button.gd
+res://Screen/Scripts/quit_button.gd
+res://Screen/Scripts/start_button.gd
+res://Screen/Scripts/bonus_button.gd
+res://Single Assets/sir_oinksalot.gd
+res://Screen/Scripts/fade.gd
+res://Levels/Level7.tscn
+res://Levels/Level9.tscn
+res://Shaders/light_pulsing.gdshader
