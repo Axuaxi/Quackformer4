@@ -16,5 +16,8 @@ func _on_area_entered(area: Area2D) -> void:
 		var label1 = get_node_or_null("../Label")
 		var label2 = get_node_or_null("../Label2")
 		
-		label1.visible = false
+		if label1:
+			var tween := create_tween()
+			tween.tween_property(label1, "modulate:a", 0.0, 0.5)  # fade to invisible in 0.5s
+
 		label2.visible = true

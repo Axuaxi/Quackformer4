@@ -33,6 +33,7 @@ z_index = -1
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+scale = Vector2(2, 2)
 texture = ExtResource("3_8r44u")
 
 [node name="TitleLabel" type="Label" parent="."]

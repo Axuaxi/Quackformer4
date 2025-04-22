@@ -16,3 +16,6 @@ res://Scripts/Game Manager/Game.gd
 res://Screen/Scripts/floating_button.gd
 res://Screen/Scripts/controls_button.gd
 res://Screen/Scripts/rebind_controls.gd
+res://Levels/Level9.tscn
+res://Scripts/Game Manager/portal_entrance.gd
+res://Scripts/Game Manager/interactable.gd
