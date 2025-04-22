@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1745276128
-export_presets.cfg::TextFile/TextFile::-1::1745250546::0::1::::<><><>0<>0<><>::
+::res://::1745286576
+export_presets.cfg::TextFile/TextFile::-1::1745286576::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::2156146867851019709::1744957357::1744957365::1::::<><><>0<>0<>749f6f2be969f0e9c4e2dc6e1575dbb8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Quackformer4.tscn::PackedScene::5001124955302896440::1745276000::0::1::::<><><>0<>0<><>::uid://cakq4enaoj8vk::::res://Scripts/Movement/duck_controller.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://ek1vk564prse::::res://Scripts/Game Manager/Game.gd<>uid://yy4isq1berc4::::res://Single Assets/Quack.tscn<>uid://dshq0o0pbi7lq::::res://Single Assets/timer.tscn
+Quackformer4.tscn::PackedScene::5001124955302896440::1745286551::0::1::::<><><>0<>0<><>::uid://cakq4enaoj8vk::::res://Scripts/Movement/duck_controller.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://ek1vk564prse::::res://Scripts/Game Manager/Game.gd<>uid://yy4isq1berc4::::res://Single Assets/Quack.tscn<>uid://dshq0o0pbi7lq::::res://Single Assets/timer.tscn<>uid://ce5w5hvnwi0i8::::res://Screen/Scenes/pause_menu.tscn
 ::res://Art/::1745229190
 ::res://Art/Attacks/::1745130461
 shockwave.png::CompressedTexture2D/CompressedTexture2D::4111144220184153982::1745129548::1745129550::1::::<><><>0<>0<>f680ccfa61c5506b3f264ec6c557ab7e<>res://.godot/imported/shockwave.png-3a2cdd53983aae9a429cd61ea1567952.ctex::
@@ -16,77 +16,82 @@ sir_oinksalot.png::CompressedTexture2D/CompressedTexture2D::2092788303634354778:
 ::res://Art/Font/::1745229207
 OFL.txt::TextFile/TextFile::-1::1745229198::0::1::::<><><>0<>0<><>::
 Tiny5-Regular.ttf::FontFile/FontFile::5755610321869684420::1745229198::1745229207::1::::<><><>0<>0<>d2acc9863c6f1b201738b669cfd9fc07<>res://.godot/imported/Tiny5-Regular.ttf-54b6ce94979e90659939e5c846ad774d.fontdata::
-::res://Art/Tilemap/::1745110048
+::res://Art/Tilemap/::1745287400
 background.png::CompressedTexture2D/CompressedTexture2D::6144928872444661620::1745016138::1745016140::1::::<><><>0<>0<>4e5076444b7259de4aa927149f6068ff<>res://.godot/imported/background.png-49ce84b4190499e966adf78e916ee0ea.ctex::
 better_lava.png::CompressedTexture2D/CompressedTexture2D::316442466722075827::1745106430::1745106431::1::::<><><>0<>0<>685100b7d26320914289aa4fac145da1<>res://.godot/imported/better_lava.png-6165e8392023e1f3955c4be8a64a75f2.ctex::
 exit_arrow.png::CompressedTexture2D/CompressedTexture2D::8835182859753569740::1745016649::1745016652::1::::<><><>0<>0<>f0b05ba104ecc506a376bfa9b83927f9<>res://.godot/imported/exit_arrow.png-38b1bd2b6c4a10ae57bd925ee7f3d685.ctex::
 grass.png::CompressedTexture2D/CompressedTexture2D::7588538034375302526::1745109881::1745109882::1::::<><><>0<>0<>d8815bfe675eccda00fe7fa4ef07e485<>res://.godot/imported/grass.png-42f12aacc009960270f66cb2300e7a6e.ctex::
+hanging_egg.png::CompressedTexture2D::1124305678580018043::1745287400::1745287403::1::::<><><>0<>0<>4d652ad6f270798abe1e271b498a35ab<>res://.godot/imported/hanging_egg.png-5b6610abcc594241a35f244699f83111.ctex::
 lava.png::CompressedTexture2D/CompressedTexture2D::8539345595797867644::1745110047::1745110048::1::::<><><>0<>0<>0254dba6ea184308b9a0ca2c4d075c7d<>res://.godot/imported/lava.png-60c8078729b58bf5423d1e9f4df4a41a.ctex::
-::res://Builds/::1745247393
-::res://Levels/::1745276085
+::res://Levels/::1745286552
 Level1.tscn::PackedScene/PackedScene::508922756611150238::1745244350::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dx43f2rvn4plc::::res://Art/Tilemap/exit_arrow.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://f4fawci4i2ae::::res://Scripts/Visuals/arrow_floating.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
 Level2.tscn::PackedScene/PackedScene::2447994656824768664::1745244350::0::1::::<><><>0<>0<><>::uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
 Level3.tscn::PackedScene/PackedScene::2485725086644518026::1745242753::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://bdsq11biiqx7s::::res://Scripts/Game Manager/cow.gd<>uid://cvo24an4s6s5q::::res://Art/Enemies/cow.png<>uid://blg640bp0dd2m::::res://Scripts/Game Manager/contact_death.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
 Level4.tscn::PackedScene/PackedScene::2934697674018117803::1745244701::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
 Level5.tscn::PackedScene/PackedScene::533031115477909240::1745244701::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://bk2n40ntp7sqg::::res://Scripts/Game Manager/quack_pickup.gd<>uid://cok4d3c6uxjqy::::res://Art/Duck/quack.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
-Level6.tscn::PackedScene::8709280149766924894::1745276085::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://dx43f2rvn4plc::::res://Art/Tilemap/exit_arrow.png<>uid://f4fawci4i2ae::::res://Scripts/Visuals/arrow_floating.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://cxhohe27ofdj1::::res://Scripts/Game Manager/autoscroll_camera.gd<>uid://cedvgeillbo6c::::res://Scripts/Game Manager/lava_rising.gd<>uid://bhqeflmw7vsed::::res://Shaders/lava_shader.gdshader<>uid://f3mfiqh5xxng::::res://Scripts/Game Manager/autoscroll_trigger.gd<>uid://dtwr1lfafnjgu::::res://Art/Tilemap/lava.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
-Level7.tscn::PackedScene::9209511318307442810::1745276001::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
-Level8.tscn::PackedScene::5356502733464609702::1745276001::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dx43f2rvn4plc::::res://Art/Tilemap/exit_arrow.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://f4fawci4i2ae::::res://Scripts/Visuals/arrow_floating.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://dw14v8a8o7gpp::::res://Single Assets/sir_oinksalot.gd<>uid://c8npjqlnwk848::::res://Single Assets/shuriken.tscn<>uid://4206g0m2b2la::::res://Art/Enemies/sir_oinksalot.png<>uid://blg640bp0dd2m::::res://Scripts/Game Manager/contact_death.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://u7ouceb4u6qa::::res://Scripts/Game Manager/hp_bar.gd
-Level9.tscn::PackedScene/PackedScene::297918345589302230::1745244350::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://b2crk8xxdp1si::::res://Scripts/Game Manager/level_9.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://5ypooa3frd0h::::res://icon.svg<>uid://bn7lc7j6o4y67::::res://Scripts/Game Manager/portal_entrance.gd<>uid://cgde16efkifqt::::res://Scripts/Game Manager/interactable.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
+Level6.tscn::PackedScene::8709280149766924894::1745286551::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://dx43f2rvn4plc::::res://Art/Tilemap/exit_arrow.png<>uid://f4fawci4i2ae::::res://Scripts/Visuals/arrow_floating.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://cxhohe27ofdj1::::res://Scripts/Game Manager/autoscroll_camera.gd<>uid://cedvgeillbo6c::::res://Scripts/Game Manager/lava_rising.gd<>uid://bhqeflmw7vsed::::res://Shaders/lava_shader.gdshader<>uid://f3mfiqh5xxng::::res://Scripts/Game Manager/autoscroll_trigger.gd<>uid://dtwr1lfafnjgu::::res://Art/Tilemap/lava.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
+Level7.tscn::PackedScene::9209511318307442810::1745286551::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
+Level8.tscn::PackedScene::5356502733464609702::1745286551::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dx43f2rvn4plc::::res://Art/Tilemap/exit_arrow.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://f4fawci4i2ae::::res://Scripts/Visuals/arrow_floating.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://dw14v8a8o7gpp::::res://Single Assets/sir_oinksalot.gd<>uid://c8npjqlnwk848::::res://Single Assets/shuriken.tscn<>uid://4206g0m2b2la::::res://Art/Enemies/sir_oinksalot.png<>uid://blg640bp0dd2m::::res://Scripts/Game Manager/contact_death.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://u7ouceb4u6qa::::res://Scripts/Game Manager/hp_bar.gd
+Level9.tscn::PackedScene::297918345589302230::1745286552::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://b2crk8xxdp1si::::res://Scripts/Game Manager/level_9.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://5ypooa3frd0h::::res://icon.svg<>uid://bn7lc7j6o4y67::::res://Scripts/Game Manager/portal_entrance.gd<>uid://cgde16efkifqt::::res://Scripts/Game Manager/interactable.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
 Level10.tscn::PackedScene/PackedScene::6881244052273811568::1745244700::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png
 Level11.tscn::PackedScene/PackedScene::892758735377455934::1745244700::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png
-::res://Screen/::1745276001
-title_screen.tscn::PackedScene::6389206068668828003::1745276001::0::1::::<><><>0<>0<><>::uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://biewcfa73kwqa::::res://Screen/Scripts/start_button.gd<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://d1sljsj8pr4m8::::res://Screen/Scripts/quit_button.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://do7t2ht20w3y8::::res://Screen/Scripts/credits_button.gd<>uid://b8xi1hf05oibb::::res://Screen/Scripts/close_button.gd<>uid://clej30rx0yy7d::::res://Screen/Images/quackformer_1.png<>uid://cs63oo6olw0nb::::res://Screen/Scripts/bonus_button.gd<>uid://bpvc1kerkkev5::::res://Screen/Images/quackformer_2.png<>uid://bpi6lx14syn3a::::res://Screen/Scripts/bonus_images.gd<>uid://bet34ubsly0a4::::res://Screen/Images/quackformer_3.png
+::res://Screen/::1745286552
+title_screen.tscn::PackedScene::6389206068668828003::1745286552::0::1::::<><><>0<>0<><>::uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://biewcfa73kwqa::::res://Screen/Scripts/start_button.gd<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://d1sljsj8pr4m8::::res://Screen/Scripts/quit_button.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://do7t2ht20w3y8::::res://Screen/Scripts/credits_button.gd<>uid://b8xi1hf05oibb::::res://Screen/Scripts/close_button.gd<>uid://clej30rx0yy7d::::res://Screen/Images/quackformer_1.png<>uid://cs63oo6olw0nb::::res://Screen/Scripts/bonus_button.gd<>uid://bpvc1kerkkev5::::res://Screen/Images/quackformer_2.png<>uid://bpi6lx14syn3a::::res://Screen/Scripts/bonus_images.gd<>uid://bet34ubsly0a4::::res://Screen/Images/quackformer_3.png<>uid://du5mrbuo66qrj::::res://Screen/Scripts/controls_button.gd<>uid://c5q5nd5yyjrcc::::res://Screen/Scripts/rebind_controls.gd
 ::res://Screen/Images/::1745239221
 quackformer_1.png::CompressedTexture2D/CompressedTexture2D::5553773954009856659::1745239208::1745239221::1::::<><><>0<>0<>3e3eef1fa5293e98bc67903ce8a228fd<>res://.godot/imported/quackformer_1.png-ebdae89eb4d1558aa2ee37fcb0ac95d4.ctex::
 quackformer_2.png::CompressedTexture2D/CompressedTexture2D::3482773667924785416::1745239214::1745239221::1::::<><><>0<>0<>9bbd4ef952cd17dd445aa789c0a5afe2<>res://.godot/imported/quackformer_2.png-a31f8d93bb7ba14d02268e2ea01beaf5.ctex::
 quackformer_3.png::CompressedTexture2D/CompressedTexture2D::2708152152238386161::1745239219::1745239221::1::::<><><>0<>0<>bdef895a6b2323526a93738f4753be16<>res://.godot/imported/quackformer_3.png-467d37fbae8b2a590b898a2b609ba6e4.ctex::
-::res://Screen/Scenes/::1745235890
+::res://Screen/Scenes/::1745286567
+pause_menu.tscn::PackedScene::5116917822942881301::1745286567::0::1::::<><><>0<>0<><>::uid://b110x40cryrxy::::res://Screen/Scripts/pause_menu.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://ly5em3bi6gya::::res://Screen/Scripts/floating_button.gd
 title_screen.tscn::PackedScene/PackedScene::3117305570031004335::1745235671::0::1::::<><><>0<>0<><>::
-::res://Screen/Scripts/::1745276000
+::res://Screen/Scripts/::1745284468
 bonus_button.gd::GDScript/GDScript::6101962124026296191::1745238380::0::1::::<>Button<><>0<>0<><>::
 bonus_images.gd::GDScript/GDScript::3457671480349388012::1745238933::0::1::::<>Sprite2D<><>0<>0<><>::
 close_button.gd::GDScript/GDScript::4750665755239211891::1745237424::0::1::::<>Button<><>0<>0<><>::
-credits_button.gd::GDScript::8209168187715462049::1745276000::0::1::::<>Button<><>0<>0<><>::
+credits_button.gd::GDScript::8209168187715462049::1745276158::0::1::::<>Button<><>0<>0<><>::
 quit_button.gd::GDScript/GDScript::9022015705150454789::1745237516::0::1::::<>Button<><>0<>0<><>::
+pause_menu.gd::GDScript::4266564999878288314::1745279920::0::1::::<>CanvasLayer<><>0<>0<><>::
+floating_button.gd::GDScript::823451672666482016::1745279522::0::1::::<>Button<><>0<>0<><>::
+controls_button.gd::GDScript::8625729302969523251::1745281024::0::1::::<>Button<><>0<>0<><>::
+rebind_controls.gd::GDScript::6913381650732966226::1745284468::0::1::::<>Button<><>0<>0<><>::
 start_button.gd::GDScript/GDScript::2957528553350791944::1745237510::0::1::::<>Button<><>0<>0<><>::
-::res://Screen/UI/::1745276001
-DialogueBox.tscn::PackedScene::1238874264522360372::1745276001::0::1::::<><><>0<>0<><>::uid://qblmhbvpyr8g::::res://Scripts/Game Manager/GlobalDialogue.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf
+::res://Screen/UI/::1745286551
+DialogueBox.tscn::PackedScene::1238874264522360372::1745286551::0::1::::<><><>0<>0<><>::uid://qblmhbvpyr8g::::res://Scripts/Game Manager/GlobalDialogue.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf
 dialogue_box.gd::GDScript/GDScript::627575598893411292::1745253873::0::1::::<>CanvasLayer<><>0<>0<><>::
 ::res://Scripts/::1745106113
-::res://Scripts/Game Manager/::1745255249
+::res://Scripts/Game Manager/::1745285866
 autoscroll_camera.gd::GDScript/GDScript::6402498207071392544::1745232994::0::1::::<>Camera2D<><>0<>0<><>::
 autoscroll_trigger.gd::GDScript/GDScript::409484773449298580::1745056153::0::1::::<>Area2D<><>0<>0<><>::
 contact_death.gd::GDScript/GDScript::3172819560378438390::1745033031::0::1::::<>Area2D<><>0<>0<><>::
 cow.gd::GDScript/GDScript::2635165284232803694::1745228028::0::1::::<>CharacterBody2D<><>0<>0<><>::
 Exit.gd::GDScript/GDScript::4668563551237086682::1745231885::0::1::::<>Area2D<><>0<>0<><>::
 floating_text.gd::GDScript/GDScript::6936017644284907271::1745233874::0::1::::<>Label<><>0<>0<><>::
-Game.gd::GDScript/GDScript::303015868602153812::1745249464::0::1::::<>Node2D<><>0<>0<><>::
+Game.gd::GDScript::303015868602153812::1745280442::0::1::::<>Node2D<><>0<>0<><>::
 global.gd::GDScript/GDScript::7350686429425935752::1745249252::0::1::::<>Node<><>0<>0<><>::
 GlobalDialogue.gd::GDScript/GDScript::1125775562593276220::1745253873::0::1::::<>CanvasLayer<><>0<>0<><>::
 hp_bar.gd::GDScript/GDScript::1470722825978318508::1745245565::0::1::::<>ProgressBar<><>0<>0<><>::
-interactable.gd::GDScript/GDScript::5200458495733102279::1745234601::0::1::::<>Area2D<><>0<>0<><>::
+interactable.gd::GDScript::5200458495733102279::1745285866::0::1::::<>Area2D<><>0<>0<><>::
 lava_rising.gd::GDScript/GDScript::5061075869778417904::1745233050::0::1::::<>Area2D<><>0<>0<><>::
 lava_touch.gd::GDScript/GDScript::3855159100959218854::1745105443::0::1::::<>TileMapLayer<><>0<>0<><>::
 level_9.gd::GDScript/GDScript::4286700034094874140::1745216358::0::1::::<>Node2D<><>0<>0<><>::
-portal_entrance.gd::GDScript/GDScript::3365608893704495622::1745217957::0::1::::<>Area2D<><>0<>0<><>::
-quack.gd::GDScript/GDScript::5526337145735433363::1745255249::0::1::::<>Area2D<><>0<>0<><>::
+portal_entrance.gd::GDScript::3365608893704495622::1745285824::0::1::::<>Area2D<><>0<>0<><>::
+quack.gd::GDScript::5526337145735433363::1745276879::0::1::::<>Area2D<><>0<>0<><>::
 quack_pickup.gd::GDScript/GDScript::3144889762413053054::1745234312::0::1::::<>Area2D<><>0<>0<><>::
-::res://Scripts/Movement/::1745254046
-duck_controller.gd::GDScript/GDScript::4794508635029264576::1745254046::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://Scripts/Movement/::1745277797
+duck_controller.gd::GDScript::4794508635029264576::1745277797::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://Scripts/Visuals/::1745248938
 arrow_floating.gd::GDScript/GDScript::411115917027622528::1745248938::0::1::::<>Sprite2D<><>0<>0<><>::
 lava_visual.gd::GDScript/GDScript::2519779301717685434::1745108663::0::1::::<>Node2D<><>0<>0<><>::
-::res://Shaders/::1745276086
-lava_shader.gdshader::Shader::2911025027502567483::1745276086::0::1::::<><><>0<>0<><>::
-player_outline.gdshader::Shader::1351249200209589968::1745276086::0::1::::<><><>0<>0<><>::
-::res://Single Assets/::1745276001
+::res://Shaders/::1745286567
+lava_shader.gdshader::Shader::2911025027502567483::1745286567::0::1::::<><><>0<>0<><>::
+player_outline.gdshader::Shader::1351249200209589968::1745286567::0::1::::<><><>0<>0<><>::
+::res://Single Assets/::1745286551
 LavaVisual.tscn::PackedScene/PackedScene::112795250277968026::1745108788::0::1::::<><><>0<>0<><>::uid://bb5unq46foeva::::res://Scripts/Visuals/lava_visual.gd<>uid://erj0468chbo2::::res://Art/Tilemap/better_lava.png
 lava_colission.gd::GDScript/GDScript::8515967870506379690::1745108626::0::1::::<>RigidBody2D<><>0<>0<><>::
 Quack.tscn::PackedScene/PackedScene::1735853363871686037::1745227821::0::1::::<><><>0<>0<><>::uid://cky8728nefsad::::res://Scripts/Game Manager/quack.gd<>uid://cok4d3c6uxjqy::::res://Art/Duck/quack.png
 shockwave.gd::GDScript/GDScript::2586144268828458671::1745254983::0::1::::<>Area2D<><>0<>0<><>::
 shockwave.tscn::PackedScene/PackedScene::7154658853864430220::1745227821::0::1::::<><><>0<>0<><>::uid://bc30ohrtrrdop::::res://Single Assets/shockwave.gd<>uid://bytp7ea7frca5::::res://Art/Attacks/shockwave.png
-shuriken.tscn::PackedScene::7116837803267631887::1745276001::0::1::::<><><>0<>0<><>::uid://b62nug10eb4l3::::res://Single Assets/shurikens.gd<>uid://bmegvki1i12l7::::res://Art/Attacks/shuriken.png
+shuriken.tscn::PackedScene::7116837803267631887::1745286551::0::1::::<><><>0<>0<><>::uid://b62nug10eb4l3::::res://Single Assets/shurikens.gd<>uid://bmegvki1i12l7::::res://Art/Attacks/shuriken.png
 shurikens.gd::GDScript/GDScript::4618838429062100718::1745255004::0::1::::<>Area2D<><>0<>0<><>::
 sir_oinksalot.gd::GDScript/GDScript::8758890461973697701::1745255129::0::1::::<>CharacterBody2D<><>0<>0<><>::
 sir_oinksalot.tscn::PackedScene/PackedScene::1156698316883563087::1745116798::0::1::::<><><>0<>0<><>::uid://5ypooa3frd0h::::res://icon.svg
