@@ -150,7 +150,7 @@ scale = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_by1fu")
 
 [node name="PortalExit" type="Area2D" parent="."]
-position = Vector2(379, -136)
+position = Vector2(376, -142)
 collision_layer = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="PortalExit"]
