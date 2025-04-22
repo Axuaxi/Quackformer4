@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxa8j4146ifwt"]
+[gd_scene load_steps=25 format=3 uid="uid://cxa8j4146ifwt"]
 
 [ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="1_1sjca"]
 [ext_resource type="Script" uid="uid://biewcfa73kwqa" path="res://Screen/Scripts/start_button.gd" id="1_ta4t4"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://i6jmj1arqfpb" path="res://Screen/Scripts/difficulty_panel.gd" id="17_pghr7"]
 [ext_resource type="Script" uid="uid://cw3vl17litkkm" path="res://Screen/Scripts/medium_button.gd" id="18_ohx4o"]
 [ext_resource type="Script" uid="uid://cedrn7srr8np2" path="res://Screen/Scripts/hard_button.gd" id="19_pghr7"]
+[ext_resource type="Script" uid="uid://cxqjsyd7qs4iu" path="res://Screen/Scripts/hardcore_button.gd" id="21_acdc0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlmuc"]
 bg_color = Color(0.2408, 0.2408, 0.28, 1)
@@ -258,9 +259,9 @@ default_key = "A"
 [node name="ChangeRightButton" type="Button" parent="ControlsPanel"]
 layout_mode = 0
 offset_left = 1013.0
-offset_top = 423.0
+offset_top = 429.0
 offset_right = 1352.0
-offset_bottom = 521.0
+offset_bottom = 527.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "D"
@@ -271,9 +272,9 @@ default_key = "D"
 [node name="ChangeJumpButton" type="Button" parent="ControlsPanel"]
 layout_mode = 0
 offset_left = 1013.0
-offset_top = 534.0
+offset_top = 542.0
 offset_right = 1352.0
-offset_bottom = 632.0
+offset_bottom = 640.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "W"
@@ -284,9 +285,9 @@ default_key = "W"
 [node name="ChangeQuackButton" type="Button" parent="ControlsPanel"]
 layout_mode = 0
 offset_left = 1013.0
-offset_top = 654.0
+offset_top = 659.0
 offset_right = 1352.0
-offset_bottom = 752.0
+offset_bottom = 757.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "Space"
@@ -297,9 +298,9 @@ default_key = "Space"
 [node name="ChangePauseButton" type="Button" parent="ControlsPanel"]
 layout_mode = 0
 offset_left = 1013.0
-offset_top = 773.0
+offset_top = 774.0
 offset_right = 1352.0
-offset_bottom = 871.0
+offset_bottom = 872.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "D"
@@ -340,35 +341,46 @@ text = "CLOSE
 script = ExtResource("7_jlmuc")
 
 [node name="EasyButton" type="Button" parent="DifficultyPanel"]
-offset_left = 433.0
-offset_top = 496.0
-offset_right = 772.0
-offset_bottom = 621.0
+offset_left = 210.0
+offset_top = 505.0
+offset_right = 549.0
+offset_bottom = 630.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "EASY"
 script = ExtResource("17_0rjjr")
 
 [node name="MediumButton" type="Button" parent="DifficultyPanel"]
-offset_left = 800.0
-offset_top = 496.0
-offset_right = 1139.0
-offset_bottom = 621.0
+offset_left = 577.0
+offset_top = 505.0
+offset_right = 916.0
+offset_bottom = 630.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "MEDIUM"
 script = ExtResource("18_ohx4o")
 
 [node name="HardButton" type="Button" parent="DifficultyPanel"]
-offset_left = 1166.0
-offset_top = 496.0
-offset_right = 1505.0
-offset_bottom = 621.0
+offset_left = 943.0
+offset_top = 505.0
+offset_right = 1282.0
+offset_bottom = 630.0
 theme = SubResource("Theme_acdc0")
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "HARD"
 script = ExtResource("19_pghr7")
+
+[node name="HardcoreButton" type="Button" parent="DifficultyPanel"]
+offset_left = 1310.0
+offset_top = 505.0
+offset_right = 1718.0
+offset_bottom = 630.0
+theme = SubResource("Theme_acdc0")
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "HARDCORE"
+script = ExtResource("21_acdc0")
 
 [node name="DescriptionLabel" type="Label" parent="DifficultyPanel"]
 z_index = 1
@@ -394,3 +406,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="DifficultyPanel/EasyButton" to="DifficultyPanel/EasyButton" method="_on_pressed"]
 [connection signal="pressed" from="DifficultyPanel/MediumButton" to="DifficultyPanel/MediumButton" method="_on_pressed"]
 [connection signal="pressed" from="DifficultyPanel/HardButton" to="DifficultyPanel/HardButton" method="_on_pressed"]
+[connection signal="pressed" from="DifficultyPanel/HardcoreButton" to="DifficultyPanel/HardcoreButton" method="_on_pressed"]

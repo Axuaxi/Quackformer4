@@ -56,4 +56,10 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Player":
 		print("🔥 Lava touched player!")
-		get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+		if Global.difficulty != "hardcore":
+			get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+		else:
+			get_node("/root/Game").current_level_index = 0
+			body.can_quack = false
+			body.hp_bar.visible = false
+			get_node("/root/Game").load_level(0)  

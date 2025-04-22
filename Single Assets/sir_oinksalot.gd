@@ -159,6 +159,7 @@ func spawn_shockwave() -> void:
 	var shockwave_scene = preload("res://Single Assets/shockwave.tscn")
 	for dir in [Vector2.LEFT, Vector2.RIGHT]:
 		var shockwave = shockwave_scene.instantiate()
+		shockwave.add_to_group("shockwaves")
 		shockwave.global_position = global_position + Vector2(0, -3)
 		shockwave.direction = dir
 

@@ -8,7 +8,6 @@ var speed := 0.0
 var has_hit := false
 
 func _ready() -> void:
-	add_to_group("shockwaves")
 	has_hit = false
 	$CollisionPolygon2D.disabled = false
 	$GPUParticles2D.emitting = true

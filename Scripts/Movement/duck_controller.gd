@@ -45,6 +45,7 @@ func _ready():
 		"easy": max_health = 3
 		"medium": max_health = 2
 		"hard": max_health = 1
+		"hardcore": max_health = 1
 		_: max_health = 1
 		
 	jumps_left = max_jumps
@@ -214,8 +215,15 @@ func check_lava_collision() -> void:
 		var collider = col.get_collider()
 		if collider.name == "TileMapLayer2":
 			print("🔥 Touched lava!")
-			take_damage(3)
+			if Global.difficulty != "hardcore":
+				get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+			else:
+				get_node("/root/Game").current_level_index = 0
+				can_quack = false
+				hp_bar.visible = false
+				get_node("/root/Game").load_level(0)  # Level 0 for hardcore restart
 
+				
 # --- DEATH HANDLING ---
 func die_and_restart():
 	if Global.game_over:
@@ -225,8 +233,14 @@ func die_and_restart():
 	for group in ["quacks", "shockwaves", "shurikens", "eggs"]:
 		for node in get_tree().get_nodes_in_group(group):
 			node.queue_free()
-
-	get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+	
+	if Global.difficulty !=  "hardcore":
+		get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+	else:
+		get_node("/root/Game").current_level_index = 0
+		can_quack = false
+		hp_bar.visible = false
+		get_node("/root/Game").load_level(0)
 
 	await get_tree().create_timer(0.1).timeout
 	Global.game_over = false
@@ -253,4 +267,10 @@ func _on_dialogue_finished() -> void:
 	dialogue_active = false
 	visible = true
 	collision_layer = collision_layer | 1
-	get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+	if Global.difficulty != "hardcore":
+		get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+	else:
+		get_node("/root/Game").current_level_index = 0
+		can_quack = false
+		hp_bar.visible = false
+		get_node("/root/Game").load_level(0)

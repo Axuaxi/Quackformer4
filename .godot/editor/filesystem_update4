@@ -33,3 +33,5 @@ res://Screen/Scripts/fade.gd
 res://Levels/Level7.tscn
 res://Levels/Level9.tscn
 res://Shaders/light_pulsing.gdshader
+res://Screen/Scripts/hardcore_button.gd
+res://Scripts/Game Manager/lava_rising.gd
