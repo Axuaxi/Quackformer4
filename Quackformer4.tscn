@@ -18,6 +18,7 @@ z_index = 1
 collision_mask = 254
 script = ExtResource("1_84dud")
 quack_projectile_scene = ExtResource("3_otvb4")
+can_quack = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_826im")

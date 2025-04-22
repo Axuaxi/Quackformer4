@@ -19,3 +19,17 @@ res://Screen/Scripts/rebind_controls.gd
 res://Levels/Level9.tscn
 res://Scripts/Game Manager/portal_entrance.gd
 res://Scripts/Game Manager/interactable.gd
+res://Levels/Level10.tscn
+res://Levels/Level3.tscn
+res://Single Assets/egg.tscn
+res://Single Assets/egg.gd
+res://Scripts/Game Manager/chicken.gd
+res://Scripts/Game Manager/global.gd
+res://Scripts/Game Manager/cow.gd
+res://Single Assets/Quack.tscn
+res://Single Assets/sir_oinksalot.gd
+res://Scripts/Game Manager/enemy_base.gd
+res://Scripts/Game Manager/level_10_enemy_wall.gd
+res://Scripts/Game Manager/EnemyBase.gd
+res://Levels/Level5.tscn
+res://Scripts/Visuals/oinksalot_camera.gd

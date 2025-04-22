@@ -15,6 +15,8 @@ extends CharacterBody2D
 # --- Quack Projectile ---
 @export var quack_projectile_scene: PackedScene
 @export var quack_cooldown := 1.0
+# Debug testing
+@export var can_quack := false
 
 # --- Internal State ---
 @onready var sprite = $Sprite2D
@@ -23,7 +25,6 @@ var wall_jump_timer := 0.0
 var wall_dir := 0
 var touching_wall := false
 
-var can_quack := false
 var quack_time_left := 0.0
 
 var dialogue_active := false
@@ -132,6 +133,7 @@ func check_lava_collision() -> void:
 func die_and_restart():
 	if Global.game_over:
 		return
+		
 	Global.game_over = true
 	for quack in get_tree().get_nodes_in_group("quacks"):
 		quack.queue_free()
@@ -139,6 +141,8 @@ func die_and_restart():
 		shockwave.queue_free()
 	for shuriken in get_tree().get_nodes_in_group("shurikens"):
 		shuriken.queue_free()
+	for egg in get_tree().get_nodes_in_group("eggs"):
+		egg.queue_free()
 		
 	get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
 	

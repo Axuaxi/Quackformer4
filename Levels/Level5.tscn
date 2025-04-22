@@ -11,12 +11,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwj6k"]
 size = Vector2(15.6875, 482)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3anf8"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rnya8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1sat"]
-texture = SubResource("CompressedTexture2D_3anf8")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6i8f"]
+texture = SubResource("CompressedTexture2D_rnya8")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nijbd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31wo2"]
 texture = ExtResource("3_ioxke")
 margins = Vector2i(4, 4)
 separation = Vector2i(4, 4)
@@ -79,8 +79,8 @@ separation = Vector2i(4, 4)
 
 [sub_resource type="TileSet" id="TileSet_cg4ff"]
 physics_layer_0/collision_layer = 2
-sources/0 = SubResource("TileSetAtlasSource_w1sat")
-sources/1 = SubResource("TileSetAtlasSource_nijbd")
+sources/0 = SubResource("TileSetAtlasSource_f6i8f")
+sources/1 = SubResource("TileSetAtlasSource_31wo2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6i8f"]
 radius = 13.1529

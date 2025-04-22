@@ -10,5 +10,4 @@ func _on_body_entered(body: Node) -> void:
 		if label2:
 			var tween := create_tween()
 			tween.tween_property(label2, "modulate:a", 0.0, 0.5)  # fade to invisible in 0.5s
-			tween.tween_property(portal_entrance, "modulate:a", 0.0, 0.5)  # fade to invisible in 0.5s
-			tween.tween_property(portal_out, "modulate:a", 0.0, 0.5)  # fade to invisible in 0.5s
+			

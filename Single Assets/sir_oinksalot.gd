@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # --- CONFIG ---
-@export var max_health := 200
+@export var max_health := 10
 @export var speed := 200
 @export var gravity := 1000
 @export var jump_strength := -300
@@ -131,6 +131,12 @@ func fire_shurikens_sequentially(count: int) -> void:
 func spawn_shockwave() -> void:
 	if dead:
 		return
+
+	# 🌪️ Screen shake!
+	var cam := get_viewport().get_camera_2d()
+	if cam and "shake" in cam:
+		cam.shake(5)  # Adjust strength (e.g., 5–10)
+
 	var shockwave_scene = preload("res://Single Assets/shockwave.tscn")
 	for dir in [Vector2.LEFT, Vector2.RIGHT]:
 		var shockwave = shockwave_scene.instantiate()
@@ -143,8 +149,10 @@ func spawn_shockwave() -> void:
 
 		get_tree().current_scene.add_child(shockwave)
 
+
 # --- DAMAGE / DEATH ---
 func take_damage(amount: int) -> void:
+	flash_red()
 	if dead:
 		return
 	current_health -= amount
@@ -239,3 +247,10 @@ func _on_intro_dialogue_finished() -> void:
 		player.dialogue_active = false
 	dialogue_done = true
 	attack_timer.start()
+
+func flash_red():
+	if has_node("Sprite2D"):
+		var sprite := $Sprite2D
+		sprite.modulate = Color(1, 0, 0)
+		var tween := create_tween()
+		tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.2)

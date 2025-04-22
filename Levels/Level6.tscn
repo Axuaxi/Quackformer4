@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b7rqta5v53in7" path="res://Scripts/Game Manager/Exit.gd" id="1_k78pi"]
 [ext_resource type="Texture2D" uid="uid://dgd7d3ku8sseo" path="res://Art/Tilemap/grass.png" id="2_jghee"]
 [ext_resource type="Texture2D" uid="uid://dx43f2rvn4plc" path="res://Art/Tilemap/exit_arrow.png" id="2_uj6fh"]
-[ext_resource type="Script" uid="uid://f4fawci4i2ae" path="res://Scripts/Visuals/arrow_floating.gd" id="3_nkn5i"]
+[ext_resource type="Script" uid="uid://f4fawci4i2ae" path="res://Scripts/Visuals/floating.gd" id="3_nkn5i"]
 [ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="3_qityn"]
 [ext_resource type="Script" uid="uid://cxhohe27ofdj1" path="res://Scripts/Game Manager/autoscroll_camera.gd" id="4_jghee"]
 [ext_resource type="Script" uid="uid://cedvgeillbo6c" path="res://Scripts/Game Manager/lava_rising.gd" id="5_4nwli"]

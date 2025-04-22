@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ghd1msqhgvdu"]
+
+[ext_resource type="Script" uid="uid://b6bu1as5e3wau" path="res://Single Assets/egg.gd" id="1_12d6e"]
+[ext_resource type="Texture2D" uid="uid://bui8dyitws7am" path="res://Art/Tilemap/egg.png" id="2_jqhsy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqhsy"]
+radius = 4.0
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 128
+collision_mask = 3
+script = ExtResource("1_12d6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jqhsy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jqhsy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
