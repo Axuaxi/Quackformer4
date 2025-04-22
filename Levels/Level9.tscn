@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=4 uid="uid://eikw3ntiw255"]
+[gd_scene load_steps=19 format=4 uid="uid://eikw3ntiw255"]
 
 [ext_resource type="Script" uid="uid://b7rqta5v53in7" path="res://Scripts/Game Manager/Exit.gd" id="1_m8vve"]
 [ext_resource type="Script" uid="uid://b2crk8xxdp1si" path="res://Scripts/Game Manager/level_9.gd" id="1_xoy03"]
 [ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="2_srbr3"]
 [ext_resource type="Texture2D" uid="uid://dgd7d3ku8sseo" path="res://Art/Tilemap/grass.png" id="3_xoy03"]
-[ext_resource type="Texture2D" uid="uid://5ypooa3frd0h" path="res://icon.svg" id="4_srbr3"]
 [ext_resource type="Script" uid="uid://bn7lc7j6o4y67" path="res://Scripts/Game Manager/portal_entrance.gd" id="5_p0t4e"]
+[ext_resource type="Texture2D" uid="uid://kydsm2t1p25w" path="res://Art/Tilemap/portal_entrance.png" id="6_dvuif"]
 [ext_resource type="Script" uid="uid://cgde16efkifqt" path="res://Scripts/Game Manager/interactable.gd" id="6_mg4fs"]
+[ext_resource type="Texture2D" uid="uid://f1uiinvccci4" path="res://Art/Tilemap/portal_exit.png" id="7_7ph8i"]
 [ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="8_5ovaj"]
 [ext_resource type="Texture2D" uid="uid://qavfdx68st4v" path="res://Art/Tilemap/hanging_egg.png" id="8_15dr6"]
 [ext_resource type="Script" uid="uid://c524gyagitieh" path="res://Scripts/Game Manager/floating_text.gd" id="9_15dr6"]
@@ -101,8 +102,7 @@ physics_layer_0/collision_mask = 25
 sources/0 = SubResource("TileSetAtlasSource_m8vve")
 sources/1 = SubResource("TileSetAtlasSource_srbr3")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p0t4e"]
-radius = 18.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_by1fu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebg0i"]
 radius = 6.0
@@ -136,25 +136,26 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAUAAAABAAAAAQABAAUAAAACAAAAAQABAAU
 tile_set = SubResource("TileSet_xoy03")
 
 [node name="PortalEntrance" type="Area2D" parent="."]
+position = Vector2(4, -9)
 collision_layer = 64
 script = ExtResource("5_p0t4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="PortalEntrance"]
 position = Vector2(259, -91)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_srbr3")
+texture = ExtResource("6_dvuif")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalEntrance"]
 position = Vector2(259, -91)
-shape = SubResource("CircleShape2D_p0t4e")
+scale = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_by1fu")
 
 [node name="PortalExit" type="Area2D" parent="."]
 position = Vector2(379, -136)
 collision_layer = 64
 
 [node name="Sprite2D" type="Sprite2D" parent="PortalExit"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_srbr3")
+position = Vector2(-3, -13)
+texture = ExtResource("7_7ph8i")
 
 [node name="Interactable" type="Area2D" parent="."]
 collision_layer = 32
