@@ -47,7 +47,7 @@ func _on_medium_hover():
 	description_label.text = "2 HP (Gang are we serious rn)"
 
 func _on_hard_hover():
-	description_label.text = "3 HP (Joated)"
+	description_label.text = "1 HP (Joated)"
 
 func _clear_description():
 	description_label.text = ""
