@@ -124,7 +124,7 @@ shader_parameter/pulse_speed = 1.0
 shader_parameter/pulse_intensity = 0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebg0i"]
-radius = 6.0
+radius = 10.198
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ect60"]
 shader = ExtResource("14_twgay")
@@ -283,7 +283,7 @@ texture = ExtResource("11_by1fu")
 
 [node name="PointLight2D3" type="PointLight2D" parent="Shadow"]
 material = SubResource("ShaderMaterial_nan57")
-position = Vector2(47, -101)
+position = Vector2(47, -100)
 scale = Vector2(0.054092, 0.114258)
 color = Color(0.35299, 0.800355, 0.852495, 1)
 energy = 9.82

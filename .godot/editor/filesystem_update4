@@ -1,4 +1,4 @@
-res://Quackformer4.tscn
+res://Levels/Level9.tscn
 res://Shaders/quack_cooldown.gdshader
 res://Shaders/light_pulsing.gdshader
 res://Shaders/vine_swing.gdshader
@@ -6,14 +6,3 @@ res://Screen/Scripts/credits_button.gd
 res://Shaders/lava_shader.gdshader
 res://Shaders/player_outline.gdshader
 res://Shaders/duck.gdshader
-res://Levels/Level8.tscn
-res://Screen/Scenes/pause_menu.tscn
-res://Levels/Level10.tscn
-res://Single Assets/egg.tscn
-res://Screen/title_screen.tscn
-res://Levels/Level6.tscn
-res://Levels/Level5.tscn
-res://Single Assets/Quack.tscn
-res://Levels/Level7.tscn
-res://Levels/Level9.tscn
-res://Levels/Level3.tscn

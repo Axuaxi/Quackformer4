@@ -1,8 +1,8 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1745386552
-export_presets.cfg::TextFile::-1::1745386164::0::1::::<><><>0<>0<><>::
+::res://::1745390023
+export_presets.cfg::TextFile/TextFile::-1::1745386164::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::8460379374217139204::1745386502::1745386555::1::::<><><>0<>0<>bb9b45c806b3af9fad9bbfaf740e385b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Quackformer4.tscn::PackedScene::8608058041804413800::1745386395::0::1::::<><><>0<>0<><>::uid://cakq4enaoj8vk::::res://Scripts/Movement/duck_controller.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://ek1vk564prse::::res://Scripts/Game Manager/Game.gd<>uid://b323vsa7jd48::::res://Shaders/quack_cooldown.gdshader<>uid://yy4isq1berc4::::res://Single Assets/Quack.tscn<>uid://dshq0o0pbi7lq::::res://Single Assets/timer.tscn<>uid://ce5w5hvnwi0i8::::res://Screen/Scenes/pause_menu.tscn
+Quackformer4.tscn::PackedScene::8608058041804413800::1745386556::0::1::::<><><>0<>0<><>::uid://cakq4enaoj8vk::::res://Scripts/Movement/duck_controller.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://ek1vk564prse::::res://Scripts/Game Manager/Game.gd<>uid://b323vsa7jd48::::res://Shaders/quack_cooldown.gdshader<>uid://yy4isq1berc4::::res://Single Assets/Quack.tscn<>uid://dshq0o0pbi7lq::::res://Single Assets/timer.tscn<>uid://ce5w5hvnwi0i8::::res://Screen/Scenes/pause_menu.tscn
 ::res://Art/::1745229190
 ::res://Art/Attacks/::1745130461
 shockwave.png::CompressedTexture2D/CompressedTexture2D::4111144220184153982::1745129548::1745129550::1::::<><><>0<>0<>f680ccfa61c5506b3f264ec6c557ab7e<>res://.godot/imported/shockwave.png-3a2cdd53983aae9a429cd61ea1567952.ctex::
@@ -34,7 +34,7 @@ portal_exit.png::CompressedTexture2D/CompressedTexture2D::405847107228440901::17
 ::res://buillds/linux/::1745386300
 ::res://buillds/mac/::1745386317
 ::res://buillds/others/::1745386368
-Quackformer4.tscn::PackedScene::5001124955302896440::1745386137::0::1::::<><><>0<>0<><>::uid://cakq4enaoj8vk::::res://Scripts/Movement/duck_controller.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://ek1vk564prse::::res://Scripts/Game Manager/Game.gd<>uid://b323vsa7jd48::::res://Shaders/quack_cooldown.gdshader<>uid://yy4isq1berc4::::res://Single Assets/Quack.tscn<>uid://dshq0o0pbi7lq::::res://Single Assets/timer.tscn<>uid://ce5w5hvnwi0i8::::res://Screen/Scenes/pause_menu.tscn
+Quackformer4.tscn::PackedScene/PackedScene::5001124955302896440::1745386137::0::1::::<><><>0<>0<><>::uid://cakq4enaoj8vk::::res://Scripts/Movement/duck_controller.gd<>uid://8ariuhsm684g::::res://Art/Duck/duck.png<>uid://ek1vk564prse::::res://Scripts/Game Manager/Game.gd<>uid://b323vsa7jd48::::res://Shaders/quack_cooldown.gdshader<>uid://yy4isq1berc4::::res://Single Assets/Quack.tscn<>uid://dshq0o0pbi7lq::::res://Single Assets/timer.tscn<>uid://ce5w5hvnwi0i8::::res://Screen/Scenes/pause_menu.tscn
 ::res://buillds/windows/::1745386308
 ::res://Levels/::1745386376
 Level1.tscn::PackedScene/PackedScene::508922756611150238::1745308889::0::1::::<><><>0<>0<><>::uid://b7rqta5v53in7::::res://Scripts/Game Manager/Exit.gd<>uid://dx43f2rvn4plc::::res://Art/Tilemap/exit_arrow.png<>uid://dgd7d3ku8sseo::::res://Art/Tilemap/grass.png<>uid://f4fawci4i2ae::::res://Scripts/Visuals/floating.gd<>uid://ctswc0ls4w741::::res://Art/Tilemap/background.png<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://c524gyagitieh::::res://Scripts/Game Manager/floating_text.gd
@@ -58,24 +58,24 @@ quackformer_3.png::CompressedTexture2D/CompressedTexture2D::2708152152238386161:
 pause_menu.tscn::PackedScene::5116917822942881301::1745386375::0::1::::<><><>0<>0<><>::uid://b110x40cryrxy::::res://Screen/Scripts/pause_menu.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf<>uid://ly5em3bi6gya::::res://Screen/Scripts/floating_button.gd
 title_screen.tscn::PackedScene/PackedScene::3117305570031004335::1745235671::0::1::::<><><>0<>0<><>::
 ::res://Screen/Scripts/::1745386028
-bonus_button.gd::GDScript::6101962124026296191::1745382239::0::1::::<>Button<><>0<>0<><>::
+bonus_button.gd::GDScript/GDScript::6101962124026296191::1745382239::0::1::::<>Button<><>0<>0<><>::
 bonus_images.gd::GDScript/GDScript::3457671480349388012::1745238933::0::1::::<>Sprite2D<><>0<>0<><>::
 close_button.gd::GDScript/GDScript::4750665755239211891::1745237424::0::1::::<>Button<><>0<>0<><>::
-controls_button.gd::GDScript::8625729302969523251::1745382239::0::1::::<>Button<><>0<>0<><>::
+controls_button.gd::GDScript/GDScript::8625729302969523251::1745382239::0::1::::<>Button<><>0<>0<><>::
 credits_button.gd::GDScript::8209168187715462049::1745386028::0::1::::<>Button<><>0<>0<><>::
-difficulty_button.gd::GDScript::5669008164349125388::1745382242::0::1::::<>Button<><>0<>0<><>::
-difficulty_panel.gd::GDScript::626074854840288035::1745363419::0::1::::<>Panel<><>0<>0<><>::
-easy_button.gd::GDScript::6298832600490229638::1745348947::0::1::::<>Button<><>0<>0<><>::
-fade.gd::GDScript::6718156294612365593::1745355043::0::1::::<>CanvasLayer<><>0<>0<><>::
+difficulty_button.gd::GDScript/GDScript::5669008164349125388::1745382242::0::1::::<>Button<><>0<>0<><>::
+difficulty_panel.gd::GDScript/GDScript::626074854840288035::1745363419::0::1::::<>Panel<><>0<>0<><>::
+easy_button.gd::GDScript/GDScript::6298832600490229638::1745348947::0::1::::<>Button<><>0<>0<><>::
+fade.gd::GDScript/GDScript::6718156294612365593::1745355043::0::1::::<>CanvasLayer<><>0<>0<><>::
 floating_button.gd::GDScript/GDScript::823451672666482016::1745279522::0::1::::<>Button<><>0<>0<><>::
-hardcore_button.gd::GDScript::6420794679021962600::1745362852::0::1::::<>Button<><>0<>0<><>::
-hard_button.gd::GDScript::5060846988748421125::1745362821::0::1::::<>Button<><>0<>0<><>::
-medium_button.gd::GDScript::6376094620669721984::1745348947::0::1::::<>Button<><>0<>0<><>::
+hardcore_button.gd::GDScript/GDScript::6420794679021962600::1745362852::0::1::::<>Button<><>0<>0<><>::
+hard_button.gd::GDScript/GDScript::5060846988748421125::1745362821::0::1::::<>Button<><>0<>0<><>::
+medium_button.gd::GDScript/GDScript::6376094620669721984::1745348947::0::1::::<>Button<><>0<>0<><>::
 pause_menu.gd::GDScript/GDScript::4266564999878288314::1745279920::0::1::::<>CanvasLayer<><>0<>0<><>::
-quit_button.gd::GDScript::9022015705150454789::1745352689::0::1::::<>Button<><>0<>0<><>::
+quit_button.gd::GDScript/GDScript::9022015705150454789::1745352689::0::1::::<>Button<><>0<>0<><>::
 rebind_controls.gd::GDScript/GDScript::6913381650732966226::1745284468::0::1::::<>Button<><>0<>0<><>::
-settings_button.gd::GDScript::5630028278564147906::1745382171::0::1::::<>Button<><>0<>0<><>::
-start_button.gd::GDScript::2957528553350791944::1745352689::0::1::::<>Button<><>0<>0<><>::
+settings_button.gd::GDScript/GDScript::5630028278564147906::1745382171::0::1::::<>Button<><>0<>0<><>::
+start_button.gd::GDScript/GDScript::2957528553350791944::1745352689::0::1::::<>Button<><>0<>0<><>::
 ::res://Screen/UI/::1745305630
 DialogueBox.tscn::PackedScene/PackedScene::1238874264522360372::1745305630::0::1::::<><><>0<>0<><>::uid://qblmhbvpyr8g::::res://Scripts/Game Manager/GlobalDialogue.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf
 dialogue_box.gd::GDScript/GDScript::627575598893411292::1745253873::0::1::::<>CanvasLayer<><>0<>0<><>::
@@ -83,48 +83,48 @@ dialogue_box.gd::GDScript/GDScript::627575598893411292::1745253873::0::1::::<>Ca
 ::res://Scripts/Game Manager/::1745382726
 autoscroll_camera.gd::GDScript/GDScript::6402498207071392544::1745232994::0::1::::<>Camera2D<><>0<>0<><>::
 autoscroll_trigger.gd::GDScript/GDScript::409484773449298580::1745056153::0::1::::<>Area2D<><>0<>0<><>::
-chicken.gd::GDScript::364071786905547527::1745381447::0::1::::<>EnemyBase<><>0<>0<><>::
+chicken.gd::GDScript/GDScript::364071786905547527::1745381447::0::1::::<>EnemyBase<><>0<>0<><>::
 contact_death.gd::GDScript/GDScript::3172819560378438390::1745345209::0::1::::<>Area2D<><>0<>0<><>::
 cow.gd::GDScript/GDScript::2635165284232803694::1745344259::0::1::::<>EnemyBase<><>0<>0<><>::
 EnemyBase.gd::GDScript/GDScript::4893540738913839448::1745342574::0::1::::EnemyBase<>CharacterBody2D<><>0<>0<><>::
 Exit.gd::GDScript/GDScript::4668563551237086682::1745231885::0::1::::<>Area2D<><>0<>0<><>::
-floating_text.gd::GDScript::6936017644284907271::1745351722::0::1::::<>Label<><>0<>0<><>::
-Game.gd::GDScript::303015868602153812::1745363041::0::1::::<>Node2D<><>0<>0<><>::
-global.gd::GDScript::7350686429425935752::1745349289::0::1::::<>Node<><>0<>0<><>::
+floating_text.gd::GDScript/GDScript::6936017644284907271::1745351722::0::1::::<>Label<><>0<>0<><>::
+Game.gd::GDScript/GDScript::303015868602153812::1745363041::0::1::::<>Node2D<><>0<>0<><>::
+global.gd::GDScript/GDScript::7350686429425935752::1745349289::0::1::::<>Node<><>0<>0<><>::
 GlobalDialogue.gd::GDScript/GDScript::1125775562593276220::1745253873::0::1::::<>CanvasLayer<><>0<>0<><>::
 hp_bar.gd::GDScript/GDScript::1470722825978318508::1745245565::0::1::::<>ProgressBar<><>0<>0<><>::
 interactable.gd::GDScript/GDScript::5200458495733102279::1745285866::0::1::::<>Area2D<><>0<>0<><>::
-lava_rising.gd::GDScript::5061075869778417904::1745364471::0::1::::<>Area2D<><>0<>0<><>::
+lava_rising.gd::GDScript/GDScript::5061075869778417904::1745364471::0::1::::<>Area2D<><>0<>0<><>::
 lava_touch.gd::GDScript/GDScript::3855159100959218854::1745105443::0::1::::<>TileMapLayer<><>0<>0<><>::
 level_9.gd::GDScript/GDScript::4286700034094874140::1745216358::0::1::::<>Node2D<><>0<>0<><>::
 level_10_enemy_wall.gd::GDScript/GDScript::2875493884372359886::1745307138::0::1::::<>Node<><>0<>0<><>::
 portal_entrance.gd::GDScript/GDScript::3365608893704495622::1745309064::0::1::::<>Area2D<><>0<>0<><>::
-quack.gd::GDScript::5526337145735433363::1745382726::0::1::::<>Area2D<><>0<>0<><>::
-quack_pickup.gd::GDScript::3144889762413053054::1745349396::0::1::::<>Area2D<><>0<>0<><>::
+quack.gd::GDScript/GDScript::5526337145735433363::1745382726::0::1::::<>Area2D<><>0<>0<><>::
+quack_pickup.gd::GDScript/GDScript::3144889762413053054::1745349396::0::1::::<>Area2D<><>0<>0<><>::
 ::res://Scripts/Movement/::1745385658
-duck_controller.gd::GDScript::4794508635029264576::1745385658::0::1::::<>CharacterBody2D<><>0<>0<><>::
+duck_controller.gd::GDScript/GDScript::4794508635029264576::1745385658::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://Scripts/Visuals/::1745308889
 floating.gd::GDScript/GDScript::411115917027622528::1745248938::0::1::::<>Sprite2D<><>0<>0<><>::
 lava_visual.gd::GDScript/GDScript::2519779301717685434::1745108663::0::1::::<>Node2D<><>0<>0<><>::
 oinksalot_camera.gd::GDScript/GDScript::9068018779100762981::1745307578::0::1::::<>Camera2D<><>0<>0<><>::
-::res://Shaders/::1745386395
-duck.gdshader::Shader::4478580806220793400::1745386395::0::1::::<><><>0<>0<><>::
-lava_shader.gdshader::Shader::2911025027502567483::1745386395::0::1::::<><><>0<>0<><>::
-light_pulsing.gdshader::Shader::2824287986832217870::1745386395::0::1::::<><><>0<>0<><>::
-player_outline.gdshader::Shader::1351249200209589968::1745386395::0::1::::<><><>0<>0<><>::
-quack_cooldown.gdshader::Shader::129681912625691215::1745386395::0::1::::<><><>0<>0<><>::
-vine_swing.gdshader::Shader::6779307279813591474::1745386395::0::1::::<><><>0<>0<><>::
+::res://Shaders/::1745386618
+duck.gdshader::Shader::4478580806220793400::1745386618::0::1::::<><><>0<>0<><>::
+lava_shader.gdshader::Shader::2911025027502567483::1745386618::0::1::::<><><>0<>0<><>::
+light_pulsing.gdshader::Shader::2824287986832217870::1745386618::0::1::::<><><>0<>0<><>::
+player_outline.gdshader::Shader::1351249200209589968::1745386618::0::1::::<><><>0<>0<><>::
+quack_cooldown.gdshader::Shader::129681912625691215::1745386618::0::1::::<><><>0<>0<><>::
+vine_swing.gdshader::Shader::6779307279813591474::1745386618::0::1::::<><><>0<>0<><>::
 ::res://Single Assets/::1745386376
-egg.gd::GDScript::4565600013899034828::1745381260::0::1::::<>Area2D<><>0<>0<><>::
+egg.gd::GDScript/GDScript::4565600013899034828::1745381260::0::1::::<>Area2D<><>0<>0<><>::
 egg.tscn::PackedScene::435812946549701998::1745386375::0::1::::<><><>0<>0<><>::uid://b6bu1as5e3wau::::res://Single Assets/egg.gd<>uid://bui8dyitws7am::::res://Art/Tilemap/egg.png
 LavaVisual.tscn::PackedScene/PackedScene::112795250277968026::1745108788::0::1::::<><><>0<>0<><>::uid://bb5unq46foeva::::res://Scripts/Visuals/lava_visual.gd<>uid://erj0468chbo2::::res://Art/Tilemap/better_lava.png
 lava_colission.gd::GDScript/GDScript::8515967870506379690::1745108626::0::1::::<>RigidBody2D<><>0<>0<><>::
 Quack.tscn::PackedScene::1735853363871686037::1745386376::0::1::::<><><>0<>0<><>::uid://cky8728nefsad::::res://Scripts/Game Manager/quack.gd<>uid://cok4d3c6uxjqy::::res://Art/Duck/quack.png
-shockwave.gd::GDScript::2586144268828458671::1745363839::0::1::::<>Area2D<><>0<>0<><>::
+shockwave.gd::GDScript/GDScript::2586144268828458671::1745363839::0::1::::<>Area2D<><>0<>0<><>::
 shockwave.tscn::PackedScene/PackedScene::7154658853864430220::1745227821::0::1::::<><><>0<>0<><>::uid://bc30ohrtrrdop::::res://Single Assets/shockwave.gd<>uid://bytp7ea7frca5::::res://Art/Attacks/shockwave.png
 shuriken.tscn::PackedScene/PackedScene::7116837803267631887::1745305631::0::1::::<><><>0<>0<><>::uid://b62nug10eb4l3::::res://Single Assets/shurikens.gd<>uid://bmegvki1i12l7::::res://Art/Attacks/shuriken.png
-shurikens.gd::GDScript::4618838429062100718::1745382855::0::1::::<>Area2D<><>0<>0<><>::
-sir_oinksalot.gd::GDScript::8758890461973697701::1745363845::0::1::::<>CharacterBody2D<><>0<>0<><>::
+shurikens.gd::GDScript/GDScript::4618838429062100718::1745382855::0::1::::<>Area2D<><>0<>0<><>::
+sir_oinksalot.gd::GDScript/GDScript::8758890461973697701::1745363845::0::1::::<>CharacterBody2D<><>0<>0<><>::
 sir_oinksalot.tscn::PackedScene/PackedScene::1156698316883563087::1745116798::0::1::::<><><>0<>0<><>::uid://5ypooa3frd0h::::res://icon.svg
 timer.gd::GDScript/GDScript::7457058246273497457::1745245695::0::1::::<>Node2D<><>0<>0<><>::
 timer.tscn::PackedScene/PackedScene::8438128772204422262::1745244700::0::1::::<><><>0<>0<><>::uid://deiiwo02u10vt::::res://Single Assets/timer.gd<>uid://coacccvk10kbs::::res://Art/Font/Tiny5-Regular.ttf
