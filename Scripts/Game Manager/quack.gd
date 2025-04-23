@@ -33,6 +33,8 @@ func _on_body_entered(body: Node) -> void:
 	if "Chicken" in body.name and body.has_method("take_damage"):
 		body.take_damage(1)  # 👈 deal 20 damage
 		queue_free()
+	if body.name == "WaterTileMap":
+		return 
 	
 	print("💥 Quack hit", body.name)
 	queue_free()

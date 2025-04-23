@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cxa8j4146ifwt"]
+[gd_scene load_steps=26 format=3 uid="uid://cxa8j4146ifwt"]
 
 [ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="1_1sjca"]
 [ext_resource type="Script" uid="uid://biewcfa73kwqa" path="res://Screen/Scripts/start_button.gd" id="1_ta4t4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="3_8r44u"]
 [ext_resource type="Script" uid="uid://d1sljsj8pr4m8" path="res://Screen/Scripts/quit_button.gd" id="4_eo31d"]
 [ext_resource type="Script" uid="uid://do7t2ht20w3y8" path="res://Screen/Scripts/credits_button.gd" id="6_1f68j"]
+[ext_resource type="Script" uid="uid://cmda32qd4j760" path="res://Screen/Scripts/panels.gd" id="7_0s3uu"]
 [ext_resource type="Script" uid="uid://b8xi1hf05oibb" path="res://Screen/Scripts/close_button.gd" id="7_jlmuc"]
 [ext_resource type="Texture2D" uid="uid://clej30rx0yy7d" path="res://Screen/Images/quackformer_1.png" id="8_5rgim"]
 [ext_resource type="Script" uid="uid://cs63oo6olw0nb" path="res://Screen/Scripts/bonus_button.gd" id="8_rwtc0"]
@@ -93,13 +94,14 @@ text = "SETTINGS"
 icon_alignment = 1
 script = ExtResource("13_acdc0")
 
-[node name="SettingsPanel" type="Panel" parent="."]
+[node name="SettingsPanel" type="Panel" parent="." groups=["auto_close_panels"]]
 visible = false
 z_index = 1
 layout_mode = 0
 offset_right = 1950.0
 offset_bottom = 1115.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rwtc0")
+script = ExtResource("7_0s3uu")
 
 [node name="ControlsButton" type="Button" parent="SettingsPanel"]
 layout_mode = 0
@@ -148,8 +150,7 @@ text = "CLOSE
 "
 script = ExtResource("7_jlmuc")
 
-[node name="DifficultyPanel" type="Panel" parent="SettingsPanel"]
-visible = false
+[node name="DifficultyPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
 z_index = 1
 layout_mode = 0
 offset_left = -21.0
@@ -229,8 +230,7 @@ theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ControlsPanel" type="Panel" parent="SettingsPanel"]
-visible = false
+[node name="ControlsPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
 z_index = 1
 layout_mode = 0
 offset_left = -21.0
@@ -238,6 +238,7 @@ offset_top = -17.0
 offset_right = 1938.0
 offset_bottom = 1115.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jlmuc")
+script = ExtResource("7_0s3uu")
 
 [node name="CloseButton" type="Button" parent="SettingsPanel/ControlsPanel"]
 layout_mode = 0
@@ -254,14 +255,15 @@ script = ExtResource("7_jlmuc")
 [node name="CreditsLabel" type="Label" parent="SettingsPanel/ControlsPanel"]
 z_index = 1
 layout_mode = 0
-offset_left = -751.0
-offset_top = 244.0
-offset_right = 974.0
-offset_bottom = 937.0
+offset_left = -738.0
+offset_top = 223.0
+offset_right = 987.0
+offset_bottom = 916.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 100
 text = "MOVE LEFT
 MOVE RIGHT
+MOVE DOWN
 JUMP
 QUACK
 PAUSE"
@@ -270,10 +272,10 @@ vertical_alignment = 1
 
 [node name="ChangeLeftButton" type="Button" parent="SettingsPanel/ControlsPanel"]
 layout_mode = 0
-offset_left = 1013.0
-offset_top = 311.0
-offset_right = 1352.0
-offset_bottom = 409.0
+offset_left = 1025.0
+offset_top = 223.0
+offset_right = 1364.0
+offset_bottom = 321.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "A"
@@ -283,10 +285,10 @@ default_key = "A"
 
 [node name="ChangeRightButton" type="Button" parent="SettingsPanel/ControlsPanel"]
 layout_mode = 0
-offset_left = 1013.0
-offset_top = 429.0
-offset_right = 1352.0
-offset_bottom = 527.0
+offset_left = 1025.0
+offset_top = 341.0
+offset_right = 1364.0
+offset_bottom = 439.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "D"
@@ -296,10 +298,10 @@ default_key = "D"
 
 [node name="ChangeJumpButton" type="Button" parent="SettingsPanel/ControlsPanel"]
 layout_mode = 0
-offset_left = 1013.0
-offset_top = 542.0
-offset_right = 1352.0
-offset_bottom = 640.0
+offset_left = 1026.0
+offset_top = 582.0
+offset_right = 1365.0
+offset_bottom = 680.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "W"
@@ -309,10 +311,10 @@ default_key = "W"
 
 [node name="ChangeQuackButton" type="Button" parent="SettingsPanel/ControlsPanel"]
 layout_mode = 0
-offset_left = 1013.0
-offset_top = 659.0
-offset_right = 1352.0
-offset_bottom = 757.0
+offset_left = 1026.0
+offset_top = 699.0
+offset_right = 1365.0
+offset_bottom = 797.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
 text = "Space"
@@ -322,24 +324,38 @@ default_key = "Space"
 
 [node name="ChangePauseButton" type="Button" parent="SettingsPanel/ControlsPanel"]
 layout_mode = 0
-offset_left = 1013.0
-offset_top = 774.0
-offset_right = 1352.0
-offset_bottom = 872.0
+offset_left = 1026.0
+offset_top = 814.0
+offset_right = 1365.0
+offset_bottom = 912.0
 theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 80
-text = "D"
+text = "Escape
+"
 script = ExtResource("15_nq4ou")
 action_name = "pause"
 default_key = "Escape"
 
-[node name="BonusPanel" type="Panel" parent="SettingsPanel"]
+[node name="ChangeDownButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+offset_left = 1025.0
+offset_top = 463.0
+offset_right = 1364.0
+offset_bottom = 561.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "S"
+script = ExtResource("15_nq4ou")
+action_name = "left"
+default_key = "S"
+
+[node name="BonusPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
 visible = false
 z_index = 1
 layout_mode = 0
 offset_right = 1950.0
 offset_bottom = 1115.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rwtc0")
+script = ExtResource("7_0s3uu")
 
 [node name="CloseButton" type="Button" parent="SettingsPanel/BonusPanel"]
 layout_mode = 0
@@ -373,7 +389,7 @@ scale = Vector2(0.929992, 0.932509)
 texture = ExtResource("10_suo27")
 script = ExtResource("9_suo27")
 
-[node name="CreditsPanel" type="Panel" parent="SettingsPanel"]
+[node name="CreditsPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
 visible = false
 z_index = 1
 layout_mode = 0
@@ -382,6 +398,7 @@ offset_top = -17.0
 offset_right = 1938.0
 offset_bottom = 1115.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jlmuc")
+script = ExtResource("7_0s3uu")
 
 [node name="CloseButton" type="Button" parent="SettingsPanel/CreditsPanel"]
 layout_mode = 0
@@ -426,6 +443,20 @@ theme_override_fonts/font = ExtResource("1_1sjca")
 theme_override_font_sizes/font_size = 60
 text = "CREDITS"
 script = ExtResource("6_1f68j")
+
+[node name="AxuaxiLabel" type="Label" parent="."]
+z_index = 1
+offset_left = 1565.0
+offset_top = 996.0
+offset_right = 2340.0
+offset_bottom = 1150.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 100
+text = "AXUAXI 2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_8r44u")
 
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
 [connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]

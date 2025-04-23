@@ -51,10 +51,16 @@ func _on_medium_hover():
 	description_label.text = "Two feathers left. Better make 'em flap."
 
 func _on_hard_hover():
-	description_label.text = "One feather. One dream. No waddling back."
+	description_label.text = "One feather. One true difficulty."
 
 func _on_hardcore_hover():
 	description_label.text = "The pond ain’t big enough for failures."
 
 func _clear_description():
 	description_label.text = ""
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if visible:
+			print("🔙 Escape pressed — hiding panel:", name)
+			visible = false

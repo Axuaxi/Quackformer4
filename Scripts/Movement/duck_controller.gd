@@ -41,6 +41,11 @@ var dialogue_active := false
 var is_invincible := false
 var killed_by_shuriken := false
 var killed_by_shockwave := false
+var in_water := false
+var swim_jump_cooldown := 0.0
+
+
+const WATER_LAYER := 1 << 8  # Collision layer 9 (index starts at 0)
 
 # --- READY ---
 func _ready():
@@ -59,7 +64,7 @@ func _ready():
 	hp_bar.visible = false
 	quack_bar.visible = false
 	quack_bar.position.y -= 1
-
+	
 # --- PHYSICS ---
 func _physics_process(delta: float) -> void:
 	if dialogue_active:
@@ -68,16 +73,19 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
+	in_water = _is_in_water()
 	_handle_movement(delta)
 	_handle_quack(delta)
 	_handle_idle(delta)
 	_handle_cooldown_shader(delta)
 	check_lava_collision()
+	swim_jump_cooldown = max(swim_jump_cooldown - delta, 0.0)
 
 # --- MOVEMENT ---
 func _handle_movement(delta: float) -> void:
 	var input_dir := Input.get_axis("left", "right")
 
+	# --- Horizontal Movement ---
 	if input_dir != 0.0:
 		var target_velocity_x := input_dir * speed
 		velocity.x = move_toward(
@@ -88,10 +96,21 @@ func _handle_movement(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
-	velocity.y += gravity * delta
+	# --- Vertical Movement ---
+	if in_water:
+		if Input.is_action_pressed("jump"):
+			velocity.y = move_toward(velocity.y, -speed, acceleration * delta)
+			swim_jump_cooldown = 0.2  # Prevent buoyancy override
+		elif Input.is_action_pressed("down"):
+			velocity.y = move_toward(velocity.y, speed, acceleration * delta)
+		elif swim_jump_cooldown <= 0.0:
+			velocity.y = move_toward(velocity.y, -200, acceleration * delta)
+	else:
+		velocity.y += gravity * delta
+
+	# --- Wall Detection ---
 	touching_wall = false
 	wall_dir = 0
-
 	for i in get_slide_collision_count():
 		var col = get_slide_collision(i)
 		var normal = col.get_normal()
@@ -101,6 +120,7 @@ func _handle_movement(delta: float) -> void:
 
 	wall_jump_timer = wall_jump_coyote_time if touching_wall else wall_jump_timer - delta
 
+	# --- Jumping ---
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_speed
@@ -113,16 +133,19 @@ func _handle_movement(delta: float) -> void:
 			velocity.y = jump_speed
 			jumps_left -= 1
 
+	# --- Reset Jumps ---
 	if is_on_floor() or touching_wall:
 		jumps_left = max_jumps
 		if is_on_floor() and velocity.y > 0:
 			velocity.y = 0
 
-	if touching_wall and not is_on_floor() and velocity.y > 0:
+	# --- Wall Slide ---
+	if not in_water and touching_wall and not is_on_floor() and velocity.y > 0:
 		velocity.y = min(velocity.y, 100)
 
 	move_and_slide()
 
+	
 # --- QUACK ---
 func _handle_quack(delta: float) -> void:
 	if quack_time_left > 0.0:
@@ -159,7 +182,7 @@ func _on_quack_unlocked() -> void:
 func _handle_idle(delta: float) -> void:
 	var input_vector = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
-		Input.get_action_strength("down") - Input.get_action_strength("up")
+		Input.get_action_strength("down") - Input.get_action_strength("jump")
 	)
 	var is_idle = input_vector == Vector2.ZERO
 	player_material.set_shader_parameter("is_idle", is_idle)
@@ -307,3 +330,17 @@ func check_lava_collision() -> void:
 				can_quack = false
 				hp_bar.visible = false
 				get_node("/root/Game").load_level(0)
+				
+# --- WATER CHECK ---
+func _is_in_water() -> bool:
+	var space_state = get_world_2d().direct_space_state
+
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = global_position
+	query.collision_mask = WATER_LAYER
+	query.exclude = [self]
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result = space_state.intersect_point(query, 1)
+	return result.size() > 0

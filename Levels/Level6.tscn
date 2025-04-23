@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="3_qityn"]
 [ext_resource type="Script" uid="uid://cxhohe27ofdj1" path="res://Scripts/Game Manager/autoscroll_camera.gd" id="4_jghee"]
 [ext_resource type="Script" uid="uid://cedvgeillbo6c" path="res://Scripts/Game Manager/lava_rising.gd" id="5_4nwli"]
-[ext_resource type="Shader" uid="uid://bhqeflmw7vsed" path="res://Shaders/lava_shader.gdshader" id="6_d8brc"]
+[ext_resource type="Shader" uid="uid://bhqeflmw7vsed" path="res://Shaders/waves.gdshader" id="6_d8brc"]
 [ext_resource type="Script" uid="uid://f3mfiqh5xxng" path="res://Scripts/Game Manager/autoscroll_trigger.gd" id="7_ij6rv"]
 [ext_resource type="Texture2D" uid="uid://dtwr1lfafnjgu" path="res://Art/Tilemap/lava.png" id="7_uj6fh"]
 [ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="11_vmtie"]
@@ -96,6 +96,7 @@ shader = ExtResource("6_d8brc")
 shader_parameter/wave_speed = 2.0
 shader_parameter/wave_strength = 1.0
 shader_parameter/wave_frequency = 12.0
+shader_parameter/alpha = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6rv"]
 size = Vector2(176, 21)

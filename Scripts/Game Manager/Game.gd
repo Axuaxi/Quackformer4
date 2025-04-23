@@ -16,7 +16,9 @@ var level_paths = [
 	"res://Levels/Level8.tscn",  # Boss level
 	"res://Levels/Level9.tscn",
 	"res://Levels/Level10.tscn",
-	"res://Levels/Level11.tscn"
+	"res://Levels/Level11.tscn",
+	"res://Levels/Level12.tscn",
+	"res://Levels/Level13.tscn"
 ]
 
 var current_level_index = 0
@@ -196,3 +198,5 @@ func _handle_prev(input: InputEvent) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	_handle_skip(event)
 	_handle_prev(event)
+	
+	

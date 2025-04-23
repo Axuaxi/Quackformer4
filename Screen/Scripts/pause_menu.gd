@@ -33,6 +33,8 @@ func _on_main_menu_pressed():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		if visible:
+			print("close")
 			close()
 		else:
 			open()
+			print("open")

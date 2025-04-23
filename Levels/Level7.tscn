@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="4_58uy7"]
 [ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="4_gxfhd"]
 [ext_resource type="Texture2D" uid="uid://boccw7iot1qnq" path="res://Art/Tilemap/lighting.png" id="4_i4375"]
-[ext_resource type="Shader" uid="uid://bhqeflmw7vsed" path="res://Shaders/lava_shader.gdshader" id="4_s6fot"]
+[ext_resource type="Shader" uid="uid://bhqeflmw7vsed" path="res://Shaders/waves.gdshader" id="4_s6fot"]
 [ext_resource type="Script" uid="uid://c524gyagitieh" path="res://Scripts/Game Manager/floating_text.gd" id="5_4km2w"]
 [ext_resource type="Shader" uid="uid://c3t7g2xw7cmso" path="res://Shaders/vine_swing.gdshader" id="6_4km2w"]
 

@@ -1,0 +1,451 @@
+[gd_scene load_steps=26 format=3 uid="uid://cxa8j4146ifwt"]
+
+[ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="1_1sjca"]
+[ext_resource type="Script" uid="uid://biewcfa73kwqa" path="res://Screen/Scripts/start_button.gd" id="1_ta4t4"]
+[ext_resource type="Script" uid="uid://c524gyagitieh" path="res://Scripts/Game Manager/floating_text.gd" id="2_8r44u"]
+[ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="3_8r44u"]
+[ext_resource type="Script" uid="uid://d1sljsj8pr4m8" path="res://Screen/Scripts/quit_button.gd" id="4_eo31d"]
+[ext_resource type="Script" uid="uid://do7t2ht20w3y8" path="res://Screen/Scripts/credits_button.gd" id="6_1f68j"]
+[ext_resource type="Script" uid="uid://cmda32qd4j760" path="res://Screen/Scripts/panels.gd" id="7_0s3uu"]
+[ext_resource type="Script" uid="uid://b8xi1hf05oibb" path="res://Screen/Scripts/close_button.gd" id="7_jlmuc"]
+[ext_resource type="Texture2D" uid="uid://clej30rx0yy7d" path="res://Screen/Images/quackformer_1.png" id="8_5rgim"]
+[ext_resource type="Script" uid="uid://cs63oo6olw0nb" path="res://Screen/Scripts/bonus_button.gd" id="8_rwtc0"]
+[ext_resource type="Texture2D" uid="uid://bpvc1kerkkev5" path="res://Screen/Images/quackformer_2.png" id="9_8xo1s"]
+[ext_resource type="Script" uid="uid://bpi6lx14syn3a" path="res://Screen/Scripts/bonus_images.gd" id="9_suo27"]
+[ext_resource type="Texture2D" uid="uid://bet34ubsly0a4" path="res://Screen/Images/quackformer_3.png" id="10_suo27"]
+[ext_resource type="Script" uid="uid://cmhh0jemiwbpq" path="res://Screen/Scripts/settings_button.gd" id="13_acdc0"]
+[ext_resource type="Script" uid="uid://du5mrbuo66qrj" path="res://Screen/Scripts/controls_button.gd" id="14_r23yh"]
+[ext_resource type="Script" uid="uid://c5q5nd5yyjrcc" path="res://Screen/Scripts/rebind_controls.gd" id="15_nq4ou"]
+[ext_resource type="Script" uid="uid://cm1d0bcf1er4o" path="res://Screen/Scripts/difficulty_button.gd" id="16_616he"]
+[ext_resource type="Script" uid="uid://cv0g38w6cmt0i" path="res://Screen/Scripts/easy_button.gd" id="17_0rjjr"]
+[ext_resource type="Script" uid="uid://i6jmj1arqfpb" path="res://Screen/Scripts/difficulty_panel.gd" id="17_pghr7"]
+[ext_resource type="Script" uid="uid://cw3vl17litkkm" path="res://Screen/Scripts/medium_button.gd" id="18_ohx4o"]
+[ext_resource type="Script" uid="uid://cedrn7srr8np2" path="res://Screen/Scripts/hard_button.gd" id="19_pghr7"]
+[ext_resource type="Script" uid="uid://cxqjsyd7qs4iu" path="res://Screen/Scripts/hardcore_button.gd" id="21_acdc0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwtc0"]
+bg_color = Color(0.239216, 0.239216, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlmuc"]
+bg_color = Color(0.2408, 0.2408, 0.28, 1)
+
+[sub_resource type="Theme" id="Theme_acdc0"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_8r44u")
+
+[node name="TitleLabel" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 590.0
+offset_top = 246.0
+offset_right = 1365.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 100
+text = "QUACKFORMER 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_8r44u")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 428.0
+offset_right = 1139.0
+offset_bottom = 549.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+icon_alignment = 1
+script = ExtResource("1_ta4t4")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 728.0
+offset_right = 1139.0
+offset_bottom = 853.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "QUIT"
+script = ExtResource("4_eo31d")
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 578.0
+offset_right = 1139.0
+offset_bottom = 699.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+icon_alignment = 1
+script = ExtResource("13_acdc0")
+
+[node name="SettingsPanel" type="Panel" parent="." groups=["auto_close_panels"]]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 1950.0
+offset_bottom = 1115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rwtc0")
+script = ExtResource("7_0s3uu")
+
+[node name="ControlsButton" type="Button" parent="SettingsPanel"]
+visible = false
+layout_mode = 0
+offset_left = 789.0
+offset_top = 279.0
+offset_right = 1128.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "CONTROLS"
+icon_alignment = 1
+script = ExtResource("14_r23yh")
+
+[node name="BonusButton" type="Button" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 579.0
+offset_right = 1128.0
+offset_bottom = 704.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "BONUS
+"
+script = ExtResource("8_rwtc0")
+
+[node name="DifficultyButton" type="Button" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 429.0
+offset_right = 1128.0
+offset_bottom = 554.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "DIFFICULTY"
+script = ExtResource("16_616he")
+
+[node name="CloseButton" type="Button" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "CLOSE
+"
+script = ExtResource("7_jlmuc")
+
+[node name="DifficultyPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -21.0
+offset_top = -17.0
+offset_right = 1938.0
+offset_bottom = 1115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlmuc")
+script = ExtResource("17_pghr7")
+
+[node name="CloseButton" type="Button" parent="SettingsPanel/DifficultyPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "CLOSE
+"
+script = ExtResource("7_jlmuc")
+
+[node name="EasyButton" type="Button" parent="SettingsPanel/DifficultyPanel"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 505.0
+offset_right = 549.0
+offset_bottom = 630.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "EASY"
+script = ExtResource("17_0rjjr")
+
+[node name="MediumButton" type="Button" parent="SettingsPanel/DifficultyPanel"]
+layout_mode = 0
+offset_left = 577.0
+offset_top = 505.0
+offset_right = 916.0
+offset_bottom = 630.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "MEDIUM"
+script = ExtResource("18_ohx4o")
+
+[node name="HardButton" type="Button" parent="SettingsPanel/DifficultyPanel"]
+layout_mode = 0
+offset_left = 943.0
+offset_top = 505.0
+offset_right = 1282.0
+offset_bottom = 630.0
+theme = SubResource("Theme_acdc0")
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "HARD"
+script = ExtResource("19_pghr7")
+
+[node name="HardcoreButton" type="Button" parent="SettingsPanel/DifficultyPanel"]
+layout_mode = 0
+offset_left = 1310.0
+offset_top = 505.0
+offset_right = 1718.0
+offset_bottom = 630.0
+theme = SubResource("Theme_acdc0")
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "HARDCORE"
+script = ExtResource("21_acdc0")
+
+[node name="DescriptionLabel" type="Label" parent="SettingsPanel/DifficultyPanel"]
+z_index = 1
+layout_mode = 0
+offset_left = 142.0
+offset_top = 363.0
+offset_right = 1867.0
+offset_bottom = 1056.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -21.0
+offset_top = -17.0
+offset_right = 1938.0
+offset_bottom = 1115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlmuc")
+script = ExtResource("7_0s3uu")
+
+[node name="CloseButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "CLOSE
+"
+script = ExtResource("7_jlmuc")
+
+[node name="CreditsLabel" type="Label" parent="SettingsPanel/ControlsPanel"]
+z_index = 1
+layout_mode = 0
+offset_left = -751.0
+offset_top = 244.0
+offset_right = 974.0
+offset_bottom = 937.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 100
+text = "MOVE LEFT
+MOVE RIGHT
+JUMP
+QUACK
+PAUSE"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ChangeLeftButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 311.0
+offset_right = 1352.0
+offset_bottom = 409.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "A"
+script = ExtResource("15_nq4ou")
+action_name = "left"
+default_key = "A"
+
+[node name="ChangeRightButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 429.0
+offset_right = 1352.0
+offset_bottom = 527.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "D"
+script = ExtResource("15_nq4ou")
+action_name = "right"
+default_key = "D"
+
+[node name="ChangeJumpButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 542.0
+offset_right = 1352.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "W"
+script = ExtResource("15_nq4ou")
+action_name = "jump"
+default_key = "W"
+
+[node name="ChangeQuackButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 659.0
+offset_right = 1352.0
+offset_bottom = 757.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "Space"
+script = ExtResource("15_nq4ou")
+action_name = "quack"
+default_key = "Space"
+
+[node name="ChangePauseButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 774.0
+offset_right = 1352.0
+offset_bottom = 872.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "D"
+script = ExtResource("15_nq4ou")
+action_name = "pause"
+default_key = "Escape"
+
+[node name="BonusPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 1950.0
+offset_bottom = 1115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rwtc0")
+script = ExtResource("7_0s3uu")
+
+[node name="CloseButton" type="Button" parent="SettingsPanel/BonusPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "CLOSE
+"
+script = ExtResource("7_jlmuc")
+
+[node name="Quackformer1" type="Sprite2D" parent="SettingsPanel/BonusPanel"]
+position = Vector2(598.932, 673.322)
+rotation = 0.287979
+scale = Vector2(1.14637, 1.14637)
+texture = ExtResource("8_5rgim")
+script = ExtResource("9_suo27")
+
+[node name="Quackformer2" type="Sprite2D" parent="SettingsPanel/BonusPanel"]
+position = Vector2(951.932, 402.322)
+rotation = -0.287979
+scale = Vector2(1.12843, 1.12696)
+texture = ExtResource("9_8xo1s")
+script = ExtResource("9_suo27")
+
+[node name="Quackformer3" type="Sprite2D" parent="SettingsPanel/BonusPanel"]
+position = Vector2(1374.93, 694.322)
+scale = Vector2(0.929992, 0.932509)
+texture = ExtResource("10_suo27")
+script = ExtResource("9_suo27")
+
+[node name="CreditsPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -21.0
+offset_top = -17.0
+offset_right = 1938.0
+offset_bottom = 1115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlmuc")
+script = ExtResource("7_0s3uu")
+
+[node name="CloseButton" type="Button" parent="SettingsPanel/CreditsPanel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 31.0
+offset_right = 375.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 80
+text = "CLOSE
+"
+script = ExtResource("7_jlmuc")
+
+[node name="CreditsLabel" type="Label" parent="SettingsPanel/CreditsPanel"]
+z_index = 1
+layout_mode = 0
+offset_left = 160.0
+offset_top = 259.0
+offset_right = 1885.0
+offset_bottom = 952.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 100
+text = "PROGRAMMING: AXUAXI
+ART: AXUAXI
+SOUND: N/A
+PLAYTESTERS: 
+ZEPHLUS, SHADE0FGREEN, EASTREX,
+VANADUKE, GOOSETHEGREAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_8r44u")
+float_speed = 1.0
+float_height = 0.2
+
+[node name="CreditsButton" type="Button" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 729.0
+offset_right = 1128.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("1_1sjca")
+theme_override_font_sizes/font_size = 60
+text = "CREDITS"
+script = ExtResource("6_1f68j")
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/ControlsButton" to="SettingsPanel/ControlsButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/BonusButton" to="SettingsPanel/BonusButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/DifficultyButton" to="SettingsPanel/DifficultyButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/CloseButton" to="SettingsPanel/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/DifficultyPanel/CloseButton" to="SettingsPanel/DifficultyPanel/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/DifficultyPanel/EasyButton" to="SettingsPanel/DifficultyPanel/EasyButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/DifficultyPanel/MediumButton" to="SettingsPanel/DifficultyPanel/MediumButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/DifficultyPanel/HardButton" to="SettingsPanel/DifficultyPanel/HardButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/DifficultyPanel/HardcoreButton" to="SettingsPanel/DifficultyPanel/HardcoreButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/ControlsPanel/CloseButton" to="SettingsPanel/ControlsPanel/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/BonusPanel/CloseButton" to="SettingsPanel/BonusPanel/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/CreditsPanel/CloseButton" to="SettingsPanel/CreditsPanel/CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsPanel/CreditsButton" to="SettingsPanel/CreditsButton" method="_on_pressed"]

@@ -157,7 +157,7 @@ offset_right = 664.0
 offset_bottom = -196.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("6_f6i8f")
-text = "Press Space to quack!"
+text = "Press QUACK  to quack!"
 vertical_alignment = 1
 script = ExtResource("7_31wo2")
 

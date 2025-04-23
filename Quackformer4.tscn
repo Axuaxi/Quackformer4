@@ -27,7 +27,7 @@ script = ExtResource("1_hub4k")
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 1
 material = SubResource("ShaderMaterial_w6lrh")
-collision_mask = 16777214
+collision_mask = 16776958
 script = ExtResource("1_84dud")
 quack_projectile_scene = ExtResource("3_otvb4")
 max_health = 3

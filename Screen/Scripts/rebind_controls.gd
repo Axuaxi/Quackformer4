@@ -7,7 +7,7 @@ var waiting_for_key := false
 static var active_rebind_button: Button = null
 
 # 👇 Define your rebindable actions here (make sure it's shared across all buttons)
-const REBINDABLE_ACTIONS := ["left", "right", "jump", "quack", "pause"]
+const REBINDABLE_ACTIONS := ["left", "right", "jump", "quack", "pause", "down"]
 
 func _ready():
 	set_process_unhandled_input(false)
