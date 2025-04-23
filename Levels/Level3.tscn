@@ -111,6 +111,7 @@ shape = SubResource("RectangleShape2D_vybwq")
 shape = SubResource("RectangleShape2D_4cgce")
 
 [node name="HpContainer" type="HBoxContainer" parent="Cow"]
+visible = false
 offset_left = -7.0
 offset_top = -15.0
 offset_right = 7.0

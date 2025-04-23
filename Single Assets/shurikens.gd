@@ -17,7 +17,11 @@ func _ready():
 	$CollisionShape2D.disabled = false
 	$GPUParticles2D.emitting = true
 	has_hit = false
-
+	
+	var boss = get_boss()
+	if boss and boss.dead:
+		queue_free()
+	
 	# Lock in direction at spawn
 	if is_instance_valid(player):
 		direction = (player.global_position - global_position).normalized()
@@ -60,3 +64,7 @@ func _start_fade_and_die():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.05)
 	tween.tween_callback(self.queue_free)
+	
+func get_boss():
+	var level_root := get_node_or_null("/root/Game/CurrentLevel")
+	return level_root.get_child(0).get_node_or_null("Boss") if level_root else null

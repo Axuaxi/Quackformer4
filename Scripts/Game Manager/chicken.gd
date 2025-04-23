@@ -19,22 +19,16 @@ func shoot_egg_at_player() -> void:
 		return
 
 	var start: Vector2 = global_position
-	var offset: float = randf_range(-100.0, 100.0)
-	var target_x: float = player.global_position.x + offset
+	var target_x: float = player.global_position.x 
 
 	var dx: float = target_x - start.x
 	var gravity: float = 1200.0
 	var arc: float = arc_height
 	var vy: float = -sqrt(2.0 * gravity * arc)
 	var time: float = abs(vy) / gravity * 2.0
-	var base_vx: float = dx / time
+	var vx: float = dx / time 
 
-	var dist: float = abs(dx)
-	var min_dist: float = 100.0
-	var max_dist: float = 800.0
-	var t: float = clamp((dist - min_dist) / (max_dist - min_dist), 0.0, 1.0)
-	var scale: float = lerp(0.75, 0.5, t * t)
-	var vx: float = base_vx * scale
+	vx *= 0.8  
 
 	var egg: Area2D = egg_scene.instantiate() as Area2D
 	egg.global_position = start
@@ -42,6 +36,8 @@ func shoot_egg_at_player() -> void:
 
 	if "initialize" in egg:
 		egg.call("initialize", Vector2(vx, vy))
+
+
 
 func take_damage(amount: int) -> void:
 	current_health -= amount

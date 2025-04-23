@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var speed := 500
-@export var drag := 300
+@export var speed := 650
+@export var drag := 507
 var direction := Vector2.RIGHT
 
 func _ready():

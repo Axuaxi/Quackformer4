@@ -1,13 +1,11 @@
 shader_type canvas_item;
 
-uniform float bob_speed = 2.0;
-uniform float bob_amount = 0.01;
-uniform bool is_idle = false;
+uniform float blink_strength : hint_range(0.0, 1.0);
+uniform float time_passed;
 
 void fragment() {
-    vec2 uv_offset = vec2(0.0);
-    if (is_idle) {
-        uv_offset.y = sin(TIME * bob_speed) * bob_amount;
-    }
-    COLOR = texture(TEXTURE, UV + uv_offset);
+    COLOR = texture(TEXTURE, UV);
+    
+    float blink = step(0.5, abs(sin(time_passed * 30.0)) * blink_strength);
+    COLOR.a *= blink;
 }

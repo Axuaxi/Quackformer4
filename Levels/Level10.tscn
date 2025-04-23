@@ -243,7 +243,6 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("7_85k5v")
 egg_scene = ExtResource("8_rnoac")
-initial_direction = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="Chicken"]
 texture = ExtResource("10_av53g")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://ciky217c465t7"]
+[gd_scene load_steps=26 format=4 uid="uid://ciky217c465t7"]
 
 [ext_resource type="Script" uid="uid://b7rqta5v53in7" path="res://Scripts/Game Manager/Exit.gd" id="1_63j2j"]
 [ext_resource type="Texture2D" uid="uid://dx43f2rvn4plc" path="res://Art/Tilemap/exit_arrow.png" id="2_l7ouy"]
@@ -124,6 +124,11 @@ shader_parameter/sway_speed = 2.0
 shader_parameter/sway_strength = 5.0
 shader_parameter/sway_frequency = 10.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d88gx"]
+shader = ExtResource("12_d88gx")
+shader_parameter/pulse_speed = 1.0
+shader_parameter/pulse_intensity = 0.2
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Exit" type="Area2D" parent="."]
@@ -235,6 +240,60 @@ tile_map_data = PackedByteArray("AAANAO//AQAGAAcAAAAaAO//AQAGAAcAAAAGANv/AQAFAAQ
 tile_set = SubResource("TileSet_pm251")
 
 [node name="Shadow" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.259294, 0.259294, 0.259294, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Shadow"]
+material = SubResource("ShaderMaterial_d88gx")
+position = Vector2(328, -222)
+scale = Vector2(0.0603325, 0.208008)
+color = Color(0.35299, 0.800355, 0.852495, 1)
+energy = 9.82
+blend_mode = 2
+texture = ExtResource("13_3rv2g")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Shadow"]
+material = SubResource("ShaderMaterial_d88gx")
+position = Vector2(425, -286)
+scale = Vector2(0.0603325, 0.208008)
+color = Color(0.35299, 0.800355, 0.852495, 1)
+energy = 9.82
+blend_mode = 2
+texture = ExtResource("13_3rv2g")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Shadow"]
+material = SubResource("ShaderMaterial_d88gx")
+position = Vector2(490, -238)
+scale = Vector2(0.0603325, 0.208008)
+color = Color(0.35299, 0.800355, 0.852495, 1)
+energy = 9.82
+blend_mode = 2
+texture = ExtResource("13_3rv2g")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Shadow"]
+material = SubResource("ShaderMaterial_d88gx")
+position = Vector2(214, -278)
+scale = Vector2(0.0603325, 0.208008)
+color = Color(0.35299, 0.800355, 0.852495, 1)
+energy = 9.82
+blend_mode = 2
+texture = ExtResource("13_3rv2g")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Shadow"]
+material = SubResource("ShaderMaterial_d88gx")
+position = Vector2(104, -259)
+scale = Vector2(0.0603325, 0.208008)
+color = Color(0.35299, 0.800355, 0.852495, 1)
+energy = 9.82
+blend_mode = 2
+texture = ExtResource("13_3rv2g")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Shadow"]
+material = SubResource("ShaderMaterial_d88gx")
+position = Vector2(553, -293)
+scale = Vector2(0.0603325, 0.208008)
+color = Color(0.35299, 0.800355, 0.852495, 1)
+energy = 9.82
+blend_mode = 2
+texture = ExtResource("13_3rv2g")
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

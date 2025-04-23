@@ -1,8 +1,10 @@
+VBoxContainer
+Area2D
+RigidBody2D
 CollisionShape2D
 CanvasModulate
 CanvasLayer
 ColorRect
-Area2D
 TextureRect
 HBoxContainer
 PointLight2D
@@ -11,4 +13,3 @@ LightOccluder2D
 Sprite2D
 CharacterBody2D
 Panel
-Label
