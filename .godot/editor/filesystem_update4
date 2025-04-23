@@ -1,28 +1,17 @@
-res://Quackformer4.tscn
+res://Screen/title_screen.tscn
 res://Shaders/quack_cooldown.gdshader
 res://Shaders/vine_swing.gdshader
 res://Shaders/waves.gdshader
+res://Shaders/light_pulsing.gdshader
 res://Screen/Scripts/credits_button.gd
 res://Shaders/player_outline.gdshader
 res://Shaders/duck.gdshader
-res://Shaders/light_pulsing.gdshader
+res://Quackformer4.tscn
 res://Levels/Level10.tscn
 res://Levels/Level11.tscn
 res://Levels/Level12.tscn
-res://Scripts/Movement/duck_controller.gd
 res://Levels/Level13.tscn
-res://Scripts/Game Manager/Game.gd
-res://Scripts/Game Manager/quack.gd
 res://Single Assets/Quack.tscn
-res://Levels/Level5.tscn
 res://Levels/Level9.tscn
-res://Scripts/Game Manager/lake_interactable.gd
-res://Scripts/Game Manager/exit_collision_trigger.gd
-res://Scripts/Game Manager/interactable_exit.gd
-res://Scripts/Game Manager/Exit.gd
-res://Screen/title_screen.tscn
-res://Screen/Scripts/rebind_controls.gd
-res://Screen/Scripts/panels.gd
-res://Scripts/Game Manager/PanelManager.gd
-res://Screen/Scripts/difficulty_panel.gd
+res://Levels/Level5.tscn
 res://Levels/Level6.tscn

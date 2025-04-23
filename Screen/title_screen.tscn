@@ -151,6 +151,7 @@ text = "CLOSE
 script = ExtResource("7_jlmuc")
 
 [node name="DifficultyPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -21.0
@@ -231,6 +232,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ControlsPanel" type="Panel" parent="SettingsPanel" groups=["auto_close_panels"]]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -21.0
@@ -337,6 +339,7 @@ action_name = "pause"
 default_key = "Escape"
 
 [node name="ChangeDownButton" type="Button" parent="SettingsPanel/ControlsPanel"]
+layout_mode = 0
 offset_left = 1025.0
 offset_top = 463.0
 offset_right = 1364.0
@@ -446,6 +449,7 @@ script = ExtResource("6_1f68j")
 
 [node name="AxuaxiLabel" type="Label" parent="."]
 z_index = 1
+layout_mode = 0
 offset_left = 1565.0
 offset_top = 996.0
 offset_right = 2340.0
