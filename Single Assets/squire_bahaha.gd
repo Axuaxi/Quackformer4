@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var hp_dot_texture: Texture2D
 @export var hp_dot_empty_texture: Texture2D
 @export var enemy_wave_scenes: Array[PackedScene]
-@export var total_waves: int = 1
+@export var total_waves: int = 5
 @export var cow_scene: PackedScene = preload("res://Single Assets/enemies/cow.tscn")
 @export var chicken_scene: PackedScene = preload("res://Single Assets/enemies/chicken.tscn")
 
