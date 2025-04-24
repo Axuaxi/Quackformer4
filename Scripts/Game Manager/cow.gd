@@ -18,7 +18,7 @@ var big_jump_timer := 0.0
 func setup_with_stats(wave: int) -> void:
 	big_jump_timer = randf_range(3.0, 10.0)
 	speed *= 1.0 + (wave - 1) * 0.1
-	max_health = wave + randi() % 4 - 1
+	max_health = floor((max_health + wave) * randf_range(0.7, 1.3))
 
 	speed *= randf_range(0.7, 1.1)
 	speed = min(speed, 95)
