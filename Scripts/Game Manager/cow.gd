@@ -18,14 +18,15 @@ var big_jump_timer := 0.0
 func setup_with_stats(wave: int) -> void:
 	big_jump_timer = randf_range(3.0, 10.0)
 	speed *= 1.0 + (wave - 1) * 0.1
-	max_health = floor((max_health + wave) * randf_range(0.7, 1.3))
-
-	speed *= randf_range(0.7, 1.1)
-	speed = min(speed, 95)
+	max_health = floor((max_health + wave-1) * randf_range(0.7, 1.3))
+	max_health = min(max_health, 5)
+	
+	speed *= randf_range(0.5, 1.8)
+	speed = min(speed, 80)
 	jump_strength *= randf_range(0.7, 1.0)
 	acceleration *= randf_range(0.5, 1.2)
 	friction *= randf_range(0.5, 1.2)
-	jump_chance = randf_range(0.3, 0.7)
+	jump_chance = randf_range(0.15, 0.3)
 	can_jump = true
 
 	var health_multiplier = max_health * randf_range(0.7, 1.3)
@@ -125,7 +126,12 @@ func _process(delta: float) -> void:
 		if abs(collision.get_normal().x) > 0.8 and is_on_floor():
 			print("🐮 Cow hit wall — jumping!")
 			velocity.y = jump_strength
-
+			
+	for cow in get_tree().get_nodes_in_group("enemies"):
+		if cow != self and position.distance_to(cow.position) < 16:
+			var push_dir = (position - cow.position).normalized()
+			position += push_dir * 0.5 * delta  # Tweak strength
+		
 func _on_body_entered(body: Node) -> void:
 	print("🐮 Body entered cow:", body.name)
 	if body.name == "Player":

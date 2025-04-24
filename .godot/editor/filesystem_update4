@@ -9,3 +9,13 @@ res://Screen/Scripts/credits_button.gd
 res://Shaders/player_outline.gdshader
 res://Shaders/duck.gdshader
 res://Shaders/darken.gdshader
+res://Levels/Level16.tscn
+res://Levels/Level17.tscn
+res://Levels/Level8.tscn
+res://Single Assets/enemies/cow.tscn
+res://Single Assets/Quack.tscn
+res://Levels/Level10.tscn
+res://Single Assets/enemies/chicken.tscn
+res://Single Assets/egg.tscn
+res://Levels/Level1.tscn
+res://Screen/title_screen.tscn

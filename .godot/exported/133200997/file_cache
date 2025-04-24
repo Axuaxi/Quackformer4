@@ -1,33 +1,33 @@
-res://Levels/Level1.tscn::0dc5c196102288f8f46a24c35803ccf1::1745501051::res://.godot/exported/133200997/export-76b8bc62749e8cf48c832874a4449e21-Level1.scn
+res://Levels/Level1.tscn::0dc5c196102288f8f46a24c35803ccf1::1745515069::res://.godot/exported/133200997/export-76b8bc62749e8cf48c832874a4449e21-Level1.scn
 res://Levels/Level2.tscn::58eef5053134e8f0d9e3b1b204803e3a::1745467233::res://.godot/exported/133200997/export-358e721cb96286cf0bc2146e52b0d759-Level2.scn
 res://Levels/Level3.tscn::bdef9315e33062d606683a89e5d222c9::1745467233::res://.godot/exported/133200997/export-faf9279d3dfc52bd190f32a21a7e80ab-Level3.scn
 res://Levels/Level4.tscn::1b401e0f13aa345234598dafadd5fd43::1745467233::res://.godot/exported/133200997/export-fd1eeb1303ec01aed4fcd4130fc1f60a-Level4.scn
 res://Levels/Level5.tscn::c3507bdf51110e47cb04f83d6a26c655::1745467232::res://.godot/exported/133200997/export-cc77c8a9747708b45a628e23b4f92feb-Level5.scn
 res://Levels/Level6.tscn::82ff0472a45dca1987aaec6a3703940b::1745473232::res://.godot/exported/133200997/export-5a656ccc61d34e9066178b05bd9eb7a5-Level6.scn
 res://Levels/Level7.tscn::76c6f7a7f380d35e788443e569bb605c::1745397922::res://.godot/exported/133200997/export-85ec0f0cc55def0ae3b604802a9d287b-Level7.scn
-res://Levels/Level8.tscn::a6b46c961ed24a24c7a0a67f33ccf4c7::1745501050::res://.godot/exported/133200997/export-389a77639f8de1ff8937d069d31e1395-Level8.scn
+res://Levels/Level8.tscn::a6b46c961ed24a24c7a0a67f33ccf4c7::1745515068::res://.godot/exported/133200997/export-389a77639f8de1ff8937d069d31e1395-Level8.scn
 res://Levels/Level9.tscn::5fcc475588f3d2b8bbcfa92f4197bdf8::1745467232::res://.godot/exported/133200997/export-7f4d15e55fa41f089c8e4ebd91e14fb5-Level9.scn
 res://Single Assets/LavaVisual.tscn::96a0fca1682c59476b58eb4cb39f65bd::1745108788::res://.godot/exported/133200997/export-5096fef84083496991aa621f13c4efcc-LavaVisual.scn
-res://Single Assets/Quack.tscn::e99dbc55e7b7bf36b46cf5ba96551bcf::1745501051::res://.godot/exported/133200997/export-76bc897afab339c1ad96b76f7d2161b9-Quack.scn
+res://Single Assets/Quack.tscn::e99dbc55e7b7bf36b46cf5ba96551bcf::1745515068::res://.godot/exported/133200997/export-76bc897afab339c1ad96b76f7d2161b9-Quack.scn
 res://Single Assets/shockwave.tscn::68ef85f695a7ba9f783c278eb8a2978f::1745227821::res://.godot/exported/133200997/export-29082c7bd0229372f941ea3f648b9383-shockwave.scn
 res://Single Assets/shuriken.tscn::658d0f2d63498ace89d64037a3e070b7::1745305631::res://.godot/exported/133200997/export-c664f4b6b98d5cc7aad3ff393f3c4a18-shuriken.scn
 res://Single Assets/sir_oinksalot.tscn::ced2fee7fc4081d12ee8cb6ffa761858::1745116798::res://.godot/exported/133200997/export-fd54f21a783086851c8321a7a6cbbe1e-sir_oinksalot.scn
-res://Quackformer4.tscn::5212c92cce4cddae2aa73f933ef1e596::1745502345::res://.godot/exported/133200997/export-194f693c08fe79cdac639477bba12bc0-Quackformer4.scn
-res://Levels/Level10.tscn::f239e89492616835f4697d64df924512::1745501051::res://.godot/exported/133200997/export-2ad85b8ded7e99bacefacc33a23369b6-Level10.scn
+res://Quackformer4.tscn::5212c92cce4cddae2aa73f933ef1e596::1745515142::res://.godot/exported/133200997/export-194f693c08fe79cdac639477bba12bc0-Quackformer4.scn
+res://Levels/Level10.tscn::f239e89492616835f4697d64df924512::1745515068::res://.godot/exported/133200997/export-2ad85b8ded7e99bacefacc33a23369b6-Level10.scn
 res://Levels/Level11.tscn::cd9bbbf8e7abaa23e8947ef5a612e51e::1745467231::res://.godot/exported/133200997/export-df9e78e8d809429ff640c7872d6b34b1-Level11.scn
 res://Screen/Scenes/title_screen.tscn::81b5b6b609e0cba16da1470c14c8f355::1745235671::res://.godot/exported/133200997/export-07e80296d3dcde838a71d86c4b631738-title_screen.scn
 res://Screen/UI/DialogueBox.tscn::8bbac30db4f0c335ed4ba6208834545f::1745305630::res://.godot/exported/133200997/export-937fff2b9f9644c8c71bfd86ea993bb3-DialogueBox.scn
-res://Screen/title_screen.tscn::3afbf82f25ca940aaba8717c18160789::1745501051::res://.godot/exported/133200997/export-82a772b7cbcb40f72a6dd001409eb252-title_screen.scn
+res://Screen/title_screen.tscn::3afbf82f25ca940aaba8717c18160789::1745515069::res://.godot/exported/133200997/export-82a772b7cbcb40f72a6dd001409eb252-title_screen.scn
 res://Single Assets/timer.tscn::6bccf904c9f36c2db4f3b45cd8754b39::1745244700::res://.godot/exported/133200997/export-f92ed51e927f418510d3110f9aeb03a9-timer.scn
 res://Screen/Scenes/pause_menu.tscn::dcd69216312253773a3be998e8ed9e1a::1745396498::res://.godot/exported/133200997/export-3578f629d5c29ed0a2d6e1c4db889c41-pause_menu.scn
-res://Single Assets/egg.tscn::45a411dd2d1afc207e205e30296acc39::1745501051::res://.godot/exported/133200997/export-733872b30eb8cd48d5f039ba94355fd8-egg.scn
+res://Single Assets/egg.tscn::45a411dd2d1afc207e205e30296acc39::1745515069::res://.godot/exported/133200997/export-733872b30eb8cd48d5f039ba94355fd8-egg.scn
 res://Levels/Level12.tscn::ead94fc8569f78ece85e49e45618b53c::1745467348::res://.godot/exported/133200997/export-b714fbf8aa4ff06ce624e9da1a2fb682-Level12.scn
 res://Levels/Level13.tscn::8ad89e02ecc62d1da98e550f95db3d8a::1745473231::res://.godot/exported/133200997/export-1c8ef948a4939f2e13299b2376f11963-Level13.scn
 res://Levels/Level14.tscn::7c75307d43a53da2f1f60384a45f8c9c::1745473231::res://.godot/exported/133200997/export-018e531179dae78637e2f0b368628c5d-Level14.scn
 res://Levels/Level15.tscn::15ed8352b3f770565accbb63d374d616::1745474613::res://.godot/exported/133200997/export-7c3d6e29ceb259867d076bf3c799aa1d-Level15.scn
-res://Levels/Level16.tscn::32539aa4014472737cb945c3f897c98c::1745501050::res://.godot/exported/133200997/export-5f16c198ed00ebda8cdd76a0af096c42-Level16.scn
-res://Levels/Level17.tscn::0b20eb5cb8a3ce7540dca529010da950::1745501050::res://.godot/exported/133200997/export-acb41591895455b0bd676b1b7ebfa62d-Level17.scn
+res://Levels/Level16.tscn::32539aa4014472737cb945c3f897c98c::1745515067::res://.godot/exported/133200997/export-5f16c198ed00ebda8cdd76a0af096c42-Level16.scn
+res://Levels/Level17.tscn::0b20eb5cb8a3ce7540dca529010da950::1745515068::res://.godot/exported/133200997/export-acb41591895455b0bd676b1b7ebfa62d-Level17.scn
 res://Levels/Level18.tscn::7a8c90005a3049a4636b14c87f32b3ba::1745473303::res://.godot/exported/133200997/export-e3fad2c68f7a2e40901ca40ed6e50ab9-Level18.scn
-res://Single Assets/enemies/cow.tscn::ecc00835047084c728ce5af67dd86bab::1745501050::res://.godot/exported/133200997/export-b20b3d734d2e5fc126f87c693f4bf347-cow.scn
-res://Single Assets/enemies/chicken.tscn::01a1a6c536e63cbbd9a4a739880f6a9c::1745501051::res://.godot/exported/133200997/export-bb6b1def64b773d4e341a3d821f09819-chicken.scn
+res://Single Assets/enemies/cow.tscn::ecc00835047084c728ce5af67dd86bab::1745515068::res://.godot/exported/133200997/export-b20b3d734d2e5fc126f87c693f4bf347-cow.scn
+res://Single Assets/enemies/chicken.tscn::01a1a6c536e63cbbd9a4a739880f6a9c::1745515069::res://.godot/exported/133200997/export-bb6b1def64b773d4e341a3d821f09819-chicken.scn
 res://builds/others/Quackformer4.tscn::eaab45047627b8af63e1866b031cb233::1745498560::res://.godot/exported/133200997/export-58475c37f66eca447d18065716321021-Quackformer4.scn
