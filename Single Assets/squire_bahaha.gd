@@ -112,38 +112,38 @@ func spawn_enemy_wave() -> void:
 	spawning_wave = true
 
 	var count: int = clamp(current_wave + randi() % 3 - 1, 1, 100)
+
 	for i in range(count):
 		await get_tree().create_timer(0.4).timeout
 
 		var is_chicken := randf() < 0.5
-		var scene_to_use
-		var enemy_type
+		var scene_to_use: PackedScene = chicken_scene if is_chicken else cow_scene
+		var enemy_type: String = "Chicken" if is_chicken else "Cow"
 
 		if is_chicken:
-			scene_to_use = chicken_scene
-			enemy_type = "Chicken"
 			chicken_count += 1
 		else:
-			scene_to_use = cow_scene
-			enemy_type = "Cow"
 			cow_count += 1
-		
+
 		announce_wave(current_wave, cow_count, chicken_count)
+
 		var enemy = scene_to_use.instantiate()
 		enemy.name = "%s%d" % [enemy_type, i]
-
-		var spawn_x: float
+		var spawn_x := 0.0
 		if randf() < 0.5:
 			spawn_x = randf_range(16, 116)
 		else:
 			spawn_x = randf_range(560, 640)
 
 		enemy.global_position = Vector2(spawn_x, -300)
+
 		get_tree().current_scene.add_child(enemy)
 
+		# 🔁 Defer stat setup until enemy is fully added to the scene tree
 		if enemy.has_method("setup_with_stats"):
-			enemy.call("setup_with_stats", current_wave)
+			enemy.call_deferred("setup_with_stats", current_wave)
 
+		# ✅ Connect collision if present
 		var area: Area2D = enemy.get_node_or_null("Area2D")
 		if area and not area.is_connected("body_entered", Callable(enemy, "_on_body_entered")):
 			area.connect("body_entered", Callable(enemy, "_on_body_entered"))
@@ -152,8 +152,6 @@ func spawn_enemy_wave() -> void:
 		print("✅ Spawned %s for Wave %d at %s" % [enemy.name, current_wave, str(enemy.global_position)])
 
 	spawning_wave = false
-
-
 
 func take_damage(amount: int) -> void:
 	flash_red()

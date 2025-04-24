@@ -448,7 +448,6 @@ text = "CREDITS"
 script = ExtResource("6_1f68j")
 
 [node name="AxuaxiLabel" type="Label" parent="."]
-z_index = 1
 layout_mode = 0
 offset_left = 1565.0
 offset_top = 996.0

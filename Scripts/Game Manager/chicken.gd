@@ -5,40 +5,51 @@ class_name Chicken
 @export var shoot_interval: float = 1.5
 @export var arc_height: float = 40.0
 @export var scale_direction: int = 1
-@export var gravity: float = 1200.0  # ✅ Gravity value
+@export var gravity: float = 1200.0
 
 @onready var player: CharacterBody2D = get_tree().get_root().get_node("Game/Player") as CharacterBody2D
 
 var shoot_timer: float = 0.0
 
 func _ready() -> void:
+	super._ready()  # ✅ This calls EnemyBase._ready()
+
 	scale.x *= scale_direction
 	add_to_group("enemies")
 	set_process(true)
 	set_physics_process(true)
 
+	call_deferred("_finish_ready")
+
+
+func _finish_ready() -> void:
+	if not hp_bar:
+		print("❌ HpContainer still missing in Chicken")
+	else:
+		update_hp_bar()
+
 func setup_with_stats(wave: int) -> void:
-	# 🧪 Randomize and round stats ±30%
-	shoot_interval = ceil(shoot_interval * randf_range(0.7, 1.3))
-	arc_height = ceil(arc_height * randf_range(0.7, 1.3))
+	max_health = 1 if randi() % 2 == 0 else 2
+	current_health = max_health
+	shoot_interval = floor(shoot_interval * randf_range(0.7, 1.3))
+	arc_height = arc_height * randf_range(0.7, 1.3)
 	gravity = ceil(gravity * randf_range(0.7, 1.3))
 
-	# Optional: randomize health
-	max_health += wave - 1
-	max_health = ceil(max_health * randf_range(0.7, 1.3))
-	current_health = max_health
-	init_hp_bar()
-	update_hp_bar()
+	print("🐔 Chicken setup complete for wave %d: interval=%.2f, arc=%.2f, gravity=%.1f" % [wave, shoot_interval, arc_height, gravity])
 
-	print("🐔 Chicken setup complete for wave %d: interval=%.2f, arc=%.2f, gravity=%.1f" %
-		[wave, shoot_interval, arc_height, gravity])
-
+	call_deferred("update_hp_bar")  # wait until hp_bar is guaranteed assigned
 
 func _process(delta: float) -> void:
 	shoot_timer += delta
 	if shoot_timer >= shoot_interval:
 		shoot_timer = 0.0
 		shoot_egg_at_player()
+
+	# Flip chicken to face the player
+	if player.global_position.x < global_position.x:
+		scale.x = -abs(scale.x)  # Face left
+	else:
+		scale.x = abs(scale.x)   # Face right
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta

@@ -38,7 +38,9 @@ func init_hp_bar() -> void:
 		hp_bar.add_child(dot)
 
 func _init_hp_safe():
-	hp_bar = get_node_or_null("HpContainer")
+	if not hp_bar:
+		hp_bar = find_child("HpContainer", true, false)
+	
 	if hp_bar == null:
 		print("❌ Still no HpContainer found on", self)
 	else:

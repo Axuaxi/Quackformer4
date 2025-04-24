@@ -8,20 +8,16 @@ res://Screen/Scripts/credits_button.gd
 res://Shaders/player_outline.gdshader
 res://Shaders/duck.gdshader
 res://Shaders/darken.gdshader
-res://Single Assets/enemies/cow.tscn
+res://Scripts/Game Manager/chicken.gd
+res://Scripts/Game Manager/cow.gd
 res://Quackformer4.tscn
 res://Levels/Level16.tscn
 res://Levels/Level8.tscn
-res://Scripts/Game Manager/cow.gd
-res://Scripts/Movement/duck_controller.gd
-res://Scripts/Game Manager/chicken.gd
-res://Scripts/Game Manager/Game.gd
-res://Levels/Level15.tscn
-res://Scripts/Game Manager/EnemyBase.gd
+res://Single Assets/enemies/cow.tscn
 res://Single Assets/Quack.tscn
-res://Scripts/Game Manager/quack.gd
 res://Levels/Level10.tscn
 res://Single Assets/enemies/chicken.tscn
 res://Single Assets/egg.tscn
-res://Single Assets/egg.gd
 res://Levels/Level1.tscn
+res://Screen/title_screen.tscn
+res://Scripts/Game Manager/EnemyBase.gd

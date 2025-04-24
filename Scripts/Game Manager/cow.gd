@@ -19,13 +19,12 @@ func setup_with_stats(wave: int) -> void:
 	speed *= 1.0 + (wave - 1) * 0.1
 	max_health += 1
 
-	# Randomize all stats ±30%
-	speed *= randf_range(0.7, 1.3)
+	# Randomize all stats
+	speed *= randf_range(0.5, 1.1)
 	speed = min(speed, 100) # Clamp it to 100
 	jump_strength *= randf_range(0.7, 1)
-	acceleration *= randf_range(0.5, 1.5)
-	friction *= randf_range(0.5, 1.5)
-	gravity *= randf_range(0.7, 1)
+	acceleration *= randf_range(0.5, 1.2)
+	friction *= randf_range(0.5, 1.2)
 	jump_chance = randf_range(0.1, 0.3)  # Optional: widen if you like
 
 	# Randomize and ceil HP
