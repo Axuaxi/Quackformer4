@@ -113,7 +113,7 @@ func spawn_enemy_wave() -> void:
 
 	var count: int = clamp(current_wave + randi() % 3 - 1, 1, 100)
 
-	for i in range(count + 1):
+	for i in range(count):
 		await get_tree().create_timer(0.4).timeout
 
 		var is_chicken := randf() < 0.5

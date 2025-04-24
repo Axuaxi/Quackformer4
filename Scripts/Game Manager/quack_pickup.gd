@@ -36,4 +36,3 @@ func _on_body_entered(body: Node) -> void:
 			print("🔤 Label swap complete!")
 
 		queue_free()
-		body.hp_bar.visible = true

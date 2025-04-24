@@ -61,7 +61,6 @@ func _ready():
 	init_hp_bar()
 	init_quack_bar()
 	update_quack_bar()
-	hp_bar.visible = false
 	quack_bar.visible = false
 	quack_bar.position.y -= 1
 	
@@ -291,7 +290,6 @@ func die_and_restart():
 	else:
 		get_node("/root/Game").current_level_index = 0
 		can_quack = false
-		hp_bar.visible = false
 		get_node("/root/Game").load_level(0)
 	await get_tree().create_timer(0.1).timeout
 	Global.game_over = false
@@ -319,7 +317,6 @@ func _on_dialogue_finished() -> void:
 	else:
 		get_node("/root/Game").current_level_index = 0
 		can_quack = false
-		hp_bar.visible = false
 		get_node("/root/Game").load_level(0)
 
 # --- LAVA CHECK ---
@@ -334,7 +331,6 @@ func check_lava_collision() -> void:
 			else:
 				get_node("/root/Game").current_level_index = 0
 				can_quack = false
-				hp_bar.visible = false
 				get_node("/root/Game").load_level(0)
 				
 # --- WATER CHECK ---
