@@ -247,6 +247,7 @@ func update_quack_bar() -> void:
 func take_damage(amount: int) -> void:
 	if Global.game_over or is_invincible:
 		return
+	print("🟡 Duck took damage!")
 	current_health -= amount
 	update_hp_bar()
 	flash_red()
@@ -268,9 +269,13 @@ func start_iframes() -> void:
 
 func flash_red():
 	if has_node("Sprite2D"):
-		var tween := create_tween()
-		sprite.modulate = Color(1, 0, 0)
-		tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.2)
+		var sprite := $Sprite2D
+		var mat := sprite.material as ShaderMaterial
+		if mat:
+			mat.set_shader_parameter("flash_strength", 1.0)
+			var tween := create_tween()
+			tween.tween_property(mat, "shader_parameter/flash_strength", 0.0, 0.2)
+
 
 # --- DEATH ---
 func die_and_restart():

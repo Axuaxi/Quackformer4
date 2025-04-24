@@ -15,7 +15,6 @@ func _ready():
 	sprite.scale.x *= initial_direction
 	current_health = max_health
 	add_to_group("enemies")
-	init_hp_bar()
 	# Safely assign the node after tree is ready
 	call_deferred("_init_hp_safe")
 
@@ -38,14 +37,14 @@ func init_hp_bar() -> void:
 		hp_bar.add_child(dot)
 
 func _init_hp_safe():
-	if not hp_bar:
-		hp_bar = find_child("HpContainer", true, false)
-	
+	hp_bar = find_child("HpContainer", true, false)
 	if hp_bar == null:
 		print("❌ Still no HpContainer found on", self)
 	else:
 		print("✅ HpContainer found on", self)
-		init_hp_bar()
+		# ✅ Only init once max_health is set correctly
+		if max_health > 1 or max_health != 1:
+			init_hp_bar()
 
 func update_hp_bar() -> void:
 	if hp_bar == null:

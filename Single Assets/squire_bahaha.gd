@@ -113,7 +113,7 @@ func spawn_enemy_wave() -> void:
 
 	var count: int = clamp(current_wave + randi() % 3 - 1, 1, 100)
 
-	for i in range(count):
+	for i in range(count + 1):
 		await get_tree().create_timer(0.4).timeout
 
 		var is_chicken := randf() < 0.5
@@ -293,7 +293,7 @@ func announce_wave(wave_num: int, num_cows: int, num_chickens: int) -> void:
 	if num_chickens > 0:
 		parts.append("%d Chicken%s" % [num_chickens, "s" if num_chickens > 1 else ""])
 
-	var label_text = "Wave %d: %s" % [wave_num, " ".join(parts)]
+	var label_text = "Wave %d: %s" % [wave_num, ", ".join(parts)]  # ✅ comma-separated
 	print(label_text)
 
 	var label_node = get_parent().get_node_or_null("WaveLabel")

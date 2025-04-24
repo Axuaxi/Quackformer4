@@ -1,7 +1,7 @@
 extends EnemyBase
 class_name Cow
 
-@export var speed := 100
+@export var speed := 85
 @export var acceleration := 300
 @export var friction := 300
 @export var gravity := 1000
@@ -12,22 +12,22 @@ class_name Cow
 @onready var sprite = $Sprite2D
 
 var quack_check_cooldown := 0.0
-var jump_chance := 0.3  # Will be randomized per spawn
+var jump_chance := 0.5  # For testing: always jumps if quack nearby
+var big_jump_timer := 0.0
 
 func setup_with_stats(wave: int) -> void:
-	# Base scaling from wave
+	big_jump_timer = randf_range(3.0, 10.0)
 	speed *= 1.0 + (wave - 1) * 0.1
 	max_health += 1
 
-	# Randomize all stats
-	speed *= randf_range(0.5, 1.1)
-	speed = min(speed, 100) # Clamp it to 100
-	jump_strength *= randf_range(0.7, 1)
+	speed *= randf_range(0.7, 1.1)
+	speed = min(speed, 95)
+	jump_strength *= randf_range(0.7, 1.0)
 	acceleration *= randf_range(0.5, 1.2)
 	friction *= randf_range(0.5, 1.2)
-	jump_chance = randf_range(0.1, 0.3)  # Optional: widen if you like
+	jump_chance = randf_range(0.3, 0.7)
+	can_jump = true
 
-	# Randomize and ceil HP
 	var health_multiplier = max_health * randf_range(0.7, 1.3)
 	if randi() % 2 == 0:
 		max_health = floor(health_multiplier)
@@ -35,8 +35,8 @@ func setup_with_stats(wave: int) -> void:
 		max_health = ceil(health_multiplier)
 
 	current_health = max_health
+	init_hp_bar()
 	update_hp_bar()
-
 	setup()
 
 func setup() -> void:
@@ -44,18 +44,13 @@ func setup() -> void:
 	add_to_group("enemies")
 	set_physics_process(true)
 	set_process(true)
-
 	current_health = max_health
 	update_hp_bar()
 
 	var area := $Area2D
-	if area:
-		print("🎯 Connecting body_entered signal...")
-		if not area.is_connected("body_entered", Callable(self, "_on_body_entered")):
-			area.connect("body_entered", Callable(self, "_on_body_entered"))
-			print("✅ Connected successfully.")
-		else:
-			print("⚠️ Already connected.")
+	if area and not area.is_connected("body_entered", Callable(self, "_on_body_entered")):
+		area.connect("body_entered", Callable(self, "_on_body_entered"))
+		print("✅ Connected successfully.")
 
 func _process(delta: float) -> void:
 	if player == null:
@@ -77,40 +72,32 @@ func _process(delta: float) -> void:
 	# Update cooldown timer
 	quack_check_cooldown -= delta
 
-	# Check for quack proximity with cooldown
-	if is_on_floor():
-		# 🐣 Big jump if far below player
-		if abs(player.global_position.y - global_position.y) > 100 and can_jump:
-			if randf() < 0.003:
-				print("🪜 Cow is far below player — random big jump!")
-				velocity.y = jump_strength * 2
+		# Check for height difference
+		# Update big jump cooldown
+	big_jump_timer -= delta
 
-		elif can_jump and quack_check_cooldown <= 0.0:
-			var quack_nearby := false
-			for quack in get_tree().get_nodes_in_group("quacks"):
-				if abs(quack.global_position.x - global_position.x) <= 100 and abs(quack.global_position.y - global_position.y) <= 30:
-					quack_nearby = true
-					break
+	# Jump if far below player, but only once every 3–10 seconds
+	if is_on_floor() and can_jump and big_jump_timer <= 0.0:
+		if abs(player.global_position.y - global_position.y) > 100:
+			print("🪜 Cow is far below player — jumping up!")
+			velocity.y = jump_strength * 1.7
+			big_jump_timer = randf_range(3.0, 10.0)  # Reset timer
 
-			if quack_nearby and randf() < jump_chance:
-				print("🐮 Cow reacts to nearby quack and jumps!")
-				velocity.y = jump_strength
 
-			quack_check_cooldown = 0.5  # Reset regardless of jump
-
-		var quack_nearby := false
+	# React to nearby quack
+	if is_on_floor() and can_jump and quack_check_cooldown <= 0.0:
 		for quack in get_tree().get_nodes_in_group("quacks"):
-			if abs(quack.global_position.x - global_position.x) <= 100 and abs(quack.global_position.y - global_position.y) <= 30:
-				quack_nearby = true
+			var dx = abs(quack.global_position.x - global_position.x)
+			var dy = abs(quack.global_position.y - global_position.y)
+			if dx <= 100 and dy <= 30:
+				if randf() < jump_chance:
+					print("🐮 Jumping! Chance:", jump_chance)
+					velocity.y = jump_strength 
+				else:
+					print("🐮 Ignored quack. Chance:", jump_chance)
+				quack_check_cooldown = 0.5
 				break
 
-		if quack_nearby:
-			if randf() < jump_chance:
-				print("🐮 Cow reacts to nearby quack and jumps!")
-				velocity.y = jump_strength
-
-			# Reset cooldown because a quack was nearby (regardless of jump)
-			quack_check_cooldown = 0.5
 
 	# Vertical velocity reset when landing
 	if is_on_floor() and velocity.y > 0:
@@ -131,10 +118,16 @@ func _process(delta: float) -> void:
 				print("🐮 Cow hit wall — jumping!")
 				velocity.y = jump_strength
 
-# Collision responses
+
+
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if abs(collision.get_normal().x) > 0.8 and is_on_floor():
+			print("🐮 Cow hit wall — jumping!")
+			velocity.y = jump_strength
+
 func _on_body_entered(body: Node) -> void:
 	print("🐮 Body entered cow:", body.name)
-	print("🔥 ANYTHING entered cow area:", body)
 	if body.name == "Player":
 		body.take_damage(1)
 		print("🐮 Cow landed on player!")

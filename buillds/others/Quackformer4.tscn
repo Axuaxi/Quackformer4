@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cakq4enaoj8vk" path="res://Scripts/Movement/duck_controller.gd" id="1_84dud"]
 [ext_resource type="Texture2D" uid="uid://8ariuhsm684g" path="res://Art/Duck/duck.png" id="1_826im"]
 [ext_resource type="Script" uid="uid://ek1vk564prse" path="res://Scripts/Game Manager/Game.gd" id="1_hub4k"]
-[ext_resource type="Shader" uid="uid://b323vsa7jd48" path="res://Shaders/quack_cooldown.gdshader" id="2_1wskb"]
+[ext_resource type="Shader" uid="uid://b323vsa7jd48" path="res://Shaders/duck_hurt.gdshader" id="2_1wskb"]
 [ext_resource type="PackedScene" uid="uid://yy4isq1berc4" path="res://Single Assets/Quack.tscn" id="3_otvb4"]
 [ext_resource type="PackedScene" uid="uid://dshq0o0pbi7lq" path="res://Single Assets/timer.tscn" id="5_ki3tu"]
 [ext_resource type="PackedScene" uid="uid://ce5w5hvnwi0i8" path="res://Screen/Scenes/pause_menu.tscn" id="6_wkwn8"]

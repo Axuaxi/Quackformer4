@@ -8,8 +8,9 @@ res://Screen/Scripts/credits_button.gd
 res://Shaders/player_outline.gdshader
 res://Shaders/duck.gdshader
 res://Shaders/darken.gdshader
-res://Scripts/Game Manager/global.gd
+res://Scripts/Game Manager/EnemyBase.gd
 res://Scripts/Game Manager/chicken.gd
+res://Scripts/Game Manager/cow.gd
 res://Quackformer4.tscn
 res://Levels/Level16.tscn
 res://Levels/Level17.tscn
@@ -20,3 +21,5 @@ res://Levels/Level10.tscn
 res://Single Assets/egg.tscn
 res://Levels/Level1.tscn
 res://Screen/title_screen.tscn
+res://Scripts/Movement/duck_controller.gd
+res://Shaders/duck_hurt.gdshader
