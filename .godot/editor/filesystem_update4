@@ -9,6 +9,7 @@ res://Screen/Scripts/credits_button.gd
 res://Shaders/player_outline.gdshader
 res://Shaders/duck.gdshader
 res://Shaders/darken.gdshader
+res://Scripts/Game Manager/Game.gd
 res://Levels/Level16.tscn
 res://Levels/Level17.tscn
 res://Levels/Level8.tscn

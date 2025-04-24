@@ -64,8 +64,8 @@ func load_level(index: int) -> void:
 	var new_level = _load_new_level(index)
 	current_level.add_child(new_level)
 
-	_setup_player_start(new_level)
 	_setup_exit_trigger(new_level)
+	_setup_player_start(new_level)
 	_setup_enemy_trigger(new_level)
 
 	if index == 5:
@@ -203,6 +203,11 @@ func _handle_skip(input: InputEvent) -> void:
 		print("⏭️ Skipping to next level")
 		next_level()
 		
+func _handle_restart(input: InputEvent) -> void:
+	if input.is_action_pressed("restart level"):
+		print("Restarting Level")
+		load_level(current_level_index)
+		
 func _handle_prev(input: InputEvent) -> void:
 	if input.is_action_pressed("prev level"):
 		current_level_index -= 1
@@ -211,5 +216,6 @@ func _handle_prev(input: InputEvent) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	_handle_skip(event)
 	_handle_prev(event)
+	_handle_restart(event)
 	
 	

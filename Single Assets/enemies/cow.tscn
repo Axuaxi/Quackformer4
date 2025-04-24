@@ -12,7 +12,7 @@ size = Vector2(18, 17.25)
 
 [node name="Cow" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
-collision_mask = 135
+collision_mask = 131
 script = ExtResource("1_l4wr6")
 can_jump = true
 initial_direction = -1
@@ -22,6 +22,7 @@ texture = ExtResource("2_qg3n4")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("3_r327i")
 
 [node name="Player Hitbox" type="CollisionShape2D" parent="Area2D"]

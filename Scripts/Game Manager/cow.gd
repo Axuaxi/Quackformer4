@@ -18,22 +18,17 @@ var big_jump_timer := 0.0
 func setup_with_stats(wave: int) -> void:
 	big_jump_timer = randf_range(3.0, 10.0)
 	speed *= 1.0 + (wave - 1) * 0.1
-	max_health = floor((max_health + wave-1) * randf_range(0.7, 1.3))
+	max_health = 1 + wave  # base value
+	max_health = floor(max_health * ceil(randf_range(0.7, 1.3)))
 	max_health = min(max_health, 5)
 	
 	speed *= randf_range(0.5, 1.8)
-	speed = min(speed, 80)
+	speed = min(speed, 90)
 	jump_strength *= randf_range(0.7, 1.0)
 	acceleration *= randf_range(0.5, 1.2)
 	friction *= randf_range(0.5, 1.2)
 	jump_chance = randf_range(0.15, 0.3)
 	can_jump = true
-
-	var health_multiplier = max_health * randf_range(0.7, 1.3)
-	if randi() % 2 == 0:
-		max_health = floor(health_multiplier)
-	else:
-		max_health = ceil(health_multiplier)
 
 	current_health = max_health
 	init_hp_bar()
@@ -111,15 +106,16 @@ func _process(delta: float) -> void:
 	# Apply movement and resolve collisions
 	move_and_slide()
 
-	# Wall jump logic
 	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if abs(collision.get_normal().x) > 0.8:
-			if is_on_floor():
-				print("🐮 Cow hit wall — jumping!")
-				velocity.y = jump_strength
+		var collision := get_slide_collision(i)
+		var collider := collision.get_collider()
 
-
+		if collider != self and collider.is_in_group("enemies"):
+			var normal := collision.get_normal()
+			
+			# If horizontal collision (left or right), nullify horizontal velocity
+			if abs(normal.x) > 0.8 and abs(normal.y) < 0.5:
+				velocity.x = 0
 
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
