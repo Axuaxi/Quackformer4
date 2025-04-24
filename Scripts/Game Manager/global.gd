@@ -1,4 +1,4 @@
 extends Node
 
 var game_over := false
-var difficulty := "hard"
+var difficulty := "easy"

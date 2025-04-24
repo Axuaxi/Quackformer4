@@ -256,6 +256,5 @@ position = Vector2(87, -187)
 
 [node name="Chicken4" parent="." instance=ExtResource("9_8nqai")]
 position = Vector2(537, -234)
-scale_direction = -1
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
