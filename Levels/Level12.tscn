@@ -110,10 +110,10 @@ shader_parameter/alpha = 0.5
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3anf8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sk0rq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vt3f8"]
 texture = SubResource("CompressedTexture2D_3anf8")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n6rvm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7hgg3"]
 texture = ExtResource("3_ee37i")
 margins = Vector2i(4, 4)
 separation = Vector2i(4, 4)
@@ -195,8 +195,8 @@ separation = Vector2i(4, 4)
 [sub_resource type="TileSet" id="TileSet_xl6ry"]
 physics_layer_0/collision_layer = 256
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_sk0rq")
-sources/1 = SubResource("TileSetAtlasSource_n6rvm")
+sources/0 = SubResource("TileSetAtlasSource_vt3f8")
+sources/1 = SubResource("TileSetAtlasSource_7hgg3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dptec"]
 shader = ExtResource("10_so8xw")
@@ -215,7 +215,6 @@ size = Vector2(15.6875, 482)
 position = Vector2(23, -295)
 
 [node name="Background" type="Sprite2D" parent="."]
-visible = false
 z_index = -10
 position = Vector2(-17, -103)
 texture = ExtResource("2_fvkmn")

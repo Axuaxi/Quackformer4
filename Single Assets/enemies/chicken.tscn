@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://du0y8vgldhfpu"]
+
+[ext_resource type="Script" uid="uid://fgmhd08xf3t0" path="res://Scripts/Game Manager/chicken.gd" id="1_hg8p8"]
+[ext_resource type="PackedScene" uid="uid://ghd1msqhgvdu" path="res://Single Assets/egg.tscn" id="2_e2cxg"]
+[ext_resource type="Texture2D" uid="uid://d4jkssyk48uv5" path="res://Art/Enemies/chicken.png" id="3_ey1pw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnya8"]
+size = Vector2(18, 18.125)
+
+[node name="Chicken" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_hg8p8")
+egg_scene = ExtResource("2_e2cxg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ey1pw")
+
+[node name="Floor Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.0625)
+shape = SubResource("RectangleShape2D_rnya8")
+
+[node name="HpContainer" type="HBoxContainer" parent="."]
+offset_left = -3.0
+offset_top = -15.0
+offset_right = 3.0
+offset_bottom = -11.0
+theme_override_constants/separation = 5

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var grav := 1200.0
+@export var grav := 620
 var velocity := Vector2.ZERO
 
 func initialize(initial_velocity: Vector2) -> void:

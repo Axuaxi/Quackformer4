@@ -1,17 +1,27 @@
-res://Screen/title_screen.tscn
+res://Levels/Level17.tscn
 res://Shaders/quack_cooldown.gdshader
-res://Shaders/vine_swing.gdshader
 res://Shaders/waves.gdshader
+res://Single Assets/squire_bahaha.gd
 res://Shaders/light_pulsing.gdshader
+res://Shaders/vine_swing.gdshader
 res://Screen/Scripts/credits_button.gd
 res://Shaders/player_outline.gdshader
 res://Shaders/duck.gdshader
+res://Shaders/darken.gdshader
+res://Single Assets/enemies/cow.tscn
 res://Quackformer4.tscn
-res://Levels/Level10.tscn
-res://Levels/Level11.tscn
-res://Levels/Level12.tscn
-res://Levels/Level13.tscn
+res://Levels/Level16.tscn
+res://Levels/Level8.tscn
+res://Scripts/Game Manager/cow.gd
+res://Scripts/Movement/duck_controller.gd
+res://Scripts/Game Manager/chicken.gd
+res://Scripts/Game Manager/Game.gd
+res://Levels/Level15.tscn
+res://Scripts/Game Manager/EnemyBase.gd
 res://Single Assets/Quack.tscn
-res://Levels/Level9.tscn
-res://Levels/Level5.tscn
-res://Levels/Level6.tscn
+res://Scripts/Game Manager/quack.gd
+res://Levels/Level10.tscn
+res://Single Assets/enemies/chicken.tscn
+res://Single Assets/egg.tscn
+res://Single Assets/egg.gd
+res://Levels/Level1.tscn

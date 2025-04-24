@@ -6,7 +6,7 @@ class_name EnemyBase
 @export var hp_dot_texture: Texture2D = preload("res://Art/Enemies/hp_icon.png")
 @export var hp_dot_empty_texture: Texture2D
 
-@onready var hp_bar: HBoxContainer = $HpContainer
+var hp_bar: HBoxContainer = null
 
 var current_health := 1
 
@@ -16,11 +16,15 @@ func _ready():
 	current_health = max_health
 	add_to_group("enemies")
 	init_hp_bar()
+	# Safely assign the node after tree is ready
+	call_deferred("_init_hp_safe")
 
 func init_hp_bar() -> void:
+	if hp_bar == null:
+		return
+
 	hp_bar.add_theme_constant_override("separation", 1)
 	for child in hp_bar.get_children():
-		hp_bar.remove_child(child)
 		child.queue_free()
 
 	for i in max_health:
@@ -28,16 +32,27 @@ func init_hp_bar() -> void:
 		dot.texture = hp_dot_texture
 		dot.expand_mode = TextureRect.EXPAND_KEEP_SIZE
 		dot.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		dot.custom_minimum_size = Vector2(4, 4)  # ✅ Set to your intended size
+		dot.custom_minimum_size = Vector2(4, 4)
 		dot.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		dot.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		hp_bar.add_child(dot)
 
+func _init_hp_safe():
+	hp_bar = get_node_or_null("HpContainer")
+	if hp_bar == null:
+		print("❌ Still no HpContainer found on", self)
+	else:
+		print("✅ HpContainer found on", self)
+		init_hp_bar()
+
 func update_hp_bar() -> void:
-	for i in hp_bar.get_child_count():
+	if hp_bar == null:
+		return  # Safety check
+
+	for i in range(hp_bar.get_child_count()):
 		var dot = hp_bar.get_child(i) as TextureRect
 		dot.texture = hp_dot_texture if i < current_health else hp_dot_empty_texture
-
+ 	
 func take_damage(amount: int) -> void:
 	current_health -= amount
 	flash_red()

@@ -25,13 +25,16 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Boss" and body.has_method("take_damage"):
-		body.take_damage(1)  # 👈 deal 20 damage
+		body.take_damage(1) 
 		queue_free()
-	if body.name == "Cow" and body.has_method("take_damage"):
-		body.take_damage(1)  # 👈 deal 20 damage
+	if body.name == "Bahaha" and body.has_method("take_damage"):
+		body.take_damage(1)  
+		queue_free()
+	if "Cow" in body.name and body.has_method("take_damage"):
+		body.take_damage(1)  
 		queue_free()
 	if "Chicken" in body.name and body.has_method("take_damage"):
-		body.take_damage(1)  # 👈 deal 20 damage
+		body.take_damage(1)  
 		queue_free()
 	if body.name == "WaterTileMap":
 		return 

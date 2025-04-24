@@ -277,7 +277,8 @@ func die_and_restart():
 	if Global.game_over:
 		return
 	Global.game_over = true
-	for group in ["quacks", "shockwaves", "shurikens", "eggs"]:
+	velocity.y = 0
+	for group in ["quacks", "shockwaves", "shurikens", "eggs", "enemies"]:
 		for node in get_tree().get_nodes_in_group(group):
 			node.queue_free()
 	if Global.difficulty != "hardcore":

@@ -18,7 +18,12 @@ var level_paths = [
 	"res://Levels/Level10.tscn",
 	"res://Levels/Level11.tscn",
 	"res://Levels/Level12.tscn",
-	"res://Levels/Level13.tscn"
+	"res://Levels/Level13.tscn",
+	"res://Levels/Level14.tscn",
+	"res://Levels/Level15.tscn",
+	"res://Levels/Level16.tscn",
+	"res://Levels/Level17.tscn",
+	"res://Levels/Level18.tscn"
 ]
 
 var current_level_index = 0
@@ -49,6 +54,10 @@ func load_level(index: int) -> void:
 		shuriken.queue_free()
 	for shuriken in get_tree().get_nodes_in_group("eggs"):
 		shuriken.queue_free()
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.queue_free()
+	for quack in get_tree().get_nodes_in_group("quacks"):
+		quack.queue_free()
 	
 	_clear_current_level()
 
@@ -161,14 +170,18 @@ func _on_enemy_touch(body: Node, area: Area2D) -> void:
 	if body.name != "Player" or not body.has_method("take_damage"):
 		return
 
-	var enemy := area.get_parent().get_parent()  # FloorHitbox → Hitbox → Boss
+	var enemy := area.get_parent()  # assume Area2D is direct child of Cow
+	print("🧪 Enemy touched:", enemy.name)
 
 	if enemy.is_in_group("bosses"):
 		body.take_damage(2)
 		if enemy.has_method("slam_toward_player_or_random"):
 			enemy.slam_toward_player_or_random()
-	else:
+	elif enemy.is_in_group("enemies"):
+		print("DAMAGE")
 		body.take_damage(1)
+	else:
+		print("❌ Not enemy or boss:", enemy.name)
 
 func get_current_calling_area() -> Area2D:
 	var stack = get_stack()

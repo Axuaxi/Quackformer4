@@ -31,6 +31,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 water_tilemaps=""
+enemies=""
 
 [input]
 
@@ -112,6 +113,7 @@ down={
 2d_physics/layer_3="Enemies"
 2d_physics/layer_9="water"
 2d_physics/layer_10="exit"
+2d_physics/layer_13="noninteractable"
 
 [rendering]
 

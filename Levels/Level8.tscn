@@ -21,10 +21,10 @@ size = Vector2(15.6875, 482)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3anf8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7ouy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d88gx"]
 texture = SubResource("CompressedTexture2D_3anf8")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s35pp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rv2g"]
 texture = ExtResource("3_a6juv")
 margins = Vector2i(4, 4)
 separation = Vector2i(4, 4)
@@ -103,8 +103,8 @@ separation = Vector2i(4, 4)
 [sub_resource type="TileSet" id="TileSet_pm251"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 25
-sources/0 = SubResource("TileSetAtlasSource_l7ouy")
-sources/1 = SubResource("TileSetAtlasSource_s35pp")
+sources/0 = SubResource("TileSetAtlasSource_d88gx")
+sources/1 = SubResource("TileSetAtlasSource_3rv2g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mu778"]
 size = Vector2(83.25, 68)

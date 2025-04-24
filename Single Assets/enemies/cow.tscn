@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://h0hxd4vhbwde"]
+
+[ext_resource type="Script" uid="uid://bdsq11biiqx7s" path="res://Scripts/Game Manager/cow.gd" id="1_l4wr6"]
+[ext_resource type="Texture2D" uid="uid://cvo24an4s6s5q" path="res://Art/Enemies/cow.png" id="2_qg3n4"]
+[ext_resource type="Script" uid="uid://blg640bp0dd2m" path="res://Scripts/Game Manager/contact_death.gd" id="3_r327i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6dgw"]
+size = Vector2(22, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmy42"]
+size = Vector2(18, 17.25)
+
+[node name="Cow" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 135
+script = ExtResource("1_l4wr6")
+can_jump = true
+initial_direction = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qg3n4")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+script = ExtResource("3_r327i")
+
+[node name="Player Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_s6dgw")
+
+[node name="Floor Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.625)
+shape = SubResource("RectangleShape2D_vmy42")
+
+[node name="HpContainer" type="HBoxContainer" parent="."]
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 2.0
+offset_bottom = -11.0
+theme_override_constants/separation = 5
+metadata/_edit_use_anchors_ = true

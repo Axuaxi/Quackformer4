@@ -1,12 +1,13 @@
+res://Levels
+res://Single Assets/enemies
+res://Single Assets
+res://Scripts/Game Manager
+res://Shaders
 C:/Users/rojiw/OneDrive/Documents/quackformer-4/Quackformer4/buillds/mac
 C:/Users/rojiw/OneDrive/Documents/quackformer-4/Quackformer4/buillds/linux
 C:/Users/rojiw/OneDrive/Documents/quackformer-4/Quackformer4/buillds/windows
-res://Levels
 res://Screen
-res://Scripts/Game Manager
-res://Single Assets
 res://Art/Tilemap
-res://Shaders
 C:/Users/rojiw/OneDrive/Documents/quackformer-4/Quackformer4
 res://Art/Duck
 res://Screen/Scripts

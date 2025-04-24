@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var scroll_speed := 40
+@export var scroll_speed := 60
 @export var stop_y := -1000  # Change this to the Y value you want to stop at
 var scrolling := false
 

@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var max_rise_speed := 50.0
-@export var start_rise_speed := 45.0
+@export var max_rise_speed := 75.0
+@export var start_rise_speed := 65.0
 @export var max_shake_intensity := 8.0
 @export var camera: Camera2D
 @export var player: Node
