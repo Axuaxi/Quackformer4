@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var hp_dot_texture: Texture2D
 @export var hp_dot_empty_texture: Texture2D
 @export var enemy_wave_scenes: Array[PackedScene]
-@export var total_waves: int = 5
+@export var total_waves: int = 1
 @export var cow_scene: PackedScene = preload("res://Single Assets/enemies/cow.tscn")
 @export var chicken_scene: PackedScene = preload("res://Single Assets/enemies/chicken.tscn")
 
@@ -65,7 +65,12 @@ func _physics_process(delta: float) -> void:
 
 func _on_boss_landed() -> void:
 	print("💥 Boss landed! Triggering 'Ow!' dialogue.")
+	var cam := get_viewport().get_camera_2d()
+	cam.call("shake", 20)
+	
 	if player:
+		if player.is_on_floor():
+			player.velocity.y -= 300
 		player.dialogue_active = true
 
 	GlobalDialogue.dialogue_finished.connect(func():
@@ -111,7 +116,7 @@ func spawn_enemy_wave() -> void:
 	var chicken_count := 0
 	spawning_wave = true
 
-	var count: int = clamp(current_wave + randi() % 3 - 1, 1, 100)
+	var count: int = current_wave + (randi() % 2)
 
 	for i in range(count):
 		await get_tree().create_timer(0.4).timeout

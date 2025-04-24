@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ctswc0ls4w741" path="res://Art/Tilemap/background.png" id="4_ageof"]
 [ext_resource type="Script" uid="uid://dw14v8a8o7gpp" path="res://Single Assets/sir_oinksalot.gd" id="4_pm251"]
 [ext_resource type="PackedScene" uid="uid://c8npjqlnwk848" path="res://Single Assets/shuriken.tscn" id="5_ageof"]
-[ext_resource type="Script" uid="uid://d2gu7d1gb1efl" path="res://Scripts/Visuals/oinksalot_camera.gd" id="5_uuuni"]
+[ext_resource type="Script" uid="uid://d2gu7d1gb1efl" path="res://Scripts/Visuals/shake_camera.gd" id="5_uuuni"]
 [ext_resource type="Texture2D" uid="uid://4206g0m2b2la" path="res://Art/Enemies/sir_oinksalot.png" id="6_ageof"]
 [ext_resource type="Script" uid="uid://blg640bp0dd2m" path="res://Scripts/Game Manager/contact_death.gd" id="8_s35pp"]
 [ext_resource type="FontFile" uid="uid://coacccvk10kbs" path="res://Art/Font/Tiny5-Regular.ttf" id="10_s35pp"]
