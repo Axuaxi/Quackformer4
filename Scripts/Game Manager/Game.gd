@@ -5,6 +5,7 @@ extends Node2D
 @onready var pause_menu = $PauseMenu
 @onready var pause_toggle_button = $PauseToggleButto
 
+# 30 levels total
 var level_paths = [
 	"res://Levels/Level1.tscn",
 	"res://Levels/Level2.tscn",
@@ -23,7 +24,19 @@ var level_paths = [
 	"res://Levels/Level15.tscn",
 	"res://Levels/Level16.tscn",
 	"res://Levels/Level17.tscn",
-	"res://Levels/Level18.tscn"
+	"res://Levels/Level18.tscn", # Boss level
+	#"res://Levels/Level19.tscn",
+	#"res://Levels/Level20.tscn",
+	#"res://Levels/Level21.tscn",
+	#"res://Levels/Level22.tscn",
+	#"res://Levels/Level23.tscn",
+	#"res://Levels/Level24.tscn",
+	#"res://Levels/Level25.tscn",
+	#"res://Levels/Level26.tscn",
+	#"res://Levels/Level27.tscn",
+	#"res://Levels/Level28.tscn",
+	#"res://Levels/Level29.tscn",
+	#"res://Levels/Level30.tscn",
 ]
 
 var current_level_index = 0
