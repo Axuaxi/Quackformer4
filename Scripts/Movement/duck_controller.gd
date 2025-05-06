@@ -186,18 +186,6 @@ func _handle_idle(delta: float) -> void:
 	var is_idle = input_vector == Vector2.ZERO
 	player_material.set_shader_parameter("is_idle", is_idle)
 
-func _handle_cooldown_shader(delta: float) -> void:
-	if player_material == null:
-		return
-
-	if blink_timer > 0.0:
-		player_material.set_shader_parameter("blink_strength", 1.0)
-		var new_time: int = player_material.get_shader_parameter("time_passed") + delta
-		player_material.set_shader_parameter("time_passed", new_time)
-		blink_timer -= delta
-	else:
-		player_material.set_shader_parameter("blink_strength", 0.0)
-
 func init_hp_bar() -> void:
 	hp_bar.add_theme_constant_override("separation", 1)
 	for child in hp_bar.get_children():
