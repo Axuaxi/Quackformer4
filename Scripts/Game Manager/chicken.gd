@@ -1,3 +1,5 @@
+# Script for the cow enemy and all of its params and behaviours
+
 extends EnemyBase
 class_name Chicken
 
@@ -27,35 +29,37 @@ func _ready() -> void:
 
 
 func _finish_ready() -> void:
-	if not hp_bar:
-		print("❌ HpContainer still missing in Chicken")
-	else:
-		update_hp_bar()
+	update_hp_bar()
 
 func setup_with_stats(wave: int) -> void:
-	# Randomize health (1 or 2)
+	if not is_inside_tree():
+		await ready
+	await get_tree().process_frame  # let _init_hp_safe() run
+
+	# health first
 	max_health = 1 if randi() % 2 == 0 else 2
 	current_health = max_health
+
+	# ensure the bar exists, then build+paint
+	if hp_bar == null:
+		_init_hp_safe()
 	init_hp_bar()
 	update_hp_bar()
 
-
-	# Randomize stats
-	shoot_interval = shoot_interval * randf_range(0.7, 2.5)
+	# randomize other stats
+	shoot_interval *= randf_range(0.7, 2.5)
 	arc_height *= randf_range(0.7, 1.3)
 	gravity = ceil(gravity * randf_range(0.7, 1.3))
-
-	print("🐔 Chicken setup complete for wave %d: interval=%.2f, arc=%.2f, gravity=%.1f" %
-		[wave, shoot_interval, arc_height, gravity])
-
-	call_deferred("update_hp_bar")
-
+	
+	
+# Chicken process
 func _process(delta: float) -> void:
 	shoot_timer += delta
 	if shoot_timer >= shoot_interval:
 		shoot_timer = 0.0
 		shoot_egg_at_player()
 
+# Try to jump if contact with the player (TODO: Fix this it dont work atm)
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 
@@ -65,12 +69,11 @@ func _physics_process(delta: float) -> void:
 			var col = get_slide_collision(i)
 			var collider = col.get_collider()
 			if collider != null and collider.name == "Player":
-				print("🐔 Chicken touched player — jumping!")
 				velocity.y = jump_strength
 
 	move_and_slide()
 
-
+# Math to shoot the egg at the player (TODO: FIX THE MATH ITS SLIGHTLY OFF ATM)
 func shoot_egg_at_player() -> void:
 	if not is_instance_valid(player) or egg_scene == null:
 		return

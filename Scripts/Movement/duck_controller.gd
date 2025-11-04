@@ -1,3 +1,5 @@
+# Player Controller (TODO: Make it modular)
+
 extends CharacterBody2D
 
 # --- CONFIG ---
@@ -44,17 +46,19 @@ var killed_by_shockwave := false
 var in_water := false
 var swim_jump_cooldown := 0.0
 
-
-const WATER_LAYER := 1 << 8  # Collision layer 9 (index starts at 0)
+# Collision layer 9 (index starts at 0)
+const WATER_LAYER := 1 << 8  
 
 # --- READY ---
 func _ready():
+	# Setup the players hp in relation to the difficulty
 	match Global.difficulty:
 		"easy": max_health = 3
 		"medium": max_health = 2
 		"hard", "hardcore": max_health = 1
 		_: max_health = 1
-
+	
+	# Setup the base stats
 	jumps_left = max_jumps
 	current_health = max_health
 	quack_time_left = 0.0
@@ -65,19 +69,23 @@ func _ready():
 	quack_bar.position.y -= 1
 	
 # --- PHYSICS ---
+# Processes the physics here
 func _physics_process(delta: float) -> void:
+	# If the dialogue box is active, then stop horiz movement 
 	if dialogue_active:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 		velocity.y += gravity * delta
 		move_and_slide()
 		return
-
+	
+	# Handles the different types of movement and collision
 	in_water = _is_in_water()
 	_handle_movement(delta)
 	_handle_quack(delta)
 	_handle_idle(delta)
 	_handle_cooldown_shader(delta)
 	check_lava_collision()
+	# Swimming physics cooldown (TODO: Polish it cus it feels odd lowkey)
 	swim_jump_cooldown = max(swim_jump_cooldown - delta, 0.0)
 
 # --- MOVEMENT ---
@@ -99,7 +107,8 @@ func _handle_movement(delta: float) -> void:
 	if in_water:
 		if Input.is_action_pressed("jump"):
 			velocity.y = move_toward(velocity.y, -speed, acceleration * delta)
-			swim_jump_cooldown = 0.2  # Prevent buoyancy override
+			# Prevent buoyancy override
+			swim_jump_cooldown = 0.2  
 		elif Input.is_action_pressed("down"):
 			velocity.y = move_toward(velocity.y, speed, acceleration * delta)
 		elif swim_jump_cooldown <= 0.0:
@@ -110,6 +119,7 @@ func _handle_movement(delta: float) -> void:
 	# --- Wall Detection ---
 	touching_wall = false
 	wall_dir = 0
+	# Stops the duck from going thru walls ostts
 	for i in get_slide_collision_count():
 		var col = get_slide_collision(i)
 		var normal = col.get_normal()
@@ -117,17 +127,21 @@ func _handle_movement(delta: float) -> void:
 			touching_wall = true
 			wall_dir = -sign(normal.x)
 
+	# Wall jumping timer here
 	wall_jump_timer = wall_jump_coyote_time if touching_wall else wall_jump_timer - delta
 
 	# --- Jumping ---
 	if Input.is_action_just_pressed("jump"):
+		# If were on the floor jump normally
 		if is_on_floor():
 			velocity.y = jump_speed
 			jumps_left -= 1
+		# If the wall jumping timer is greater than 0 then wall jump
 		elif wall_jump_timer > 0:
 			velocity.x = -wall_dir * abs(wall_jump_force.x)
 			velocity.y = wall_jump_force.y
 			wall_jump_timer = 0
+		# Otherwise do a double jump if we still have those left
 		elif jumps_left > 1:
 			velocity.y = jump_speed
 			jumps_left -= 1
@@ -135,6 +149,7 @@ func _handle_movement(delta: float) -> void:
 	# --- Reset Jumps ---
 	if is_on_floor() or touching_wall:
 		jumps_left = max_jumps
+		# Reset the y velo
 		if is_on_floor() and velocity.y > 0:
 			velocity.y = 0
 
@@ -147,18 +162,22 @@ func _handle_movement(delta: float) -> void:
 	
 # --- QUACK ---
 func _handle_quack(delta: float) -> void:
+	# If the quack cd still has time left then continue ticking down
 	if quack_time_left > 0.0:
 		quack_time_left = max(quack_time_left - delta, 0.0)
 		if quack_time_left == 0.0:
+			# Shader for when the player has reloaded a quack (TODO: Make this work it doesnt work atm)
 			blink_timer = 0.3
 			player_material.set_shader_parameter("time_passed", 0.0)
 
+	# Allows the player to shoot if the quack cd is over
 	if Input.is_action_just_pressed("quack") and can_quack and quack_time_left == 0.0:
 		shoot_quack()
 		quack_time_left = quack_cooldown
 
 	update_quack_bar()
 
+# Shoots the quack projectile
 func shoot_quack():
 	if quack_projectile_scene:
 		var quack = quack_projectile_scene.instantiate()
@@ -166,13 +185,10 @@ func shoot_quack():
 		quack.global_position = global_position + facing * 20
 		quack.direction = facing
 		get_tree().current_scene.add_child(quack)
-		print("🐣 Quack fired!")
-	else:
-		print("❌ Quack projectile scene not set.")
 
+# Allows the player to shoot quacks now that theyve unlocked it
 func _on_quack_unlocked() -> void:
 	can_quack = true
-	print("Quack unlocked")
 	init_quack_bar()
 	update_quack_bar()
 	quack_bar.visible = true
@@ -186,6 +202,7 @@ func _handle_idle(delta: float) -> void:
 	var is_idle = input_vector == Vector2.ZERO
 	player_material.set_shader_parameter("is_idle", is_idle)
 
+# Cooldown shader for reload quack (TODO: MAKE THIS WORK)
 func _handle_cooldown_shader(delta: float) -> void:
 	if player_material == null:
 		return
@@ -198,10 +215,13 @@ func _handle_cooldown_shader(delta: float) -> void:
 	else:
 		player_material.set_shader_parameter("blink_strength", 0.0)
 
+# Initializes the players hp bar
 func init_hp_bar() -> void:
 	hp_bar.add_theme_constant_override("separation", 1)
+	# Gets rid of any current hp bar icon
 	for child in hp_bar.get_children():
 		child.queue_free()
+	# Creates the hp bar from scratch
 	for i in max_health:
 		var dot := TextureRect.new()
 		dot.texture = hp_dot_texture
@@ -212,11 +232,13 @@ func init_hp_bar() -> void:
 		dot.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		hp_bar.add_child(dot)
 
+# Updates the hp bar
 func update_hp_bar() -> void:
 	for i in hp_bar.get_child_count():
 		var dot = hp_bar.get_child(i) as TextureRect
 		dot.texture = hp_dot_texture if i < current_health else hp_dot_empty_texture
 
+# Initializes the quack bar from scratch 
 func init_quack_bar() -> void:
 	quack_bar.add_theme_constant_override("separation", 1)
 	for child in quack_bar.get_children():
@@ -230,7 +252,9 @@ func init_quack_bar() -> void:
 	dot.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	quack_bar.add_child(dot)
 
+# Updates the quack bar
 func update_quack_bar() -> void:
+	# Hide if cant quack
 	if not can_quack:
 		quack_bar.visible = false
 		return
@@ -244,28 +268,31 @@ func update_quack_bar() -> void:
 
 # --- DAMAGE ---
 func take_damage(amount: int) -> void:
+	# If were invincible or game is over then do nothing
 	if Global.game_over or is_invincible:
 		return
-	print("🟡 Duck took damage!")
+	# Otherwise take "amount" in damage and update the hp bar and the damage shader
 	current_health -= amount
 	update_hp_bar()
 	flash_red()
 	start_iframes()
+	# If we are dead then restart and if we died to the boss have him taunt us with dialogue
 	if current_health <= 0:
+		die_and_restart()
 		if killed_by_shuriken:
 			killed_by_shuriken = false
 			die_with_boss_dialogue(["Imbecile."])
 		elif killed_by_shockwave:
 			killed_by_shockwave = false
 			die_with_boss_dialogue(["Fool."])
-		else:
-			die_and_restart()
 
+# Starts the i frames
 func start_iframes() -> void:
 	is_invincible = true
 	await get_tree().create_timer(iframe_duration).timeout
 	is_invincible = false
 
+# Flash red to show that weve taken damage
 func flash_red():
 	if has_node("Sprite2D"):
 		var sprite := $Sprite2D
@@ -277,6 +304,7 @@ func flash_red():
 
 
 # --- DEATH ---
+# Resets everything and restarts the game
 func die_and_restart():
 	if Global.game_over:
 		return
@@ -294,6 +322,7 @@ func die_and_restart():
 	await get_tree().create_timer(0.1).timeout
 	Global.game_over = false
 
+# Dies with boss dialogue
 func die_with_boss_dialogue(lines_: Array[String]) -> void:
 	if Global.game_over:
 		return
@@ -308,6 +337,7 @@ func die_with_boss_dialogue(lines_: Array[String]) -> void:
 	await GlobalDialogue.dialogue_finished
 	await get_tree().create_timer(1).timeout
 
+# Resets once the boss dialogue finished
 func _on_dialogue_finished() -> void:
 	dialogue_active = false
 	visible = true
@@ -320,14 +350,16 @@ func _on_dialogue_finished() -> void:
 		get_node("/root/Game").load_level(0)
 
 # --- LAVA CHECK ---
+# Checks the lava collision
 func check_lava_collision() -> void:
 	for i in get_slide_collision_count():
 		var col = get_slide_collision(i)
 		var collider = col.get_collider()
 		if collider.name == "TileMapLayer2":
-			print("🔥 Touched lava!")
+			# If not hardcore then restart level
 			if Global.difficulty != "hardcore":
 				get_node("/root/Game").load_level(get_node("/root/Game").current_level_index)
+			# If hardcore restart game
 			else:
 				get_node("/root/Game").current_level_index = 0
 				can_quack = false

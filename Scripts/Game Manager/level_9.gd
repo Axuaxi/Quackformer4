@@ -1,3 +1,5 @@
+# Special startup for level 9 (the portal level)
+
 extends Node2D
 
 func _ready():

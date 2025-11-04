@@ -1,8 +1,15 @@
+# Script controlling the floating text in certain levels
+
 extends Label
 
+# How fast the text floats
 @export var float_speed := 1.5
+
+# How far the text floats
 @export var float_height := 1.0
-@export var tilt_amplitude := 0.02  # in radians
+
+# How much the text floats (in radians)
+@export var tilt_amplitude := 0.02 
 
 var base_y := 0.0
 var time := 0.0

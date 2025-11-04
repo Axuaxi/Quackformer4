@@ -1,3 +1,5 @@
+# Script for the player dying on contact to an entity
+
 extends Area2D
 
 signal player_touched

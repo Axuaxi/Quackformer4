@@ -1,11 +1,15 @@
+# Script controlling the interactable portal (where you shoot a quack at it and it does something)
+
 extends Area2D
 
+# If a quack enters its hitbox then creates the portals
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "Quack":
-		print("🎯 Interactable hit!")
 		
+		# Hides the interactable 
 		hide()
 		
+		# Creates the 2 portals
 		var portal_in = get_parent().get_node("PortalEntrance")
 		var portal_out = get_parent().get_node("PortalExit")
 		
@@ -18,6 +22,7 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		if label1:
 			var tween := create_tween()
-			tween.tween_property(label1, "modulate:a", 0.0, 0.5)  # fade to invisible in 0.5s
+			# fade to invisible in 0.5s
+			tween.tween_property(label1, "modulate:a", 0.0, 0.5)  
 
 		label2.visible = true

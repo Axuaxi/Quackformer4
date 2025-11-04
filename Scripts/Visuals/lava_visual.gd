@@ -1,3 +1,5 @@
+# Script controlling the sprite of the lava
+
 extends Node2D
 
 signal lava_touched
@@ -6,8 +8,8 @@ signal lava_touched
 
 func _ready() -> void:
 	area.body_entered.connect(_on_body_entered)
-
+	
+# If the player touched it then emit that it touched the player
 func _on_body_entered(body: Node) -> void:
-	if body.name == "Player":  # or use a group/tag
-		print("🔥 Lava touched player!")
+	if body.name == "Player":  
 		lava_touched.emit()
