@@ -1,5 +1,2 @@
-To download the game, go into the "builds" folder, and pick from windows, linux or mac depending on your OS.
-
-For linux and mac, you might need to manually allow the system to run the file, as I'm not recognizerd as an official developer, so it wont let it open 
-
-Fow windows, the windows smartscreen popup is going to appear, so just click "more info" and then "run anyways"
+Quackformer 4 by me.
+Game is currently unifinished - 18 levels completed of the planned 30 - execute with "Quackformer4.exe"
