@@ -28,7 +28,6 @@ material = SubResource("ShaderMaterial_w6lrh")
 collision_mask = 16772862
 script = ExtResource("1_84dud")
 quack_projectile_scene = ExtResource("3_otvb4")
-can_quack = true
 max_health = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]

@@ -33,8 +33,8 @@ var has_landed := false
 # TODO: make bahaha have <1 hp and make him crash out every time you hit him (Still cant hit you back tho 
 # just kind of sits there lmao)
 
+# Set up default params
 func _ready() -> void:
-	randomize()
 	add_to_group("bosses")
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	hp_bar.add_theme_constant_override("separation", 1)
@@ -44,6 +44,7 @@ func _ready() -> void:
 	init_hp_bar()
 	show_intro_dialogue()
 
+# Initialise the hp bar 
 func init_hp_bar() -> void:
 	for child in hp_bar.get_children():
 		child.queue_free()
@@ -53,6 +54,7 @@ func init_hp_bar() -> void:
 		dot.expand_mode = TextureRect.EXPAND_KEEP_SIZE
 		hp_bar.add_child(dot)
 
+# If we've cleared the stage then allow gravity, otherwise do nothing if were dead or stage not cleared
 func _physics_process(delta: float) -> void:
 	if dead:
 		return
@@ -65,8 +67,8 @@ func _physics_process(delta: float) -> void:
 		has_landed = true
 		_on_boss_landed()
 
+# Triggers the "Ow!" dialogue on boss landing
 func _on_boss_landed() -> void:
-	print("💥 Boss landed! Triggering 'Ow!' dialogue.")
 	var cam := get_viewport().get_camera_2d()
 	cam.call("shake", 20)
 	
@@ -88,31 +90,27 @@ func _on_boss_landed() -> void:
 
 	GlobalDialogue.start_dialogue(["Ow!"])
 
+# Spawns randomiazed enemies per wave here
 func _on_attack_timer_timeout() -> void:
 	if dead or not dialogue_done or not is_instance_valid(player):
 		return
 	
 	if current_wave > total_waves:
-		print("✅ All waves complete!")
 		gravity_enabled = true 
 		return
 
 	# Filter out any dead enemies
 	active_enemies = active_enemies.filter(func(e): return is_instance_valid(e))
 
-	print("📊 Checking wave", current_wave)
-	print("🧟 Enemies remaining:", active_enemies.size())
-
+	# If the wave is cleared and the current wave is less than or equal to the total waves then increment the wave and spawn new wave
 	if active_enemies.size() == 0 and current_wave <= total_waves and not spawning_wave:
 		current_wave += 1
 		if current_wave > total_waves:
-			print("✅ All waves complete!")
 			return
-		print("🚨 Spawning wave", current_wave)
 		await spawn_enemy_wave()
 		attack_timer.start()
 
-
+# Spawns randomized enemies according to the wave and announces the wave
 func spawn_enemy_wave() -> void:
 	var cow_count := 0
 	var chicken_count := 0
@@ -120,6 +118,7 @@ func spawn_enemy_wave() -> void:
 
 	var count: int = current_wave + (randi() % 2)
 
+	# Spawns each individually and adds them to the counter
 	for i in range(count):
 		await get_tree().create_timer(0.4).timeout
 
@@ -131,7 +130,8 @@ func spawn_enemy_wave() -> void:
 			chicken_count += 1
 		else:
 			cow_count += 1
-
+		
+		# Shows the current wave as well as the enemy counts
 		announce_wave(current_wave, cow_count, chicken_count)
 
 		var enemy = scene_to_use.instantiate()
@@ -146,20 +146,21 @@ func spawn_enemy_wave() -> void:
 
 		get_tree().current_scene.add_child(enemy)
 
-		# 🔁 Defer stat setup until enemy is fully added to the scene tree
+		# Defer stat setup until enemy is fully added to the scene tree
 		if enemy.has_method("setup_with_stats"):
-			enemy.call_deferred("setup_with_stats", current_wave)
+			#enemy.call_deferred("setup_with_stats", current_wave)
+			enemy.setup_with_stats(current_wave)
 
-		# ✅ Connect collision if present
+		# Connect collision if present
 		var area: Area2D = enemy.get_node_or_null("Area2D")
 		if area and not area.is_connected("body_entered", Callable(enemy, "_on_body_entered")):
 			area.connect("body_entered", Callable(enemy, "_on_body_entered"))
 
 		active_enemies.append(enemy)
-		print("✅ Spawned %s for Wave %d at %s" % [enemy.name, current_wave, str(enemy.global_position)])
 
 	spawning_wave = false
 
+# Boss take damage here
 func take_damage(amount: int) -> void:
 	flash_red()
 	if dead:
@@ -169,30 +170,35 @@ func take_damage(amount: int) -> void:
 	if current_health <= 0:
 		die()
 
+# Upadets the hp bar visual
 func update_hp_bar() -> void:
 	for i in hp_bar.get_child_count():
 		var dot = hp_bar.get_child(i) as TextureRect
 		dot.texture = hp_dot_texture if i < current_health else hp_dot_empty_texture
 
+# Boss collision here
 func _on_body_entered(body: Node) -> void:
+	# Do nothing if the boss is dead
 	if dead:
 		return
-
+	
+	# Otherwise do 2 damage to the player if its the player in contact
 	if body.name == "Player" and body.has_method("take_damage"):
 		body.take_damage(2)
-
+	
+	# Otherwise take 1 damage if its the quack projectile
 	elif body.name == "Quack":
-		print("🦆 Boss hit by Quack!")
 		take_damage(1)
 		
 
+# Boss dies and allows the player to go to the next level
 func die() -> void:
 	if dead:
 		return
 	dead = true
 	attack_timer.stop()
 
-	# 🧹 Clear all enemies
+	# Clear all enemies incase theres one remaining (bug if so)
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		enemy.queue_free()
 
@@ -201,20 +207,16 @@ func die() -> void:
 	collision_layer = 0
 	collision_mask = 0
 
-	# ✅ Move Exit's CollisionShape2D to (40, -48)
+	# Move Exit's CollisionShape2D to (40, -48)
 	var level_root := get_tree().current_scene.get_node("CurrentLevel").get_child(0)
 	var exit := level_root.get_node_or_null("Exit")
 	if exit and exit is Area2D:
 		var shape = exit.get_node_or_null("CollisionShape2D")
 		if shape:
 			shape.position = Vector2(40, -48)
-			print("📍 Exit collision shape moved to (40, -48)")
-		else:
-			print("❌ CollisionShape2D not found in Exit")
-	else:
-		print("❌ Exit not found or not an Area2D!")
 
-	# 🗨️ Dialogue box setup
+	# Dialogue box setup
+	# Safety check here
 	if not dialogue_box_scene:
 		push_error("DialogueBox scene not assigned!")
 		return
@@ -239,7 +241,8 @@ func die() -> void:
 
 	if player:
 		player.dialogue_active = true
-
+	
+	# Boss death dialogue
 	GlobalDialogue.dialogue_finished.connect(_on_death_dialogue_finished.bind(dialogue_box), CONNECT_ONE_SHOT)
 	GlobalDialogue.start_dialogue([
 		"What?!",
@@ -247,7 +250,7 @@ func die() -> void:
 		"My minions-"
 	])
 
-
+# Show the boss's intro dialogue
 func show_intro_dialogue() -> void:
 	GlobalDialogue.dialogue_finished.connect(_on_intro_dialogue_finished, CONNECT_ONE_SHOT)
 	GlobalDialogue.start_dialogue([
@@ -258,12 +261,14 @@ func show_intro_dialogue() -> void:
 	if player:
 		player.dialogue_active = true
 
+# Allows waves once the intro is finished
 func _on_intro_dialogue_finished() -> void:
 	if player:
 		player.dialogue_active = false
 	dialogue_done = true
 	attack_timer.start()
 
+# Once the death dialogue is finished then the game continues and the player is allowed to leave
 func _on_death_dialogue_finished(dialogue_box: Node) -> void:
 	if is_instance_valid(dialogue_box):
 		dialogue_box.queue_free()
@@ -280,11 +285,10 @@ func _on_death_dialogue_finished(dialogue_box: Node) -> void:
 
 		if not exit.level_completed.is_connected(get_node("/root/Game").next_level):
 			exit.level_completed.connect(Callable(get_node("/root/Game"), "next_level"))
-	else:
-		print("❌ Exit not found or not an Area2D!")
 
 	queue_free()
 
+# Flash red to take damage visual here
 func flash_red():
 	if has_node("Sprite2D"):
 		var sprite := $Sprite2D
@@ -292,6 +296,7 @@ func flash_red():
 		var tween := create_tween()
 		tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.2)
 
+# Announces the wave at the top of the screen with the current wave, the number of cows and chickens
 func announce_wave(wave_num: int, num_cows: int, num_chickens: int) -> void:
 	var parts = []
 

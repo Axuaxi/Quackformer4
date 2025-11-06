@@ -1,39 +1,18 @@
-res://Scripts/Game Manager/autoscroll_camera.gd
-res://Shaders/duck_hurt.gdshader
-res://Shaders/waves.gdshader
-res://Scripts/Game Manager/cow.gd
-res://Single Assets/squire_bahaha.gd
-res://Shaders/light_pulsing.gdshader
-res://Shaders/vine_swing.gdshader
-res://Screen/Scripts/credits_button.gd
-res://Shaders/player_outline.gdshader
-res://Shaders/duck.gdshader
-res://Shaders/darken.gdshader
-res://Scripts/Game Manager/autoscroll_trigger.gd
-res://Scripts/Game Manager/chicken.gd
-res://Scripts/Game Manager/contact_death.gd
-res://Scripts/Game Manager/EnemyBase.gd
-res://Scripts/Game Manager/enemy_wall.gd
-res://Scripts/Game Manager/Exit.gd
-res://Scripts/Game Manager/exit_collision_trigger.gd
-res://Scripts/Game Manager/floating_text.gd
-res://Scripts/Game Manager/Game.gd
-res://Scripts/Game Manager/global.gd
-res://Scripts/Game Manager/GlobalDialogue.gd
-res://Scripts/Game Manager/hp_bar.gd
-res://Scripts/Game Manager/interactable.gd
-res://Scripts/Game Manager/interactable_exit.gd
-res://Scripts/Game Manager/lake_interactable.gd
-res://Scripts/Game Manager/lava_rising.gd
-res://Scripts/Game Manager/lava_touch.gd
-res://Scripts/Game Manager/level_9.gd
-res://Scripts/Game Manager/portal_entrance.gd
-res://Scripts/Game Manager/quack.gd
-res://Scripts/Game Manager/quack_pickup.gd
-res://Scripts/Movement/duck_controller.gd
-res://Scripts/Visuals/autoscroll_camera.gd
-res://Scripts/Visuals/floating.gd
-res://Scripts/Visuals/lava_visual.gd
-res://Scripts/Visuals/shake_camera.gd
-res://Single Assets/enemies/cow.tscn
 res://Quackformer4.tscn
+res://Scripts/Game Manager/cow.gd
+res://Shaders/duck_hurt.gdshader
+res://Shaders/player_outline.gdshader
+res://Shaders/waves.gdshader
+res://Shaders/vine_swing.gdshader
+res://Shaders/duck.gdshader
+res://Shaders/light_pulsing.gdshader
+res://Shaders/darken.gdshader
+res://Single Assets/egg.gd
+res://Single Assets/lava_colission.gd
+res://Single Assets/shockwave.gd
+res://Single Assets/shurikens.gd
+res://Single Assets/sir_oinksalot.gd
+res://Single Assets/timer.gd
+res://Single Assets/vine.gd
+res://Single Assets/squire_bahaha.gd
+res://Single Assets/enemies/cow.tscn

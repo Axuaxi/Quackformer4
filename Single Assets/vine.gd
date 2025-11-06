@@ -1,3 +1,5 @@
+# Script controlling the vine sways
+
 extends TileMapLayer
 
 @export var float_speed := 1.5

@@ -1,3 +1,5 @@
+# Script controlling Sir Oinksalot - the first boss
+
 extends CharacterBody2D
 
 # --- CONFIG ---
@@ -63,16 +65,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if is_on_floor():
+		# Spawn shockwave if were slamming and touching the floor
 		if is_slamming:
 			spawn_shockwave()
 			velocity.x = 0
 			is_slamming = false 
 			
-			# ✅ Only allow chained slam if on floor (again)
+			# Only allow chained slam if on floor (again) and randf() gives us a smaller number than our chance
 			if randf() < 0.5:
-				print("🔁 Chained slam triggered!")
 				await get_tree().create_timer(0.1).timeout
-				if is_on_floor():  # 🔒 Guard again before chaining
+				# Guard again before chaining 
+				if is_on_floor(): 
 					slam_toward_player_or_random()
 
 		floored = true
@@ -80,20 +83,23 @@ func _physics_process(delta: float) -> void:
 	if abs(velocity.x) > 5:
 		sprite.scale.x = abs(sprite.scale.x) * sign(velocity.x)
 
-	# 👇 Auto slam if on floor, above threshold, and player is invincible
+	# Auto slam if on floor, above threshold, and player is invincible (Esentially just if weve already slammed and landed on the player,
+	# then we dont want to get the player stuck under the boss so we do another slam)
 	if is_on_floor() and global_position.y < -38.0:
 		if "is_invincible" in player and player.is_invincible and not is_slamming:
-			print("🔥 Auto-slam triggered by invincibility height condition!")
 			slam_toward_player_or_random()
 
 # --- COMBAT ---
 func _on_attack_timer_timeout() -> void:
+	# Stop attacking if we're dead, theres dialogue on screen or the player is dead
 	if dead or not dialogue_done or not is_instance_valid(player):
 		return
-
+	
+	# If were guaranteed to slam attack next then do it
 	if must_slam_next:
 		must_slam_next = false
 		await slam_and_wait()
+	# Otherwise, we choose 50/50 between slamming and shurikening
 	else:
 		if randf() < 0.5:
 			await slam_and_wait()
@@ -103,6 +109,7 @@ func _on_attack_timer_timeout() -> void:
 			attack_timer.wait_time = randf_range(2.0, 4.0)
 			attack_timer.start()
 
+# Jumps above the player and slams down, then initiate a cooldown timer
 func slam_and_wait() -> void:
 	slam_toward_player_or_random()
 	while is_slamming:
@@ -110,7 +117,7 @@ func slam_and_wait() -> void:
 	attack_timer.wait_time = randf_range(1.0, 3.0)
 	attack_timer.start()
 
-
+# Jumps up and slams down fast here, either towards or away form teh player
 func slam_toward_player_or_random() -> void:
 	if dead or is_slamming:
 		return
@@ -119,28 +126,36 @@ func slam_toward_player_or_random() -> void:
 	floored = false
 
 	var direction := Vector2.RIGHT
+	# 75/25 chance to slam towards the player or away (TODO: Just code this to be 7525 instead of 5050 and 5050 again)
 	if randf() < 0.5:
+		# If we get player then we slam towards their global position
 		direction = (player.global_position - global_position).normalized()
 	else:
+		# Otherwise we have a 50/50 of slamming towards the player or away
 		direction = Vector2.LEFT if randi() % 2 == 0 else Vector2.RIGHT
 
 	velocity.x = direction.x * speed * randf_range(0.3, 1.0)
 	velocity.y = jump_strength * 1.3
 
+# Throws a random assortment of shurikens at the player
 func throw_shuriken() -> void:
+	# Do nothing if the boss is dead of shurikens dont exist
 	if dead or not shuriken_scene:
 		return
 
 	var shuriken_count := randi() % 3 + 1
 	fire_shurikens_sequentially(shuriken_count)
 
+# Shoot "count" shurikens one after another
 func fire_shurikens_sequentially(count: int) -> void:
+	# Do nothing if the boss is dead
 	if dead:
 		return
 	var aim_dir := (player.global_position - global_position).normalized()
 	if aim_dir.x != 0:
 		sprite.scale.x = abs(sprite.scale.x) * sign(aim_dir.x)
-
+	
+	# Fire each shuriken 1 by 1
 	for i in count:
 		await get_tree().create_timer(0.15).timeout
 		var shuriken = shuriken_scene.instantiate()
@@ -148,28 +163,37 @@ func fire_shurikens_sequentially(count: int) -> void:
 		shuriken.direction = aim_dir
 		get_tree().current_scene.add_child(shuriken)
 
+# Spawns a shockwave in front and behind the boss
 func spawn_shockwave() -> void:
+	# Do nothing if the boss is dead
 	if dead:
 		return
 
+	# Shakes the camera for a heavier effect
 	var cam := get_viewport().get_camera_2d()
 	if cam and "shake" in cam:
 		cam.shake(5)
 
+	# Spawn in the shockwave object
 	var shockwave_scene = preload("res://Single Assets/shockwave.tscn")
+	# Shoot one left and one right
 	for dir in [Vector2.LEFT, Vector2.RIGHT]:
 		var shockwave = shockwave_scene.instantiate()
 		shockwave.add_to_group("shockwaves")
+		# Offset it from the boss so the collision boxes dont hit each other
 		shockwave.global_position = global_position + Vector2(0, -3)
 		shockwave.direction = dir
-
+	
+		# Scale the sprite of the shockwave to the direction its facing
 		var sprite = shockwave.get_node_or_null("Sprite2D")
 		if sprite:
 			sprite.scale.x = -dir.x
-
+		
+		# Add the shockwaves to the global scene so we can mass delete them if we need to
 		get_tree().current_scene.add_child(shockwave)
 
 # --- DAMAGE ---
+# Boss takes "amount" damage
 func take_damage(amount: int) -> void:
 	flash_red()
 	if dead:
@@ -179,39 +203,40 @@ func take_damage(amount: int) -> void:
 	if current_health <= 0:
 		die()
 
+# Updates the boss's hp bar visual here 
 func update_hp_bar() -> void:
 	for i in hp_bar.get_child_count():
 		var dot = hp_bar.get_child(i) as TextureRect
 		dot.texture = hp_dot_texture if i < current_health else hp_dot_empty_texture
 
 # --- CONTACT DAMAGE ---
+# Boss contact damage with the player
 func _on_body_entered(body: Node) -> void:
-	print("CONTACT BOSS DUCK")
+	# If the boss is dead then do nothing
 	if dead:
 		return
 
 	if body.name == "Player" and body.has_method("take_damage"):
-		print("🐷 Boss touched player!")
-
 		# If player is invincible, slam instead (if on floor)
 		if "is_invincible" in body and body.is_invincible:
 			if is_on_floor() and not is_slamming:
-				print("⚠️ Player invincible — boss slams instead!")
 				slam_toward_player_or_random()
-			else:
-				print("⚠️ Player invincible, but boss not on floor")
+		# Else, make the player take double damage
 		else:
 			body.take_damage(2)
 			if not is_slamming:
 				slam_toward_player_or_random()
 
 # --- DEATH ---
+# Boss dies and deletes everything in it's arsenal
 func die() -> void:
 	if dead:
 		return
 	dead = true
+	# Stops attacking
 	attack_timer.stop()
-
+	
+	# Deletes all current shurikens and shockwaves on screen
 	for node in get_tree().get_nodes_in_group("shurikens"):
 		node.queue_free()
 	for node in get_tree().get_nodes_in_group("shockwaves"):
@@ -221,17 +246,20 @@ func die() -> void:
 	set_physics_process(false)
 	collision_layer = 0
 	collision_mask = 0
-
+	
+	# If dialogue box wassnt assigned to the boss then do nohting (TESTING)
 	if not dialogue_box_scene:
 		push_error("DialogueBox scene not assigned!")
 		return
 
 	var dialogue_box := dialogue_box_scene.instantiate()
 	get_tree().current_scene.add_child(dialogue_box)
-
+	
+	# Only show the dialogue if the player is alive
 	if player:
 		player.dialogue_active = true
-
+	
+	# Dialogue (Death)
 	GlobalDialogue.dialogue_finished.connect(_on_death_dialogue_finished.bind(dialogue_box), CONNECT_ONE_SHOT)
 	GlobalDialogue.start_dialogue([
 		"You-",
@@ -240,6 +268,7 @@ func die() -> void:
 	])
 
 # --- DIALOGUE ---
+# Shows the dialogue intro 
 func show_intro_dialogue() -> void:
 	GlobalDialogue.dialogue_finished.connect(_on_intro_dialogue_finished, CONNECT_ONE_SHOT)
 	GlobalDialogue.start_dialogue([
@@ -250,19 +279,23 @@ func show_intro_dialogue() -> void:
 	if player:
 		player.dialogue_active = true
 
+# Start attacking once the intro dialogue is finished
 func _on_intro_dialogue_finished() -> void:
 	if player:
 		player.dialogue_active = false
 	dialogue_done = true
 	attack_timer.start()
 
+# Disable the dialogue once the death dialogue is finished
+# Also allow the player to go to the next level
 func _on_death_dialogue_finished(dialogue_box: Node) -> void:
 	if is_instance_valid(dialogue_box):
 		dialogue_box.queue_free()
 
 	if player:
 		player.dialogue_active = false
-
+	
+	# Enable the exit 
 	var level_root := get_tree().current_scene.get_node("CurrentLevel").get_child(0)
 	var exit := level_root.get_node_or_null("Exit")
 	if exit and exit is Area2D:
@@ -272,11 +305,10 @@ func _on_death_dialogue_finished(dialogue_box: Node) -> void:
 
 		if not exit.level_completed.is_connected(get_node("/root/Game").next_level):
 			exit.level_completed.connect(Callable(get_node("/root/Game"), "next_level"))
-	else:
-		print("❌ Exit not found or not an Area2D!")
 
 	queue_free()
 
+# Flash red for taking damage
 func flash_red():
 	if has_node("Sprite2D"):
 		var sprite := $Sprite2D
